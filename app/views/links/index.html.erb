@@ -5,7 +5,7 @@
     	<p>The user that submitted this link has deleted their account</p>
     	<%else%>
       <%= link_to link.title, link %><br>
-      <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></small>
+      <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.username %></small>
     </h2>
     <%end%>
     <div class="btn-group">
