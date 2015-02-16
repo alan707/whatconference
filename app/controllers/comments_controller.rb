@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   exposes :conference, :comment
 
   def create
-    @conference = Conference.find(params[:conference_id])
+    @conference = Conference.friendly.find(params[:conference_id])
     @comment = @conference.comments.new(comment_params)
     @comment.user = current_user
 

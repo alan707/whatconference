@@ -68,11 +68,11 @@ class ConferencesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_conference
-      @conference = Conference.find(params[:id])
+      @conference = Conference.friendly.find(params[:id])
     end
 
     def authorized_user
-      @conference = current_user.conferences.find_by(id: params[:id])
+      @conference = current_user.conferences.find_by(id: @conference.id)
       redirect_to conferences_path, notice: "Not authorized to edit this conference" if @conference.nil?
     end
 

@@ -5,6 +5,9 @@ class Conference < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+
   protected
 
   def smart_add_url_protocol
