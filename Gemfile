@@ -15,7 +15,7 @@ gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form'
-
+gem 'friendly_id', '~> 5.0'
 
 group :development, :test do
   gem 'byebug'

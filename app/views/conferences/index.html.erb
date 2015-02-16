@@ -1,0 +1,16 @@
+<% conferences.each do |conference| %>
+  <div class="conference row clearfix">
+    <h2>
+      <% if conference.user.blank? %>
+        <p>The user that submitted this conference has deleted their account</p>
+      <% else %>
+        <%= link_to conference.title, conference %><br>
+        <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> by <%= conference.user.username %></small>
+      </h2>
+    <% end %>
+    <div class="btn-group">
+      <a class="btn btn-default btn-sm" href="<%= conference.url %>">Visit conference</a>
+      <%= render :partial => "like_conference", :locals => { :conference => conference } %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<%= link_to like_conference_path(conference), method: :put, class: "btn btn-default btn-sm" do %>
+  <span class="glyphicon glyphicon-heart icon-left"></span>
+  I want to go!
+  <%= conference.get_upvotes.size %>
+<% end %>
+

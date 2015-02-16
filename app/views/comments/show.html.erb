@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Link:</strong>
-  <%= @comment.link_id %>
+  <strong>Conference:</strong>
+  <%= comment.conference_id %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= @comment.body %>
+  <%= comment.body %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @comment.user %>
+  <%= comment.user %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Edit', edit_comment_path(comment) %> |
 <%= link_to 'Back', comments_path %>

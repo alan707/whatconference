@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216030112) do
+ActiveRecord::Schema.define(version: 20150216182025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "link_id"
+    t.integer  "conference_id"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "comments", ["link_id"], name: "index_comments_on_link_id", using: :btree
+  add_index "comments", ["conference_id"], name: "index_comments_on_conference_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "links", force: :cascade do |t|
+  create_table "conferences", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
     t.datetime "created_at", null: false
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20150216030112) do
     t.date     "end_date"
   end
 
-  add_index "links", ["end_date"], name: "index_links_on_end_date", using: :btree
-  add_index "links", ["location"], name: "index_links_on_location", using: :btree
-  add_index "links", ["start_date"], name: "index_links_on_start_date", using: :btree
-  add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
+  add_index "conferences", ["end_date"], name: "index_conferences_on_end_date", using: :btree
+  add_index "conferences", ["location"], name: "index_conferences_on_location", using: :btree
+  add_index "conferences", ["start_date"], name: "index_conferences_on_start_date", using: :btree
+  add_index "conferences", ["user_id"], name: "index_conferences_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
