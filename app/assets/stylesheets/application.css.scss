@@ -21,6 +21,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar-default {
+background-color: rgba(255, 127, 48, 1);
+border-color: rgba(231, 231, 231, 0);
+margin-bottom: 34px;
+}
+
+.navbar-default .navbar-nav > li > a {
+color: #FFF;
+}
+
+
+body {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #333333;
+background-color: #F6F6EF;
+}
 
 #logo {
 	font-size: 26px;
@@ -28,12 +46,20 @@
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	padding: 15px 0;
+	a:hover {
+	text-decoration: none;
+	color: white;
+	}
 	a {
 		color: #2F363E;
 	}
 }
 
 #main_content {
+
+	a:hover {
+	text-decoration: none;
+	}
 	#content {
 		float: none;
 	}
