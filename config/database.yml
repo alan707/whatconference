@@ -14,17 +14,30 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+local_postgresql: &local_postgresql
+  username: postgres
+  password: postgres
+  encoding: unicode
+  host: localhost
 
 development: &default
   adapter: postgresql
-  database: development
+  <<: *local_postgresql
+  database: whatconference_development
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
-  test:
+test:
   adapter: postgresql
+  <<: *local_postgresql
   host: localhost
-  database: test
+  database: whatconference_test
   encoding: unicode
+
+production:
+  adapter: pg
+  database: db/production.pg
+  pool: 5
+  timeout: 5000
