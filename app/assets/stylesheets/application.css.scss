@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require bootstrap-datepicker3
+ *
+ * Bower CSS files
+ *= require fullcalendar
  *= require_self
  */
 
@@ -59,6 +62,3 @@
 	}
 }
 
-.icon-left {
-  margin-right: 5px;
-}

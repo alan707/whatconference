@@ -11,9 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery
-//= require bootstrap-sprockets
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require bootstrap-datepicker
+//= require js-routes
+//
+// Bower Javascript files
+//= require moment
+//= require fullcalendar
+//
 //= require_tree .

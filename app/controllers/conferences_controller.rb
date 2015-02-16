@@ -8,6 +8,7 @@ class ConferencesController < ApplicationController
   # GET /conferences
   def index
     @conferences = Conference.all
+    filter_by_date params[:start], params[:end]
   end
 
   # GET /conferences/1
@@ -66,18 +67,24 @@ class ConferencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_conference
-      @conference = Conference.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_conference
+    @conference = Conference.friendly.find(params[:id])
+  end
 
-    def authorized_user
-      @conference = current_user.conferences.find_by(id: @conference.id)
-      redirect_to conferences_path, notice: "Not authorized to edit this conference" if @conference.nil?
-    end
+  def authorized_user
+    @conference = current_user.conferences.find_by(id: @conference.id)
+    redirect_to conferences_path, notice: "Not authorized to edit this conference" if @conference.nil?
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def conference_params
-      params.require(:conference).permit(:title, :url, :location, :start_date, :end_date)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def conference_params
+    params.require(:conference).permit(:title, :url, :location, :start_date, :end_date)
+  end
+
+  def filter_by_date(start_at, end_at)
+    if start_at.present? && end_at.present?
+      @conferences = @conferences.occurs_within(start_at..end_at)
     end
+  end
 end
