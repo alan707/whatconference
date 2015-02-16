@@ -15,7 +15,7 @@
 	        		<nav class="collapse navbar-collapse navbar-ex1-collapse">
 			        	<% if user_signed_in? -%>
 									<ul class="nav navbar-nav navbar-right">
-										<li><%= link_to 'Submit conference link', new_conference_path %></li>
+										<li><%= link_to 'Add New Conference', new_conference_path, :id => "newconference" %></li>
 										<li><%= link_to 'Account', edit_user_registration_path %></li>
 										<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 									</ul>
