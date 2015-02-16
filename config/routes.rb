@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   get 'calendar', :to => "calendar#show"
+  get 'map', :to => "map#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

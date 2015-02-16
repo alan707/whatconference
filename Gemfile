@@ -29,6 +29,7 @@ gem 'geocoder'
 # Javascript packages managed by Bower
 gem 'rails-assets-fullcalendar'
 gem 'rails-assets-moment'
+gem 'rails-assets-gmaps'
 
 group :development, :test do
   gem 'byebug'
