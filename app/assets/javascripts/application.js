@@ -15,11 +15,12 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
 //= require js-routes
 //
 // Bower Javascript files
 //= require moment
 //= require fullcalendar
+//= require gmaps
 //
 //= require_tree .

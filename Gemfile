@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 ruby '2.0.0'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'rails', '4.2.0'
 gem 'bootstrap-datepicker-rails', '~> 1.3.1.1'
 gem 'puma'
@@ -25,6 +27,7 @@ gem 'js-routes'
 gem 'time_will_tell'
 gem 'validates_timeliness'
 gem 'geocoder'
+gem 'nenv'
 
 # Javascript packages managed by Bower
 gem 'rails-assets-fullcalendar'
