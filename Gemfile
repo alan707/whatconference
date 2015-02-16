@@ -24,6 +24,7 @@ gem 'friendly_id', '~> 5.0'
 gem 'js-routes'
 gem 'time_will_tell'
 gem 'validates_timeliness'
+gem 'geocoder'
 
 # Javascript packages managed by Bower
 gem 'rails-assets-fullcalendar'

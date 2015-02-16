@@ -76,6 +76,7 @@ GEM
     execjs (2.3.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    geocoder (1.2.6)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -210,6 +211,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   friendly_id (~> 5.0)
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

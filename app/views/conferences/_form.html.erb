@@ -1,6 +1,7 @@
 <%= simple_form_for conference do |f| %>
-  <%= f.input :title, label: 'Title', placeholder: 'please add the conference title' %>
-  <%= f.input :location, as: 'string', label: 'Location', placeholder: 'please add the location - e.g. Las Vegas, NV' %>
+  <%= f.input :title, label: 'Title', placeholder: 'the name of the conference' %>
+  <%= f.input :location, as: 'string', label: 'Location', placeholder: 'the city and state where the conference will take place - e.g. Las Vegas, NV' %>
+  <%= f.input :street_address, as: 'string', label: 'Street address', placeholder: 'the address where the conference will take place - e.g. 3600 South Las Vegas Boulevard' %>
   <%= f.input :start_date, label: 'Start Date', as: :string, input_html: { class: 'dp', id: 'start_date' }  %>
   <%= f.input :end_date, label: 'End Date', as: :string, input_html: { class: 'dp', id: 'end_date' }  %>
   <%= f.input :url, as: 'url', label: 'Url', placeholder: 'copy conference url and paste here' %>
