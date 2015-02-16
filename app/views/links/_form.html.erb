@@ -1,27 +1,27 @@
-<%= form_for(@link) do |f| %>
-  <% if @link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
-
-      <ul>
-      <% @link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :url %><br>
-    <%= f.text_field :url, class: "form-control" %>
-  </div>
-  <br>
-  <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
-  </div>
+<%= simple_form_for @link do |f| %>
+  <%= f.input :title, label: 'Title', placeholder: 'please add the conference title' %>
+  <%= f.input :location, as: 'string', label: 'Location', placeholder: 'please add the location - e.g. Las Vegas, NV' %>
+  <%= f.input :start_date, label: 'Start Date', as: :string, input_html: { class: 'dp', id: 'start_date' }  %>
+  <%= f.input :end_date, label: 'End Date', as: :string, input_html: { class: 'dp', id: 'end_date' }  %>
+  <%= f.input :url, as: 'url', label: 'Url', placeholder: 'copy conference url and paste here' %>
+  <%= f.button :submit, "Submit", class: "btn btn-lg btn-primary" %>
 
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#start_date').datepicker({
+        format: "mm/dd/yyyy"
+    });
+
+    $('#end_date').datepicker({
+        format: "mm/dd/yyyy"
+    });
+  
+  $('.dp').on('change', function () {
+        $('.datepicker').hide();
+    });
+
+  });
+
+</script>

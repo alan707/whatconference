@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215073526) do
+ActiveRecord::Schema.define(version: 20150216030112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,14 @@ ActiveRecord::Schema.define(version: 20150215073526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "location"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
+  add_index "links", ["end_date"], name: "index_links_on_end_date", using: :btree
+  add_index "links", ["location"], name: "index_links_on_location", using: :btree
+  add_index "links", ["start_date"], name: "index_links_on_start_date", using: :btree
   add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

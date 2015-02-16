@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
+gem 'bootstrap-datepicker-rails', '~> 1.3.1.1'
 gem 'puma'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -14,6 +15,7 @@ gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form'
+
 
 group :development, :test do
   gem 'byebug'

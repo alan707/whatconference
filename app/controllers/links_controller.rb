@@ -3,6 +3,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authorized_user, only: [:edit, :update, :destroy]
 
+
   # GET /links
   # GET /links.json
   def index
@@ -88,6 +89,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :url)
+      params.require(:link).permit(:title, :url, :location, :start_date, :end_date)
     end
 end
