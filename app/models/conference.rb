@@ -5,6 +5,10 @@ class Conference < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
+  validates_date :start_date
+  validates_date :end_date
+  validates_date :end_date, :on_or_after => :start_date
+
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
