@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resource 'account', :only => %w(show update)
+  resource 'account', :only => %w(show update), :controller => 'search'
 
   get 'calendar', :to => "calendar#show"
   get 'map', :to => "map#show"
