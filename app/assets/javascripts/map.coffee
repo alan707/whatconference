@@ -1,25 +1,33 @@
 $ ->
-  $("#conference-map").each (index, element) ->
-    map = new GMaps({
-      el: '#conference-map',
-      zoom: 4,
-      lat:   38.8722838,
-      lng: -457.9752401,
-    })
+  whole_usa =
+    zoom: 4,
+    lat:   38.8722838,
+    lng: -457.9752401,
 
-    add_conference_marker = (conference) ->
-      if conference.latitude && conference.longitude
-        map.addMarker {
-          lat: conference.latitude,
-          lng: conference.longitude,
-          title: conference.title,
-          infoWindow: {
-            content: "<a href=\"#{conference.url}\">#{conference.title}</a>"
-          }
-        }
+  $("#conference-map").each (index, element) ->
+    map = new GMaps(
+      _.extend(
+        el: '#conference-map',
+        whole_usa
+      )
+    )
+
+    with_lat_lng = (conference) ->
+      conference.latitude && conference.longitude
+
+    conference_marker_for = (conference) ->
+      lat: conference.latitude,
+      lng: conference.longitude,
+      title: conference.title,
+      animation: 'DROP',
+      infoWindow:
+        content: "<a href=\"#{conference.url}\">#{conference.title}</a>"
 
     add_conference_markers = (conferences) ->
-      $.each conferences, (index, conference) ->
-        add_conference_marker conference
+      markers = _.map(
+        _.filter(conferences, with_lat_lng),
+        conference_marker_for
+      )
+      map.addMarkers markers
         
     $.get Routes.conferences_path({ format: 'json' }), add_conference_markers

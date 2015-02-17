@@ -3,15 +3,20 @@
 <head>
   <title>Whatconference</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= yield(:head_javascript) if content_for?(:head_javascript) %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Nenv.google_browser_api_key}" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= render "layouts/favicons" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<header class="navbar navbar-default" role="navigation">
     	<div class="navbar-inner">
       		<div class="container">
-        		<div id="logo" class="navbar-brand"><%= link_to "What Conference?", root_path %></div>
+              <div id="logo" class="navbar-brand"><%= link_to root_path do %>
+                <%= image_tag "logo.png" %>
+                What Conference?
+              <% end %>
+              </div>
 	        		<nav class="collapse navbar-collapse navbar-ex1-collapse">
 			        	<% if user_signed_in? -%>
 									<ul class="nav navbar-nav navbar-right">

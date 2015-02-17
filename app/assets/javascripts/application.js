@@ -19,6 +19,7 @@
 //= require js-routes
 //
 // Bower Javascript files
+//= require underscore
 //= require moment
 //= require fullcalendar
 //= require gmaps

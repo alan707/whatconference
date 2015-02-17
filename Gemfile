@@ -30,6 +30,7 @@ gem 'geocoder'
 gem 'nenv'
 
 # Javascript packages managed by Bower
+gem 'rails-assets-underscore'
 gem 'rails-assets-fullcalendar'
 gem 'rails-assets-moment'
 gem 'rails-assets-gmaps'
@@ -41,6 +42,11 @@ group :development, :test do
 
   # Suppress the flood of Started GET "/assets/application.js" log messages
   gem 'quiet_assets'
+
+  # Livereload
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
 end
 
 group :production, :staging do
