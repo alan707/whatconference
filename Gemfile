@@ -18,7 +18,14 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# User account management
 gem 'devise', '~> 3.4.1'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-twitter'
+
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form'

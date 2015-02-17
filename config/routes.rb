@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   resources :comments
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks" 
+  }
   resources :conferences do
     member do
       put "like",    to: "conferences#upvote"
     end
     resources :comments
   end
+
+  resource 'account', :only => %w(show update)
 
   get 'calendar', :to => "calendar#show"
   get 'map', :to => "map#show"
