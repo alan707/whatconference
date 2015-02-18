@@ -36,7 +36,7 @@
 
 	<div id="main_content" class="container">
 		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+			<%= content_tag(:div, msg, class: flash_alert_class(name)) %>
 		<% end %>
 
 		<div id="content" class="col-md-9 center-block">
