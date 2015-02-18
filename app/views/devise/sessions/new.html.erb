@@ -1,12 +1,16 @@
+<div class="signin-container">
 <h2>Sign in</h2>
 
 <%- if devise_mapping.omniauthable? %>
-  <% if Rails.env.development? %>
-    <%= link_to "Development sign in", omniauth_authorize_path(resource_name, :developer) %><br />
-  <% end %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
+  <ul class="image-list signin-icons">
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <li><%= link_to omniauth_authorize_path(resource_name, provider), :title => "Sign in with #{provider.to_s.titleize}" do %>
+        <%= image_tag "oauth_#{provider}.png", :alt => "Sign in with #{provider.to_s.titleize}" %><% end -%>
+      </li>
+    <% end %>
+  </ul>
 <% end -%>
 
-<%= render "devise/shared/links" %>
+<h4 class="signin-hint">We don't like remembering tons of passwords either, so we let you sign in to What Conference using one of your existing accounts.</h4>
+<h4><strong>We don't post on your social network account.</h4>
+</div>
