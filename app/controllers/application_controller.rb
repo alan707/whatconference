@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   include Concerns::ExposeIvar
 
+  def new_session_path(scope)
+    new_user_session_path
+  end
+
   protected
 
   def configure_permitted_parameters

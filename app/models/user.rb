@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :rememberable, :trackable, :omniauthable,
+  devise :rememberable, :trackable, :omniauthable,
          :omniauth_providers => [:twitter, :facebook, :linkedin, :google_oauth2,
                                  *(:developer if Rails.env.development?)]
 
@@ -13,9 +13,5 @@ class User < ActiveRecord::Base
       # user.name = auth.info.name   # assuming the user model has a name
       # user.image = auth.info.image # assuming the user model has an image
     end
-  end
-
-  def encrypted_password
-    ''
   end
 end
