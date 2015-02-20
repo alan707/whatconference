@@ -7,7 +7,7 @@
         <p>The user that submitted this conference has deleted their account</p>
       <% else %>
         <%= link_to conference.title, conference %><br>
-      <div class="btn-group pull-right" id="favorite-website-btn-group">
+      <div class="btn-group pull-right conference-button-bar">
         <a class="btn btn-default btn-sm" href="<%= conference.url %>"><span class="glyphicon glyphicon-globe icon-left"> Website</span></a>
         <%= render :partial => "like_conference", :locals => { :conference => conference } %>
       </div>

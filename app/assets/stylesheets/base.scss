@@ -1,4 +1,7 @@
-body {
+// Bootstrap grid limits
+@import "bootstrap/variables";
+
+body.page {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.42857143;
@@ -6,4 +9,17 @@ body {
 	background-color: #F6F6EF;
 }
 
+.page-container {
+  padding-bottom: 100px;
+  margin: 0 6px;
+
+  @media (min-width: $screen-md-min) {
+    margin: 0 auto;
+    max-width: $screen-md-min;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
 

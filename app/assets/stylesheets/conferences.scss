@@ -11,3 +11,20 @@
 	padding-top: 23px;
 }
 
+.conference-button-bar {
+  padding-top: 10px;
+}
+
+.comments-section {
+  margin-top: 2em;
+
+  .comment {
+    padding: 1em 0;
+    border-top: 1px solid #E9E9E9;
+    .lead {
+      margin-bottom: 0;
+    }
+  }
+}
+
+

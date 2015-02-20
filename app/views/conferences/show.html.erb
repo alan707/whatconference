@@ -19,17 +19,16 @@
   </div>
 <% end %>
 
-<h3 class="comments_title">
-  <%= conference.comments.count %> Comments
-</h3>
+<section class="comments-section">
+  <h3><%= pluralize(conference.comments.count, "Comment") %></h3>
 
-<div id="comments">
   <%= render :partial => conference.comments %>
-</div>
-<%= simple_form_for [conference, Comment.new]  do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-  <br>
-  <%= f.submit "Add Comment", class: "btn btn-primary" %>
-<% end %>
+
+  <%= simple_form_for [conference, Comment.new]  do |f| %>
+    <div class="field">
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <br>
+    <%= f.submit "Add Comment", class: "btn btn-primary" %>
+  <% end %>
+</section>
