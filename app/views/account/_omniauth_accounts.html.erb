@@ -1,0 +1,15 @@
+
+<h2>Sign in</h2>
+
+<div class="linked-accounts">
+  You are currently able to sign in to your account using:
+  <ul class="image-list signin-icons">
+    <% user.omniauth_accounts.each do |account| %>
+      <li><%= omniauth_image_tag account.provider %></li>
+    <% end %>
+  </ul>
+
+  You can also link your account to sign in with:
+  <%= render :partial => "devise/sessions/omniauth_sign_in", :locals => { :omniauth_providers => user.remaining_providers } %>
+</div>
+

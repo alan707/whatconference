@@ -1,0 +1,63 @@
+/*
+ * Application CSS file
+ *
+ * Don't include Bootstrap directly in here because otherwise the file
+ * will have too many styles and the styles after the 4095'th one will
+ * be ignored by Internet Explorer.
+ *
+ * This is a manifest file that'll be compiled into application.css,
+ * which will include all the files listed below.
+ *
+ * Use Sprocket =require and =require_tree in this file instead of SASS
+ * @import directives. Otherwise, whenever a single file changes the
+ * entire CSSS must be regenerated.
+ *
+ * Include specific SASS @import in the necessary SASS files.
+ *
+ *= require bootstrap-datepicker3
+ *
+ * Bower CSS files
+ *= require fullcalendar
+ *
+ *= require_tree .
+ *
+ * Don't include any rules in this file
+ */
+
+.page-contents {
+  padding-bottom: 100px;
+
+  a:hover {
+    text-decoration: none;
+  }
+  #favorite-website-btn-group{
+    padding-top: 10px;
+  }
+
+  #content {
+    float: none;
+  }
+  .link {
+    padding: 2em 1em;
+    border-bottom: 1px solid #e9e9e9;
+    .title {
+
+      a {
+        color: #FF4500;
+      }
+    }
+  }
+  .comments_title {
+    margin-top: 2em;
+  }
+  #comments {
+    .comment {
+      padding: 1em 0;
+      border-top: 1px solid #E9E9E9;
+      .lead {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+

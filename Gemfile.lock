@@ -38,6 +38,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     acts_as_votable (0.10.0)
+    andand (1.3.3)
     arel (6.0.0)
     autoprefixer-rails (5.1.5)
       execjs
@@ -87,6 +88,8 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
@@ -183,6 +186,11 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
     quiet_assets (1.1.0)
@@ -291,12 +299,14 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.10.0)
+  andand
   bootstrap-datepicker-rails (~> 1.3.1.1)
   bootstrap-sass (~> 3.3.3)
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   dotenv-rails
+  font-awesome-rails (~> 4.0)
   friendly_id (~> 5.0)
   geocoder
   guard-livereload
@@ -310,6 +320,9 @@ DEPENDENCIES
   omniauth-linkedin-oauth2
   omniauth-twitter
   pg
+  pry
+  pry-byebug
+  pry-rails
   puma
   quiet_assets
   rack-livereload

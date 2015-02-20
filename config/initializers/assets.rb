@@ -1,11 +1,12 @@
-# Be sure to restart your server when you modify this file.
+# Compile a separate CSS file with the framework foundation styles:
+# Bootstrap and FontAwesome
+# It is necessary to split the CSS into two files to work around the
+# Internet Explorer limit of 4095 styles per CSS file
+Rails.application.config.assets.precompile += %w(foundation.css)
 
 # Version of your assets, change this if you want to expire all your assets.
-Rails.application.config.assets.version = '1.0'
+Rails.application.config.assets.version = '2.0'
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
-# Precompile additional assets.
-# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )

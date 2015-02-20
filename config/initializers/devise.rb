@@ -236,7 +236,7 @@ Devise.setup do |config|
 
   User.omniauth_providers.each do |provider_name|
     if provider_name == :developer
-      config.omniauth :developer
+      config.omniauth :developer, :fields => [:name, :email, :verified]
     else
       Nenv provider_name do |auth|
         config.omniauth provider_name, auth.api_key, auth.api_secret

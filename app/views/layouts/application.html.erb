@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Whatconference</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Nenv.google_browser_api_key}" %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= render "layouts/favicons" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<header class="navbar navbar-default" role="navigation">
-    	<div class="navbar-inner">
-      		<div class="container">
-              <div id="logo" class="navbar-brand"><%= link_to root_path do %>
-                <%= image_tag "logo.png" %>
-                What Conference?
-              <% end %>
-              </div>
-	        		<nav class="collapse navbar-collapse navbar-ex1-collapse">
-			        	<% if user_signed_in? -%>
-									<ul class="nav navbar-nav navbar-right">
-										<li><%= link_to 'Add New Conference', new_conference_path, :id => "newconference" %></li>
-										<li><%= link_to 'Account', account_path %></li>
-										<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-									</ul>
-								<% else -%>
-									<ul class="nav navbar-nav pull-right">
-										<li><%= link_to 'Sign in', new_user_session_path %></li>
-									</ul>
-						<% end -%>
-        			</nav>
-      		</div>
-    	</div>
-  	</header>
+  <head>
+    <title>Whatconference</title>
+    <%= stylesheet_link_tag    'foundation', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Nenv.google_browser_api_key}" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= render "layouts/favicons" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container">
+          <div id="logo" class="navbar-brand"><%= link_to root_path, :class => "brand-link" do %>
+            <%= image_tag "logo.png", :class => "brand-image" %>
+            What Conference?
+          <% end %>
+        </div>
+        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+          <% if user_signed_in? -%>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'Add New Conference', new_conference_path, :class => "nav-action" %></li>
+              <li><%= link_to 'Account', account_path %></li>
+              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          <% else -%>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+            </ul>
+          <% end -%>
+        </nav>
+      </div>
+    </header>
 
-	<div id="main_content" class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: flash_alert_class(name)) %>
-		<% end %>
+    <div class="page-contents container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: flash_alert_class(name)) %>
+      <% end %>
 
-		<div id="content" class="col-md-9 center-block">
-			<%= yield %>
-		</div>
-	</div>
+      <div id="content" class="col-md-9 center-block">
+        <%= yield %>
+      </div>
+    </div>
 
-</body>
+  </body>
 </html>

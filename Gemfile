@@ -27,6 +27,7 @@ gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-twitter'
 
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-rails', '~> 4.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form'
 gem 'friendly_id', '~> 5.0'
@@ -35,6 +36,7 @@ gem 'time_will_tell'
 gem 'validates_timeliness'
 gem 'geocoder'
 gem 'nenv'
+gem 'andand'
 
 # Javascript packages managed by Bower
 gem 'rails-assets-underscore'
@@ -44,6 +46,11 @@ gem 'rails-assets-gmaps'
 
 group :development, :test do
   gem 'byebug'
+  # Better console than irb
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+
   gem 'web-console', '~> 2.0'
   gem 'spring'
 
