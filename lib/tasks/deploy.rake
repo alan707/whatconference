@@ -18,7 +18,7 @@ namespace :deploy do
   APP = 'whatconference'
   ORIGIN = 'origin'
   HEROKU_GIT = ENV['HEROKU_GIT'] || 'heroku.com'
-  GIT_BRANCH = ENV['branch'] || 'develop'
+  GIT_BRANCH = ENV['branch'] || 'master'
 
   desc "Deploy to Heroku"
   task :heroku => [:push, :restart]
