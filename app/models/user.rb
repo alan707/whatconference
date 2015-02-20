@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     if user.nil?
       user = User.new(
         name: auth.extra.andand.raw_info.andand.name || auth.info.name,
-        username: auth.info.nickname || auth.uid,
+        username: auth.info.nickname || auth.uid.sub(/@.*/, ""),
         email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
       )
       user.save!
