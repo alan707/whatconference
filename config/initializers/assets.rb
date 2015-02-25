@@ -1,8 +1,5 @@
-# Compile a separate CSS file with the framework foundation styles:
-# Bootstrap and FontAwesome
-# It is necessary to split the CSS into two files to work around the
-# Internet Explorer limit of 4095 styles per CSS file
-Rails.application.config.assets.precompile += %w(foundation.css)
+# Additional assets
+# Rails.application.config.assets.precompile += %w(foundation.css)
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '2.0'

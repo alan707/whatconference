@@ -23,5 +23,6 @@
 //= require moment
 //= require fullcalendar
 //= require gmaps
+//= require flat-ui
 //
 //= require_tree .

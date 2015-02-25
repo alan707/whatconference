@@ -1,10 +1,6 @@
 /*
  * Application CSS file
  *
- * Don't include Bootstrap directly in here because otherwise the file
- * will have too many styles and the styles after the 4095'th one will
- * be ignored by Internet Explorer.
- *
  * This is a manifest file that'll be compiled into application.css,
  * which will include all the files listed below.
  *
@@ -14,10 +10,12 @@
  *
  * Include specific SASS @import in the necessary SASS files.
  *
+ *= require ./foundation
  *= require bootstrap-datepicker3
  *
  * Bower CSS files
  *= require fullcalendar
+ *= require flat-ui
  *
  *= require_tree .
  *

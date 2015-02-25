@@ -1,0 +1,38 @@
+@import "variables";
+
+.form-group.focus .form-control,
+.form-control:focus,
+.form-group.focus .select2-search input[type="text"],
+.select2-search input[type="text"]:focus {
+  border-color: $navbar-color;
+}
+
+.form-group.focus .input-group-btn .btn,
+.input-group.focus .input-group-btn .btn {
+  border-color: $navbar-color;
+  color: $navbar-color;
+}
+
+.input-group-xl > .form-control,
+.input-group-xl > .input-group-addon,
+.input-group-xl > .input-group-btn > .btn,
+.input-group-xl > .select2-search input[type="text"] {
+  height: 73px;
+  padding: 10px 16px 10px 31px;
+  font-size: 32px;
+  line-height: 1.318;
+  border-radius: 6px;
+}
+
+.input-group-xl.input-group-rounded .form-control:first-child,
+.input-group-xl.input-group-rounded .input-group-btn:first-child .btn,
+.input-group-xl.input-group-rounded .select2-search input[type="text"]:first-child {
+  border-bottom-left-radius: 37px;
+  border-top-left-radius: 37px;
+}
+.input-group-xl.input-group-rounded .input-group-btn + .form-control,
+.input-group-xl.input-group-rounded .input-group-btn:last-child .btn,
+.input-group-xl.input-group-rounded .input-group-btn + .select2-search input[type="text"] {
+  border-bottom-right-radius: 37px;
+  border-top-right-radius: 37px;
+}

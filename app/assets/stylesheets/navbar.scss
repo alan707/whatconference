@@ -1,34 +1,74 @@
-.navbar-default {
-  background-color: rgba(255, 127, 48, 1);
-  border-color: rgba(231, 231, 231, 0);
-  margin-bottom: 34px;
-  .navbar-nav > li > a {
-    color: #FFF;
-  }
+// Bootstrap grid limits
+@import "bootstrap/variables";
 
+@import "variables";
+
+.navbar-wc {
+  background-color: $navbar-color;
+  margin: 8px;
   .navbar-brand {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0px;
-    padding: 5px 0 15px 0;
-
-    .brand-link {
-      color: #2F363E;
-      &:hover, &:active {
-        text-decoration: none;
-        color: white;
-      }
+    padding-top: 19px;
+  }
+  .navbar-nav > li > a,
+  .navbar-brand {
+    color: #FFF;
+    &:hover, &:focus {
+      color: $text-color;
     }
+  }
 
-    .brand-image {
-      max-height: 40px;
-      display: inline-block;
-    }
+  @media (max-width: $screen-xs-max) {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .navbar-nav > li > a.nav-action {
+    font-weight: 900;
+    font-size: 19px;
   }
 }
 
-.nav-action {
-  font-weight: bold;
-  font-size: 19px;
+.navbar-brand .brand-image {
+  max-height: 40px;
+  display: inline-block;
 }
 
+.navbar {
+  // Center elements in navbar
+  .navbar-nav {
+    display: inline-block;
+    float: none;
+  }
+
+  .navbar-collapse {
+    text-align: center;
+  }
+}
+
+
+//  margin-bottom: 34px;
+//  .navbar-nav > li > a {
+//    color: #FFF;
+//  }
+//
+//  .navbar-brand {
+//    font-size: 26px;
+//    font-weight: 700;
+//    letter-spacing: 0px;
+//    padding: 5px 0 15px 0;
+//
+//    .brand-link {
+//      color: #2F363E;
+//      &:hover, &:active {
+//        text-decoration: none;
+//        color: white;
+//      }
+//    }
+//
+//    .brand-image {
+//      max-height: 40px;
+//      display: inline-block;
+//    }
+//  }
+//}
+//

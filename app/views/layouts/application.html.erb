@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Whatconference</title>
-    <%= stylesheet_link_tag    'foundation', media: 'all', 'data-turbolinks-track' => true %>
+    <title>What Conference?</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Nenv.google_browser_api_key}" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,29 +9,33 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="page">
-    <header class="navbar navbar-default" role="navigation">
-      <div class="navbar-inner">
-        <div class="container">
-          <div id="logo" class="navbar-brand"><%= link_to root_path, :class => "brand-link" do %>
-            <%= image_tag "logo.png", :class => "brand-image" %>
-            What Conference?
-          <% end %>
-        </div>
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
-          <% if user_signed_in? -%>
-            <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'Add New Conference', new_conference_path, :class => "nav-action" %></li>
-              <li><%= link_to 'Account', account_path %></li>
-              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-            </ul>
-          <% else -%>
-            <ul class="nav navbar-nav pull-right">
-              <li><%= link_to 'Sign in', new_user_session_path %></li>
-            </ul>
-          <% end -%>
-        </nav>
+    <nav class="navbar navbar-default navbar-wc navbar-lg" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <%= link_to root_path, :class => "navbar-brand" do %>
+          <%= image_tag "logo.png", :class => "brand-image" %>
+          What Conference?
+        <% end %>
+
       </div>
-    </header>
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav">
+          <li><%= link_to new_conference_path, :class => "nav-action" do %>
+            <i class="fa fa-plus icon-left"></i> Add Conference<% end %></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? -%>
+            <li><%= link_to 'Account', account_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+          <% else -%>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <% end -%>
+        </ul>
+      </div>
+    </nav>
 
     <div class="page-container">
       <% flash.each do |name, msg| %>

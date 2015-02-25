@@ -43,6 +43,7 @@ gem 'rails-assets-underscore'
 gem 'rails-assets-fullcalendar'
 gem 'rails-assets-moment'
 gem 'rails-assets-gmaps'
+gem 'rails-assets-flat-ui'
 
 group :development, :test do
   gem 'byebug'
