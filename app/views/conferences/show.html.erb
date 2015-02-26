@@ -1,6 +1,7 @@
 <div class="page-header">
   <h1><%=link_to conference.title, conference.url %></h1>
-  <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.location %></h2>
+  <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
+  <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
   <h2 class="submitter">Submitted by <%= conference.user.username %></h2>
 </div>
 

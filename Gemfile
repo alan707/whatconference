@@ -66,6 +66,9 @@ group :development, :test do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'rb-fsevent', require: false
+
+  # Use Chrome to debug Coffeescript
+  gem 'coffee-rails-source-maps'
 end
 
 group :production, :staging do
