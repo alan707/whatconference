@@ -24,5 +24,6 @@
 //= require fullcalendar
 //= require gmaps
 //= require flat-ui
+//= require bootstrap-daterangepicker
 //
 //= require_tree .

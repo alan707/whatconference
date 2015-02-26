@@ -33,10 +33,13 @@ gem 'simple_form'
 gem 'friendly_id', '~> 5.0'
 gem 'js-routes'
 gem 'time_will_tell'
-gem 'validates_timeliness'
+gem 'jc-validates_timeliness'
 gem 'geocoder'
 gem 'nenv'
 gem 'andand'
+
+# Parse dates in mm/dd/yyyy format automatically
+gem 'american_date'
 
 # Javascript packages managed by Bower
 gem 'rails-assets-underscore'
@@ -44,6 +47,7 @@ gem 'rails-assets-fullcalendar'
 gem 'rails-assets-moment'
 gem 'rails-assets-gmaps'
 gem 'rails-assets-flat-ui'
+gem 'rails-assets-bootstrap-daterangepicker', '~> 1.3.17'
 
 group :development, :test do
   gem 'byebug'

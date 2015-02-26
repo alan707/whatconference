@@ -18,6 +18,7 @@ class ConferencesController < ApplicationController
   # GET /conferences/new
   def new
     @conference = current_user.conferences.build
+    @conference.start_date = 1.day.from_now.to_date
   end
 
   # GET /conferences/1/edit
@@ -79,7 +80,7 @@ class ConferencesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def conference_params
-    params.require(:conference).permit(:title, :url, :location, :street_address, :start_date, :end_date)
+    params.require(:conference).permit(:title, :url, :location, :street_address, :start_date, :end_date, :date_range)
   end
 
   def filter_by_date(start_at, end_at)

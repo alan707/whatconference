@@ -10,20 +10,17 @@
 #
 #     <%= t('hello') %>
 #
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   omniauth_provider:
     facebook: "Facebook"
     linkedin: "LinkedIn"
     twitter: "Twitter"
     google_oauth2: "Google"
     developer: "Developer"
+
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"

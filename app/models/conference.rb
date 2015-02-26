@@ -23,6 +23,9 @@ class Conference < ActiveRecord::Base
     [street_address, location].compact.join(", ")
   end
 
+  extend DateRangeAccessor
+  date_range_accessor :date_range, :start_date, :end_date
+
   protected
 
   def smart_add_url_protocol
