@@ -1,8 +1,0 @@
-<div class="panel panel-default">
-<div class="panel-heading">Conferences</div>
-  <table class="table table-striped table-hover">
-  <% @conferences.each (conference) ->: %>
-    <%- JST["templates/conference_list_item"](conference.attributes) %>
-  <% end %>
-  </table>
-</div>

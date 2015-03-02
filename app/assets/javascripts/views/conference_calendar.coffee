@@ -4,12 +4,16 @@ class App.Views.ConferenceCalendar extends Backbone.View
 
     @listenTo @conferences, 'sync', @eventsForCalendar
 
+  render: ->
     @$el.fullCalendar
       header:
         left: 'prev,next today'
         center: 'title'
         right: 'month'
       events: @eventSource
+      viewRender: @calendarRendered
+
+    this
 
   eventSource: (start, end, timezone, callback) =>
     @calendarCallback = callback
@@ -22,3 +26,5 @@ class App.Views.ConferenceCalendar extends Backbone.View
         conference.toEvent()
       @calendarCallback events
 
+  calendarRendered: (calendar_view) =>
+    @trigger 'change:dates', calendar_view.start, calendar_view.end

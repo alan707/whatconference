@@ -16,11 +16,15 @@ class App.Views.ConferenceBrowser extends Backbone.View
       el: @$("#conference-browser-map")[0]
       conferences: @conferences
 
-    @conferences.fetch()
+    @listenTo @calendar, 'change:dates', @fetchMoreConferences
 
   render: ->
     @list.render()
     @calendar.render()
     @map.render()
     this
+
+
+  fetchMoreConferences: (start, end) ->
+    console.log "Dates changed #{start?.format?()} #{end?.format?()}"
 

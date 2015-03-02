@@ -7,8 +7,8 @@ class App.Views.ConferenceList extends Backbone.View
     @listenTo @conferences, 'sync', @render
 
   render: ->
-    items = @conferences.map (conference) =>
-      @template(conference.attributes)
+    items = @conferences.map (conference, index) =>
+      @template(_.extend({ index }, conference.attributes))
 
     @$el.html items.join("")
     this

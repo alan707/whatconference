@@ -1,3 +1,10 @@
 <tr>
-  <td><%= @title %></td>
+  <td><img src="<%= map_marker_for_index(@index) %>" class="map-marker"></td>
+  <td>
+    <a href="<%= @url %>"><%= @title %></a>
+    <div class="text-muted"><%= @city_state %>, <%= @date_range %></div>
+  </td>
+  <td>
+    <a href="<%= @url %>" class="btn btn-primary btn-xs"><i class="fa fa-map-marker icon-left"></i>Details</a>
+  </td>
 </tr>

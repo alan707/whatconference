@@ -6,12 +6,15 @@ class App.Views.ConferenceMap extends Backbone.View
 
     @listenTo @conferences, 'sync', @add_conference_markers
 
+  render: ->
     @map = new GMaps(
       _.extend(
         el: @el,
         @default_coordinates
       )
     )
+
+    this
 
   default_coordinates:
     zoom: 4,
@@ -20,6 +23,7 @@ class App.Views.ConferenceMap extends Backbone.View
 
 
   add_conference_markers: (conferences) ->
+    @map.removeMarkers()
     markers = @conferences.chain().
       filter(@with_lat_lng).map(@conference_marker_for).value()
 
@@ -29,11 +33,12 @@ class App.Views.ConferenceMap extends Backbone.View
   with_lat_lng: (conference) =>
     conference.has_lat_lng()
 
-  conference_marker_for: (conference) =>
+  conference_marker_for: (conference, index) =>
     lat: conference.get('latitude'),
     lng: conference.get('longitude'),
     title: conference.get('title'),
     animation: 'DROP',
+    icon: map_marker_for_index(index)
     infoWindow:
       content: @infoWindowTemplate(conference.attributes)
 

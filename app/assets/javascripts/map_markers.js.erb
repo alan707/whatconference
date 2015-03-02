@@ -1,0 +1,15 @@
+<% max_marker = 50 %>
+var map_markers = [
+  "<%= image_path "markers/default.png" %>",
+  <% (1..max_marker).each do |n| %>
+    "<%= image_path "markers/#{n}.png" %>",
+  <% end %>
+];
+
+function map_marker_for_index(n) {
+  if(n <= <%= max_marker %>) {
+    return map_markers[n + 1];
+  } else {
+    return map_markers[0];
+  }
+}
