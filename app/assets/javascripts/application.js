@@ -20,10 +20,12 @@
 //
 // Bower Javascript files
 //= require underscore
+//= require backbone
 //= require moment
 //= require fullcalendar
 //= require gmaps
 //= require flat-ui
 //= require bootstrap-daterangepicker
 //
+//= require namespace
 //= require_tree .

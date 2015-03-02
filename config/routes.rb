@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  root to: "dashboard#show"
 
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks" 
@@ -9,12 +9,16 @@ Rails.application.routes.draw do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
+  resource :dashboard, :only => %w(show), :controller => 'dashboard'
+
   resources :conferences do
     member do
       put "like",    to: "conferences#upvote"
     end
     resources :comments
   end
+
+  resources :comments
 
   resource 'account', :only => %w(show update), :controller => 'account'
 
@@ -23,7 +27,6 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root to: "conferences#index"
  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

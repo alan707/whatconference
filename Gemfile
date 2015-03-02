@@ -41,8 +41,12 @@ gem 'andand'
 # Parse dates in mm/dd/yyyy format automatically
 gem 'american_date'
 
+# Client-side Coffeescript templates
+gem 'eco'
+
 # Javascript packages managed by Bower
 gem 'rails-assets-underscore'
+gem 'rails-assets-backbone'
 gem 'rails-assets-fullcalendar'
 gem 'rails-assets-moment'
 gem 'rails-assets-gmaps'
