@@ -1,5 +1,9 @@
 <tr>
-  <td><img src="<%= map_marker_for_index(@index) %>" class="map-marker"></td>
+  <td>
+  <% if @index?: %>
+    <img src="<%= map_marker_for_index(@index) %>" class="map-marker">
+  <% end %>
+  </td>
   <td>
     <a href="<%= @url %>"><%= @title %></a>
     <div class="text-muted"><%= @city_state %>, <%= @date_range %></div>

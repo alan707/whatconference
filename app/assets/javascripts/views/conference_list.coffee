@@ -7,8 +7,14 @@ class App.Views.ConferenceList extends Backbone.View
     @listenTo @conferences, 'sync', @render
 
   render: ->
-    items = @conferences.map (conference, index) =>
-      @template(_.extend({ index }, conference.attributes))
+    marker_index = 0
+    items = @conferences.map (conference) =>
+      data = conference.attributes
+      if conference.has_lat_lng()
+        _.extend(data, index: marker_index)
+        marker_index += 1
+
+      @template(data)
 
     @$el.html items.join("")
     this
