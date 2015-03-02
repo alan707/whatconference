@@ -1,8 +1,7 @@
 $ ->
-  $('#dashboard-conference-list').each ->
+  $('#conference-browser').each ->
     conferences = new App.Collections.Conferences
-    view = new App.Views.Dashboard(
+    view = new App.Views.ConferenceBrowser
       el: this
-      collection: conferences
-    ).render()
+      conferences: conferences
 
