@@ -5,23 +5,26 @@ class App.Views.ConferenceBrowser extends Backbone.View
     @date ?= moment() # today
 
     @list = new App.Views.ConferenceList
-      el: @$("#conference-list")[0]
       conferences: @conferences
 
     @calendar = new App.Views.ConferenceCalendar
-      el: @$("#conference-browser-calendar")[0]
       conferences: @conferences
 
     @map = new App.Views.ConferenceMap
-      el: @$("#conference-browser-map")[0]
       conferences: @conferences
 
     @listenTo @calendar, 'change:dates', @fetchMoreConferences
 
   render: ->
-    @list.render()
+    @$el.append @calendar.el
+
     @calendar.render()
+    # manipulate the calendar DOM to insert the list and map next to the calendar
+    @calendar.insert_other_views @list.el, @map.el
+
+    @list.render()
     @map.render()
+
     this
 
 

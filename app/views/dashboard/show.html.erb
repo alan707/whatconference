@@ -1,5 +1,3 @@
-<h1 class="headline">What Conference?</h1>
-
 <% if user_signed_in? && !conferences.andand.empty? -%>
   <%= render "my_conferences", :locals => { :conferences => conferences } %>
 <% else %>

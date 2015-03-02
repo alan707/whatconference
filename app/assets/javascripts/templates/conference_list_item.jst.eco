@@ -1,14 +1,14 @@
 <tr>
-  <td>
+  <td class="marker-col">
   <% if @index?: %>
     <img src="<%= map_marker_for_index(@index) %>" class="map-marker">
   <% end %>
   </td>
-  <td>
+  <td class="contents-col">
     <a href="<%= @url %>"><%= @title %></a>
     <div class="text-muted"><%= @city_state %>, <%= @date_range %></div>
   </td>
-  <td>
+  <td class="button-col">
     <a href="<%= @url %>" class="btn btn-primary btn-xs"><i class="fa fa-map-marker icon-left"></i>Details</a>
   </td>
 </tr>

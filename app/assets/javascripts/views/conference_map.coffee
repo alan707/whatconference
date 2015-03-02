@@ -1,4 +1,6 @@
 class App.Views.ConferenceMap extends Backbone.View
+  className: 'map-container'
+  template: '<div class="map">'
   infoWindowTemplate: JST["templates/conference_info_window"]
 
   initialize: (options) ->
@@ -7,9 +9,10 @@ class App.Views.ConferenceMap extends Backbone.View
     @listenTo @conferences, 'sync', @add_conference_markers
 
   render: ->
+    @$el.html @template
     @map = new GMaps(
       _.extend(
-        el: @el,
+        el: @$('.map')[0],
         @default_coordinates
       )
     )

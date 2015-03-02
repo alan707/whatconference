@@ -1,5 +1,6 @@
 class App.Views.ConferenceList extends Backbone.View
-  template: JST["templates/conference_list_item"]
+  template: JST["templates/conference_list"]
+  itemTemplate: JST["templates/conference_list_item"]
 
   initialize: (options) ->
     _.extend this, options
@@ -14,8 +15,8 @@ class App.Views.ConferenceList extends Backbone.View
         _.extend(data, index: marker_index)
         marker_index += 1
 
-      @template(data)
+      @itemTemplate(data)
 
-    @$el.html items.join("")
+    @$el.html @template(items: items.join(""))
     this
 

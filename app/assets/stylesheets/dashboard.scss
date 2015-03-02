@@ -1,0 +1,28 @@
+.map-marker {
+  width: 18px;
+}
+
+#conference-browser {
+  margin-top: 30px;
+
+  .fc-view-container, 
+  .map-container {
+    margin-bottom: 20px;
+  }
+}
+
+.conference-list {
+  .marker-col {
+    width: 40px;
+    border-right: none;
+  }
+  .button-col {
+    width: 80px;
+    border-left: none;
+  }
+  .contents-col {
+    border-left: none;
+    border-right: none;
+  }
+}
+
