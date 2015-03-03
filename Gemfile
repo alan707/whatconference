@@ -44,6 +44,10 @@ gem 'american_date'
 # Client-side Coffeescript templates
 gem 'eco'
 
+# Admin dashboard
+gem 'rails_admin'
+gem "rails_admin_become_user"
+
 # Javascript packages managed by Bower
 gem 'rails-assets-underscore'
 gem 'rails-assets-backbone'
