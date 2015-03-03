@@ -17,7 +17,11 @@ class App.Views.ConferenceMap extends Backbone.View
       )
     )
 
+    @addConferenceMarkers()
+
     this
+
+  minZoomOffset: 0.5 # offset to lat/lng bounds when there is only 1 marker
 
   defaultCoordinates:
     zoom: 4,
@@ -25,14 +29,17 @@ class App.Views.ConferenceMap extends Backbone.View
     lng: -457.9752401,
 
 
-  addConferenceMarkers: (conferences) ->
+  addConferenceMarkers: ->
     if @map
       @map.removeMarkers()
       markers = @conferences.chain().
         filter(@withLatLng).map(@conferenceMarkerFor).value()
 
-      @map.addMarkers markers
-      @map.fitLatLngBounds _.map(markers, @markerToLatLng)
+      unless _.isEmpty(markers)
+        @map.addMarkers markers
+        @map.fitLatLngBounds @latLngForBounds(markers)
+        if @map.zoom < @minZoom
+          @map.setZoom @minZoom
 
   withLatLng: (conference) =>
     conference.hasLatLng()
@@ -45,6 +52,15 @@ class App.Views.ConferenceMap extends Backbone.View
     icon: google_map_icon_for_index(index)
     infoWindow:
       content: @infoWindowTemplate(conference.attributes)
+
+  latLngForBounds: (markers) ->
+    latLng = _.map(markers, @markerToLatLng)
+    if latLng.length == 1
+      m = markers[0]
+      # append two more coordinates to prevent zooming in too close with only one marker
+      latLng.push new google.maps.LatLng(m.lat + @minZoomOffset, m.lng + @minZoomOffset)
+      latLng.push new google.maps.LatLng(m.lat - @minZoomOffset, m.lng - @minZoomOffset)
+    latLng
 
   markerToLatLng: (marker) ->
     new google.maps.LatLng(marker.lat, marker.lng)
