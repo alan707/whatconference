@@ -37,7 +37,7 @@ class App.Views.ConferenceCalendar extends Backbone.View
   insert_other_views: (list_el, map_el) ->
     calendar_el = @$('.fc-view-container').detach()
 
-    @$el.append $('<div class="row"><div class="col-md-6 col-list"></div><div class="col-md-6 col-calendar col-map"></div></div>')
+    @$el.append $('<div class="row"><div class="col-md-6 col-list col-map"></div><div class="col-md-6 col-calendar"></div></div>')
 
     @$(".col-list").append list_el
     @$(".col-calendar").append calendar_el
