@@ -1,12 +1,18 @@
 class App.Models.Conference extends Backbone.Model
   toEvent: ->
-    @attributes
+    _.extend(_.clone(@attributes),
+      start: @startMoment(),
+      end: @calendarEndMoment()
+    )
 
   startMoment: ->
     moment @get('start')
 
   endMoment: ->
     moment @get('end')
+
+  calendarEndMoment: ->
+    @endMoment().add(1, 'day')
 
   hasLatLng: ->
     @get('latitude') && @get('longitude')
