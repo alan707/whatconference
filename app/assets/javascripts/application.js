@@ -26,6 +26,7 @@
 //= require gmaps
 //= require flat-ui
 //= require bootstrap-daterangepicker
+//= require backbone-filtered-collection
 //
 //= require namespace
 //= require_tree .

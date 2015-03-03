@@ -53,6 +53,8 @@ gem 'rails-assets-gmaps'
 gem 'rails-assets-flat-ui'
 gem 'rails-assets-bootstrap-daterangepicker', '~> 1.3.17'
 
+gem 'backbone-filtered-collection'
+
 group :development, :test do
   gem 'byebug'
   # Better console than irb

@@ -2,18 +2,20 @@ class App.Views.ConferenceBrowser extends Backbone.View
   initialize: (options) ->
     _.extend this, options
 
-    @date ?= moment() # today
+    @filteredConferences = new App.Collections.FilteredConferences(null,
+      collection: @conferences
+    )
 
     @list = new App.Views.ConferenceList
-      conferences: @conferences
+      conferences: @filteredConferences
 
     @calendar = new App.Views.ConferenceCalendar
-      conferences: @conferences
+      conferences: @filteredConferences
 
     @map = new App.Views.ConferenceMap
-      conferences: @conferences
+      conferences: @filteredConferences
 
-    @listenTo @calendar, 'change:dates', @fetchMoreConferences
+    @listenTo @calendar, 'change:dates', @filterByDates
 
   render: ->
     @$el.append @calendar.el
@@ -27,7 +29,6 @@ class App.Views.ConferenceBrowser extends Backbone.View
 
     this
 
-
-  fetchMoreConferences: (start, end) ->
-    console.log "Dates changed #{start?.format?()} #{end?.format?()}"
+  filterByDates: (start, end) =>
+    @filteredConferences.filterByDates(start, end)
 

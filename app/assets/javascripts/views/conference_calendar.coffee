@@ -2,7 +2,7 @@ class App.Views.ConferenceCalendar extends Backbone.View
   initialize: (options) ->
     _.extend this, options
 
-    @listenTo @conferences, 'sync', @eventsForCalendar
+    @listenTo @conferences, 'reset filter-complete', @eventsForCalendar
 
   render: ->
     @$el.fullCalendar
@@ -19,17 +19,16 @@ class App.Views.ConferenceCalendar extends Backbone.View
 
   eventSource: (start, end, timezone, callback) =>
     @calendarCallback = callback
-    @conferences.fetch()
+    @trigger 'change:dates', start, end
   
   eventsForCalendar: ->
     if @calendarCallback
       # get objects from collection and render
-      events = @conferences.map (conference) ->
-        conference.toEvent()
+      events = @conferences.invoke('toEvent')
       @calendarCallback events
 
   calendarRendered: (calendar_view) =>
-    @trigger 'change:dates', calendar_view.start, calendar_view.end
+    #@trigger 'change:dates', calendar_view.start, calendar_view.end
 
   insert_other_views: (list_el, map_el) ->
     calendar_el = @$('.fc-view-container').detach()
