@@ -6,11 +6,15 @@ class App.Views.ConferenceBrowser extends Backbone.View
       collection: @conferences
     )
 
+    @calendarConferences = new App.Collections.FilteredConferences(null,
+      collection: @conferences
+    )
+
     @list = new App.Views.ConferenceList
       conferences: @filteredConferences
 
     @calendar = new App.Views.ConferenceCalendar
-      conferences: @filteredConferences
+      conferences: @calendarConferences
 
     @map = new App.Views.ConferenceMap
       conferences: @filteredConferences
@@ -29,6 +33,7 @@ class App.Views.ConferenceBrowser extends Backbone.View
 
     this
 
-  filterByDates: (start, end) =>
-    @filteredConferences.filterByDates(start, end)
+  filterByDates: (start, end, intervalStart, intervalEnd) =>
+    @filteredConferences.filterByDates(intervalStart, intervalEnd)
+    @calendarConferences.filterByDates(start, end)
 

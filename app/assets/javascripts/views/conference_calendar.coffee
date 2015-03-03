@@ -17,9 +17,13 @@ class App.Views.ConferenceCalendar extends Backbone.View
 
     this
 
+  calendarView: ->
+    @cv ?= @$el.fullCalendar 'getView'
+
   eventSource: (start, end, timezone, callback) =>
     @calendarCallback = callback
-    @trigger 'change:dates', start, end
+    @trigger 'change:dates', start, end, \
+      @calendarView().intervalStart, @calendarView().intervalEnd
   
   eventsForCalendar: ->
     if @calendarCallback
