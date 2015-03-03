@@ -1,14 +1,14 @@
-<tr>
+<tr class="event-row">
   <td class="marker-col">
   <% if @index?: %>
-    <img src="<%= map_marker_for_index(@index) %>" class="map-marker">
+    <img src="<%= marker_path_for_index(@index) %>" class="map-marker">
   <% end %>
   </td>
   <td class="contents-col">
-    <a href="<%= @url %>"><%= @title %></a>
-    <div class="text-muted"><%= @city_state %>, <%= @date_range %></div>
+    <a href="<%= @url %>" class="event-name"><%= @title %></a>
+    <div class="text-muted event-dates"><%= @city_state %>, <%= @date_range %></div>
   </td>
   <td class="button-col">
-    <a href="<%= @url %>" class="btn btn-primary btn-xs"><i class="fa fa-map-marker icon-left"></i>Details</a>
+    <a href="<%= @url %>" class="btn btn-primary btn-sm"><i class="fa fa-map-marker icon-left"></i>Details</a>
   </td>
 </tr>

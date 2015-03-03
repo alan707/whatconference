@@ -1,4 +1,4 @@
-<% max_marker = 50 %>
+<% max_marker = 25 %>
 var map_markers = [
   "<%= image_path "markers/default.png" %>",
   <% (1..max_marker).each do |n| %>
@@ -6,10 +6,17 @@ var map_markers = [
   <% end %>
 ];
 
-function map_marker_for_index(n) {
+function marker_path_for_index(n) {
   if(n <= <%= max_marker %>) {
     return map_markers[n + 1];
   } else {
     return map_markers[0];
   }
+}
+
+function google_map_icon_for_index(n) {
+  return {
+    url: marker_path_for_index(n),
+    anchor: new google.maps.Point(0, 47)
+  };
 }
