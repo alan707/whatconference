@@ -61,6 +61,41 @@
           '</div>' +
         '</div>';
 	},
+
+	// Renders the HTML for a single-month background cell
+	monthCellHtml: function(cell) {
+		var view = this.view;
+		var date = cell.start;
+		var classes = this.getMonthClasses(date);
+
+		classes.unshift('fc-month', view.widgetContentClass);
+
+		return '<td class="' + classes.join(' ') + '"' +
+			' data-date="' + date.format('YYYY-MM-DD') + '"' + // if date has a time, won't format it
+			'></td>';
+	},
+
+	// Computes HTML classNames for a single-month cell
+	getMonthClasses: function(date) {
+		var view = this.view;
+		var today = view.calendar.getNow().stripTime();
+		var classes = [];
+
+		if (date.isSame(today, 'month')) {
+			classes.push(
+				'fc-today',
+				view.highlightStateClass
+			);
+		}
+		else if (date < today) {
+			classes.push('fc-past');
+		}
+		else {
+			classes.push('fc-future');
+		}
+
+		return classes;
+	},
     
 	/* Cell System
 	------------------------------------------------------------------------------------------------------------------*/
