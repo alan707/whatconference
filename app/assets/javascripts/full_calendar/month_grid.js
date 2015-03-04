@@ -43,21 +43,23 @@
 	// Generates the HTML for a single row. `row` is the row number.
 	monthRowHtml: function(row) {
       var view = this.view;
-      var classes = [ 'fc-row', view.widgetContentClass ];
+      var classes = [ 'fc-row', view.widgetContentClass ].join(' ');
 
       return '' +
-        '<div class="' + classes.join(' ') + '">' +
+        '<div class="' + classes + '">' +
+          '<table>' +
+            '<thead>' +
+              this.rowHtml('monthName', row) + // leverages RowRenderer. View will define render method
+            '</thead>' +
+          '</table>' +
+        '</div>' +
+        '<div class="' + classes + ' fc-month-row">' +
           '<div class="fc-bg">' +
             '<table>' +
               this.rowHtml('month', row) + // leverages RowRenderer. calls monthCellHtml()
             '</table>' +
           '</div>' +
           '<div class="fc-content-skeleton">' +
-            '<table>' +
-              '<thead>' +
-                this.rowHtml('monthName', row) + // leverages RowRenderer. View will define render method
-              '</thead>' +
-            '</table>' +
           '</div>' +
         '</div>';
 	},
@@ -96,6 +98,15 @@
 
 		return classes;
 	},
+    
+	// Generates the HTML for the <td>s of the "month name" row in the content skeleton.
+    monthNameCellHtml: function(cell) {
+		var date = cell.start;
+		return '' +
+			'<th class="fc-month-name" data-date="' + date.format() + '">' +
+				date.format(this.colHeadFormat) +
+			'</th>';
+    },
     
 	/* Cell System
 	------------------------------------------------------------------------------------------------------------------*/
@@ -215,5 +226,12 @@
 		}
 	},
 
+	/* Options
+	------------------------------------------------------------------------------------------------------------------*/
+
+	// Computes a default column header formatting string if `colFormat` is not explicitly defined
+	computeColHeadFormat: function() {
+      return 'MMMM'; // "January"
+	},
   });
 })();
