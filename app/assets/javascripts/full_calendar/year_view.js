@@ -10,10 +10,13 @@
 
     initialize: function() {
       this.monthGrid = new MonthGrid(this);
+      this.monthGrid.monthsPerRow
     },
 
     render: function() {
       this.el.html(this.renderHtml());
+      this.monthGrid.setElement(this.el.find('.fc-month-grid'));
+      this.monthGrid.renderDates();
     },
 
 	// Builds the HTML skeleton for the view.
@@ -31,6 +34,12 @@
 					'</tr>' +
 				'</tbody>' +
 			'</table>';
+	},
+
+	// Sets the display range and computes all necessary dates
+	setRange: function(range) {
+		View.prototype.setRange.call(this, range); // call the super-method
+		this.monthGrid.setRange(range);
 	},
     
 
