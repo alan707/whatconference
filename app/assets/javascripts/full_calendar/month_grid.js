@@ -44,6 +44,9 @@
       }
     },
 
+	destroyDates: function() {
+    },
+
 	// Generates the HTML for a single row. `row` is the row number.
 	monthRowHtml: function(row) {
       var view = this.view;
