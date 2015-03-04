@@ -22,11 +22,11 @@
 //= require underscore
 //= require backbone
 //= require moment
-//= require fullcalendar
 //= require gmaps
 //= require flat-ui
 //= require bootstrap-daterangepicker
 //= require backbone-filtered-collection
 //
+//= require fullcalendar
 //= require namespace
 //= require_tree .

@@ -12,6 +12,7 @@ class App.Views.ConferenceCalendar extends Backbone.View
         right: 'year,month'
       defaultView: 'year'
       events: @eventSource
+      eventLimit: true
       viewRender: @calendarRendered
       contentHeight: 500
       eventLimit: true # Show more... instead of growing calendar
