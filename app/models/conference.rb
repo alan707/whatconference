@@ -24,7 +24,7 @@ class Conference < ActiveRecord::Base
   date_range_accessor :date_range, :start_date, :end_date
 
   # Elasticsearch
-  searchkick
+  searchkick word_start: [:title]
 
   protected
 

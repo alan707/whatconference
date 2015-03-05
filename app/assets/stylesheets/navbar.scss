@@ -46,6 +46,17 @@
 }
 
 .navbar-form {
+  .twitter-typeahead {
+    width: calc(100% - 50px);
+  }
+  .form-control.wide {
+    width: 100%;
+  }
+  // Annoying cascade is preventing the border radius
+  #conference-search {
+    border-radius: 5px;
+  }
+
   .input-group {
     @media (min-width: $screen-lg-min) {
       width: 600px;
@@ -56,6 +67,48 @@
   }
   .input-group-btn {
     text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    z-index: 4;
+    .btn {
+      vertical-align: bottom;
+    }
+  }
+
+  .tt-suggestions {
+    text-align: left;
+  }
+
+
+  .tt-suggestion {
+    font-size: 14px;
+    line-height: 18px;
+
+    .conference-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .conference-date {
+      margin: 0;
+    }
+
+    .conference-location {
+      margin: 0;
+      float: right;
+      font-style: italic;
+    }
+
+    .new-conference {
+      margin: 0;
+      font-style: italic;
+    }
+
+    .new-conference-title {
+      font-style: normal;
+      font-weight: bold;
+    }
   }
 }
 

@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resource :dashboard, :only => %w(show), :controller => 'dashboard'
 
   resources :conferences do
+    get "autocomplete", on: :collection, :defaults => { :format => 'json' }
     member do
-      put "like",    to: "conferences#upvote"
+      put "like", to: "conferences#upvote"
     end
     resources :comments
   end

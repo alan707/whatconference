@@ -11,6 +11,12 @@ class ConferencesController < ApplicationController
     filter_by_date params[:start], params[:end]
   end
 
+  # GET /conferences/autocomplete?query=name
+  def autocomplete
+    # Search and boost matches in title
+    @conferences = Conference.search(params[:query], fields: [{"title^4" => :word_start}], limit: 10)
+  end
+
   # GET /conferences/1
   def show
   end
