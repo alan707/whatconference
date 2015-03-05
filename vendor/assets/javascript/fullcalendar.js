@@ -1,7 +1,7 @@
 /*!
- * <%= meta.title %> v<%= meta.version %>
- * Docs & License: <%= meta.homepage %>
- * (c) <%= meta.copyright %>
+ * FullCalendar v2.3.0
+ * Docs & License: http://fullcalendar.io/
+ * (c) 2015 Adam Shaw
  */
 
 (function(factory) {
@@ -18,7 +18,7 @@
 
 ;;
 
-var fc = $.fullCalendar = { version: "<%= meta.version %>" };
+var fc = $.fullCalendar = { version: "2.3.0" };
 var fcViews = fc.views = {};
 
 
@@ -10371,12 +10371,36 @@ fcViews.basicDay = {
 	duration: { days: 1 }
 };
 ;;
-MonthGrid = DayGrid.extend({
+var MonthGrid = DayGrid.extend({
 
 	constructor: function() {
 		Grid.apply(this, arguments);
 
 		this.cellDuration = moment.duration(1, 'month'); // for Grid system
+	},
+
+	/* Dates
+	------------------------------------------------------------------------------------------------------------------*/
+
+
+	// Tells the grid about what period of time to display. Grid will subsequently compute dates for cell system.
+	setRange: function(range) {
+		var view = this.view;
+		this.eventDateSameMonthFormat =
+			view.opt('eventDateSameMonthFormat') ||
+			'D';
+		this.eventDateDifferentMonthFormat =
+			view.opt('eventDateDifferentMonthFormat') ||
+			'MMM D';
+		this.eventDateDifferentYearFormat =
+			view.opt('eventDateDifferentYearFormat') ||
+			'MMM D, YYYY';
+		DayGrid.prototype.setRange.apply(this, arguments); // calls the super-method
+	},
+
+	// Computes a default `displayEventEnd` value if one is not expliclty defined
+	computeDisplayEventEnd: function() {
+		return true;
 	},
 
 	// Generates the HTML for a single row. `row` is the row number.
@@ -10468,7 +10492,6 @@ MonthGrid = DayGrid.extend({
 
 	// Populates cellDates and dayToCellOffsets
 	updateCellDates: function() {
-		var view = this.view;
 		var date = this.start.clone();
 		var dates = [];
 		var offset = -1;
@@ -10579,12 +10602,45 @@ MonthGrid = DayGrid.extend({
 		return segs;
 	},
 
+	// Compute the text that should be displayed on an event's element.
+	getEventTimeText: function(range, formatStr, displayEnd) {
+
+		if (displayEnd == null) {
+			displayEnd = this.displayEventEnd;
+		}
+
+		if (displayEnd && range.end) {
+			if (formatStr == null) {
+				if(range.start.year() != range.end.year()) {
+					formatStr = this.eventDateDifferentYearFormat;
+				}
+				else if(range.start.month() != range.end.month()) {
+					formatStr = this.eventDateDifferentMonthFormat;
+				}
+				else {
+					formatStr = this.eventDateSameMonthFormat;
+				}
+			}
+
+			return this.view.formatRange(range, formatStr);
+		}
+		else {
+			if (formatStr == null) {
+				formatStr = this.eventDateSameMonthFormat;
+			}
+
+			return range.start.format(formatStr);
+		}
+
+		return '';
+	}
+
 });
 
 
 
 ;;
-YearView = fcViews.year = BasicView.extend({ // make a subclass of View
+var YearView = fcViews.year = BasicView.extend({ // make a subclass of View
 
 	initialize: function() {
 		this.dayGrid = new MonthGrid(this);
@@ -10621,9 +10677,7 @@ YearView = fcViews.year = BasicView.extend({ // make a subclass of View
 					'</tr>' +
 				'</tbody>' +
 			'</table>';
-	},
-
-
+	}
 });
 
 

@@ -51,7 +51,6 @@ gem "rails_admin_become_user"
 # Javascript packages managed by Bower
 gem 'rails-assets-underscore'
 gem 'rails-assets-backbone'
-gem 'rails-assets-fullcalendar'
 gem 'rails-assets-moment'
 gem 'rails-assets-gmaps'
 gem 'rails-assets-flat-ui'

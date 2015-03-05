@@ -241,9 +241,6 @@ GEM
       rails-assets-moment (~> 2.9.0)
     rails-assets-flat-ui (2.2.2)
       rails-assets-videojs (~> 4.7.2)
-    rails-assets-fullcalendar (2.3.0)
-      rails-assets-jquery (>= 1.7.1)
-      rails-assets-moment (>= 2.5.0)
     rails-assets-gmaps (0.4.17)
     rails-assets-jquery (2.1.3)
     rails-assets-moment (2.9.0)
@@ -383,7 +380,6 @@ DEPENDENCIES
   rails-assets-backbone
   rails-assets-bootstrap-daterangepicker (~> 1.3.17)
   rails-assets-flat-ui
-  rails-assets-fullcalendar
   rails-assets-gmaps
   rails-assets-moment
   rails-assets-underscore
