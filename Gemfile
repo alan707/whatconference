@@ -48,6 +48,9 @@ gem 'eco'
 gem 'rails_admin'
 gem "rails_admin_become_user"
 
+# Elasticsearch
+gem 'searchkick'
+
 # Javascript packages managed by Bower
 gem 'rails-assets-underscore'
 gem 'rails-assets-backbone'

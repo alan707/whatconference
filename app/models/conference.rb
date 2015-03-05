@@ -1,5 +1,5 @@
 class Conference < ActiveRecord::Base
-  validates_presence_of :title, :url
+  validates_presence_of :title
   after_validation :smart_add_url_protocol
   acts_as_votable
   belongs_to :user
@@ -22,6 +22,9 @@ class Conference < ActiveRecord::Base
 
   extend DateRangeAccessor
   date_range_accessor :date_range, :start_date, :end_date
+
+  # Elasticsearch
+  searchkick
 
   protected
 

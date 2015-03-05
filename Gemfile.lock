@@ -89,6 +89,14 @@ GEM
       eco-source
       execjs
     eco-source (1.1.0.rc.1)
+    elasticsearch (1.0.6)
+      elasticsearch-api (= 1.0.6)
+      elasticsearch-transport (= 1.0.6)
+    elasticsearch-api (1.0.6)
+      multi_json
+    elasticsearch-transport (1.0.6)
+      faraday
+      multi_json
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -301,6 +309,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchkick (0.8.5)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     shellany (0.0.1)
     simple_form (3.1.0)
       actionpack (~> 4.0)
@@ -389,6 +401,7 @@ DEPENDENCIES
   rb-fsevent
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  searchkick
   simple_form
   spring
   time_will_tell
