@@ -13,12 +13,14 @@
   <%= render :partial => "like_conference", :locals => { :conference => conference } %>
 </div>
 
-<% if conference.user == current_user -%>
-  <div class="btn-group">
+<div class="btn-group">
+  <% if policy(conference).edit? -%>
     <%= link_to 'Edit', edit_conference_path(conference), class: "btn btn-default" %>
+  <% end %>
+  <% if policy(conference).destroy? -%>
     <%= link_to 'Remove', conference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <section class="comments-section">
   <h3><%= pluralize(conference.comments.count, "Comment") %></h3>

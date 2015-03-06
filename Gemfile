@@ -48,6 +48,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-twitter'
 
+# Authorization
+gem 'pundit'
+
 # Add Like buttons to a model
 gem 'acts_as_votable', '~> 0.10.0'
 

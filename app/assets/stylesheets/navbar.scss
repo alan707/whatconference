@@ -9,11 +9,16 @@
   .navbar-brand {
     padding-top: 19px;
   }
-  .navbar-nav > li > a,
-  .navbar-brand {
+  .navbar-nav > li > a {
     color: #FFF;
     &:hover, &:focus {
       color: $text-color;
+    }
+  }
+  .navbar-brand {
+    color: $text-color;
+    &:hover, &:focus {
+      color: #FFF;
     }
   }
 

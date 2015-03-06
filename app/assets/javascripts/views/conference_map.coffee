@@ -49,7 +49,7 @@ class App.Views.ConferenceMap extends Backbone.View
     lng: conference.get('longitude'),
     title: conference.get('title'),
     animation: 'DROP',
-    icon: google_map_icon_for_index(index)
+    icon: googleMapIconForIndex(index)
     infoWindow:
       content: @infoWindowTemplate(conference.attributes)
 

@@ -1,7 +1,7 @@
 class ConferencesController < ApplicationController
   before_action :set_conference, only: [:show, :edit, :update, :destroy, :upvote]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :authorized_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :upvote]
+  before_action :authorize_conference
 
   exposes :conferences, :conference
 
@@ -29,6 +29,7 @@ class ConferencesController < ApplicationController
   def new
     @conference = current_user.conferences.build
     @conference.start_date = 1.day.from_now.to_date
+    @conference.title = params[:title]
   end
 
   # GET /conferences/1/edit
@@ -90,9 +91,8 @@ class ConferencesController < ApplicationController
     @conference = Conference.friendly.find(params[:id])
   end
 
-  def authorized_user
-    @conference = current_user.conferences.find_by(id: @conference.id)
-    redirect_to conferences_path, notice: "Not authorized to edit this conference" if @conference.nil?
+  def authorize_conference
+    authorize (@conference || @conferences || Conference)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,24 @@
+<% num_markers = 25 %>
+mapMarkers = [
+  "<%= image_path "markers/default.png" %>"
+  <% (1..num_markers).each do |n| %>
+    "<%= image_path "markers/#{n}.png" %>"
+  <% end %>
+]
+
+markerPathForIndex = (n) ->
+  if(n < <%= num_markers %>)
+    mapMarkers[n + 1]
+  else
+    map_markers[0]
+
+googleMapIconForIndex = (n) ->
+  url: markerPathForIndex(n)
+  anchor: new google.maps.Point(0, 35)
+
+# Exports
+_.extend window, {
+  markerPathForIndex,
+  googleMapIconForIndex
+}
+

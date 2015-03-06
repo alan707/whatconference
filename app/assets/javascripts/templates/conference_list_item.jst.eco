@@ -1,7 +1,7 @@
 <tr class="event-row">
   <td class="marker-col">
   <% if @index?: %>
-    <img src="<%= marker_path_for_index(@index) %>" class="map-marker">
+    <img src="<%= markerPathForIndex(@index) %>" class="map-marker">
   <% end %>
   </td>
   <td class="contents-col">
