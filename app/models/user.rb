@@ -8,8 +8,14 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:twitter, :facebook, :linkedin, :google_oauth2,
                                  *(:developer if Rails.env.development?)]
 
-  has_many :conferences
+  has_many :conferences, :as => :created_conferences
   has_many :omniauth_accounts, :dependent => :destroy
+
+  acts_as_voter
+
+  def conferences
+    votes.up.by_type(Conference)
+  end
 
   def self.from_omniauth(auth, current_user)
     account = OmniauthAccount.from_omniauth(auth)

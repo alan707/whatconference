@@ -2,6 +2,6 @@ class DashboardController < ApplicationController
   exposes :conferences
 
   def show
-    @conferences = Conference.all.order_by_date
+    @conferences = Conference.none
   end
 end

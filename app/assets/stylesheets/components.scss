@@ -31,3 +31,10 @@
     max-width: 128px;
   }
 }
+
+// Buttons
+.btn-toolbar-wide {
+  & > .btn:not(:first-child) {
+    margin-left: 10px;
+  }
+}

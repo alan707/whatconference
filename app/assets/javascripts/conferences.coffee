@@ -34,4 +34,10 @@ $ ->
     city_state = [address.city || '', address.state || address.country || ''].join(", ")
     $("#conference_city_state").val city_state
 
+  $('#comment_body').on 'keypress', (event) ->
+    enterKey = 13
+    if event.which == enterKey && event.shiftKey && !event.metaKey && !event.ctrlKey && !event.altKey
+      $(this).closest('form').submit()
+      event.preventDefault()
+    null
 

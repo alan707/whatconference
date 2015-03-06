@@ -1,8 +1,9 @@
 class Conference < ActiveRecord::Base
   validates_presence_of :title
   after_validation :smart_add_url_protocol
-  acts_as_votable
-  belongs_to :user
+
+  # Associations
+  belongs_to :user, :as => :creation_user
   has_many :comments
 
   validates_date :start_date
