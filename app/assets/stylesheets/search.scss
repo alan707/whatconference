@@ -55,6 +55,9 @@
   }
   .twitter-typeahead {
     width: calc(100% - 90px);
+    .form-control {
+      width: 100%;
+    }
   }
   .conference-search {
     border-radius: 37px 0 0 37px !important;
