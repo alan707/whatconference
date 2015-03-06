@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306141720) do
+ActiveRecord::Schema.define(version: 20150306172451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20150306141720) do
   create_table "conferences", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "creation_user_id"
     t.string   "location"
     t.date     "start_date"
     t.date     "end_date"
@@ -42,11 +42,21 @@ ActiveRecord::Schema.define(version: 20150306141720) do
     t.string   "city_state"
   end
 
+  add_index "conferences", ["creation_user_id"], name: "index_conferences_on_creation_user_id", using: :btree
   add_index "conferences", ["end_date"], name: "index_conferences_on_end_date", using: :btree
   add_index "conferences", ["location"], name: "index_conferences_on_location", using: :btree
   add_index "conferences", ["slug"], name: "index_conferences_on_slug", using: :btree
   add_index "conferences", ["start_date"], name: "index_conferences_on_start_date", using: :btree
-  add_index "conferences", ["user_id"], name: "index_conferences_on_user_id", using: :btree
+
+  create_table "followings", force: :cascade do |t|
+    t.integer  "conference_id", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "followings", ["conference_id"], name: "index_followings_on_conference_id", unique: true, using: :btree
+  add_index "followings", ["user_id"], name: "index_followings_on_user_id", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

@@ -3,7 +3,9 @@ class Conference < ActiveRecord::Base
   after_validation :smart_add_url_protocol
 
   # Associations
-  belongs_to :user, :as => :creation_user
+  belongs_to :creation_user, :class => User
+  has_many :followings
+  has_many :followers, :through => :followings, :class => 'User'
   has_many :comments
 
   validates_date :start_date
@@ -29,6 +31,25 @@ class Conference < ActiveRecord::Base
 
   # Version history
   has_paper_trail
+
+  # Prevent N queries to load the count of followers
+  attr_accessor :followers_count
+  def self.eager_load_followers_count(conferences)
+    conference_ids = conferences.map(&:id)
+    followers_count = Followers.where(:conference_id => conference_ids).group(:conference_id).count
+    conferences.each do |conference|
+      conference.followers_count = followers_count[conference.id]
+    end
+  end
+
+  def follow(user)
+    follower = followers.where(:user => user)
+    if follower
+      follower.destroy
+    else
+      create_follower(:user => user)
+    end
+  end
 
   protected
 

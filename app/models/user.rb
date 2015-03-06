@@ -2,21 +2,18 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # Devise user authentication
   devise :rememberable, :trackable, :omniauthable,
          :omniauth_providers => [:twitter, :facebook, :linkedin, :google_oauth2,
                                  *(:developer if Rails.env.development?)]
 
-  has_many :conferences, :as => :created_conferences
+  # Associations
+  has_many :created_conferences, :class => Conference, :foreign_key => 'creation_user_id'
   has_many :omniauth_accounts, :dependent => :destroy
+  has_many :followings
+  has_many :conferences, :through => :followings
 
-  acts_as_voter
-
-  def conferences
-    votes.up.by_type(Conference)
-  end
-
+  # Omniauth
   def self.from_omniauth(auth, current_user)
     account = OmniauthAccount.from_omniauth(auth)
 

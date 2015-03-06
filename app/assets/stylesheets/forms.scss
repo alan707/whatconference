@@ -33,6 +33,8 @@
 .input-group-xl.input-group-rounded .input-group-btn + .form-control,
 .input-group-xl.input-group-rounded .input-group-btn:last-child .btn,
 .input-group-xl.input-group-rounded .input-group-btn + .select2-search input[type="text"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   border-bottom-right-radius: 37px;
   border-top-right-radius: 37px;
 }

@@ -2,6 +2,6 @@ class DashboardController < ApplicationController
   exposes :conferences
 
   def show
-    @conferences = Conference.none
+    @conferences = current_user.andand.conferences
   end
 end

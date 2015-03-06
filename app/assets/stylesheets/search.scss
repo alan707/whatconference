@@ -1,0 +1,68 @@
+.search-form {
+  .twitter-typeahead {
+    width: calc(100% - 50px);
+  }
+
+  .input-group-btn {
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    z-index: 4;
+    .btn {
+      vertical-align: bottom;
+    }
+  }
+
+  .tt-suggestions {
+    text-align: left;
+  }
+
+  .twitter-typeahead .tt-suggestion {
+    .conference-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .conference-location {
+      float: right;
+      font-style: italic;
+    }
+
+    .new-conference {
+      font-style: italic;
+    }
+
+    .new-conference-title {
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+}
+
+.search-form.search-form-xl {
+  .input-group {
+    width: 100%;
+  }
+  .twitter-typeahead {
+    width: calc(100% - 90px);
+  }
+  .conference-search {
+    border-radius: 37px 0 0 37px !important;
+    height: 73px;
+    padding: 10px 16px 10px 31px;
+    font-size: 32px;
+    line-height: 1.318;
+    border-radius: 6px;
+  }
+
+  .twitter-typeahead .tt-suggestion {
+    p {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .conference-title {
+      font-size: 30px;
+    }
+  }
+}

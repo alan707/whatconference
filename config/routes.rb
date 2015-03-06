@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :conferences do
     get "autocomplete", on: :collection, :defaults => { :format => 'json' }
     member do
-      put "like", to: "conferences#upvote"
+      post "follow"
     end
     resources :comments
   end

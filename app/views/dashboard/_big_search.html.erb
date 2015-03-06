@@ -1,12 +1,16 @@
+<% content_for :hide_nav_search, true %>
+
 <h1 class="headline">What Conference?</h1>
 
-<div class="form-group">
-  <div class="input-group input-group-xl input-group-rounded">
-    <input type="text" class="form-control" placeholder="What conference do you want to keep on your radar?">
-    <span class="input-group-btn">
-      <button type="submit" class="btn"><span class="fui-search"></span></button>
-    </span>
+<form class="search-form search-form-xl" action="<%= conferences_path %>" role="search">
+  <div class="form-group">
+    <div class="input-group input-group-xl input-group-rounded">
+      <input type="text" class="form-control conference-search search-input-xl" name="query" placeholder="What conference do you want to keep on your radar?">
+      <span class="input-group-btn">
+        <button type="submit" class="btn"><span class="fui-search"></span></button>
+      </span>
+    </div>
   </div>
-</div>
+</form>
 
 <h4>Whether you want to attend a conference or simply keep track of it, search above and select "Keep it on my radar!" on the results page for that conference to show up on this page.</h4>

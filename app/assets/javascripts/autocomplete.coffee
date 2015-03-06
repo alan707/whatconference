@@ -35,7 +35,7 @@ conferencesSource = new ConferencesAutocompleteSource
 typeaheadOptions = null
 $ ->
   # Search in navbar
-  $input = $('#conference-search')
+  $input = $('.conference-search')
   $input.typeahead typeaheadOptions,
     name: 'conferences'
     displayKey: 'title'
