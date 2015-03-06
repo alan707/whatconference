@@ -41,3 +41,5 @@ $ ->
       event.preventDefault()
     null
 
+  $('.btn-radar').each ->
+    $(this).css('width', $(this).outerWidth())
