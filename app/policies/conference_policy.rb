@@ -21,6 +21,6 @@ class ConferencePolicy < ApplicationPolicy
 
   def destroy?
     # Same user who created a conference can destroy it
-    user.id == record.creation_user_id
+    user.andand.id == record.creation_user_id
   end
 end
