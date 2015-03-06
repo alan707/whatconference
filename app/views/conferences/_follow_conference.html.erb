@@ -1,0 +1,6 @@
+<%= link_to follow_conference_path(conference), method: :post, class: "btn btn-danger btn-lg" do %>
+  <i class="what-radar icon-left"></i>
+  Keep it on my radar!
+  <%= conference.follower_count %>
+<% end %>
+

@@ -1,0 +1,48 @@
+@font-face {
+	font-family: 'whatconference';
+	src:asset-url('whatconference.eot?ideyg7');
+	src:asset-url('whatconference.eot?#iefixideyg7') format('embedded-opentype'),
+		asset-url('whatconference.woff?ideyg7') format('woff'),
+		asset-url('whatconference.ttf?ideyg7') format('truetype'),
+		asset-url('whatconference.svg?ideyg7#whatconference') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="what-"], [class*=" what-"] {
+	font-family: 'whatconference';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.what-logo-transparent:before {
+	content: "\e601";
+}
+
+.what-logo .path1:before {
+	content: "\e602";
+	color: rgb(51, 51, 51);
+}
+.what-logo .path2:before {
+	content: "\e603";
+	margin-left: -0.78125em;
+	color: rgb(255, 255, 255);
+}
+.what-logo .path3:before {
+	content: "\e604";
+	margin-left: -0.78125em;
+	color: rgb(255, 255, 255);
+}
+
+.what-radar:before {
+	content: "\e600";
+}
+

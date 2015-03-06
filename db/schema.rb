@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20150306172451) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "followings", ["conference_id"], name: "index_followings_on_conference_id", unique: true, using: :btree
-  add_index "followings", ["user_id"], name: "index_followings_on_user_id", unique: true, using: :btree
+  add_index "followings", ["conference_id"], name: "index_followings_on_conference_id", using: :btree
+  add_index "followings", ["user_id"], name: "index_followings_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

@@ -15,12 +15,12 @@ class ConferencePolicy < ApplicationPolicy
     true
   end
 
-  def upvote?
+  def follow?
     true
   end
 
   def destroy?
     # Same user who created a conference can destroy it
-    user.id == record.user_id
+    user.id == record.creation_user_id
   end
 end

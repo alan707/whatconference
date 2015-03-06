@@ -16,10 +16,10 @@ Rails.application.routes.draw do
     member do
       post "follow"
     end
-    resources :comments
+    resources :comments, :only => %w(create)
   end
 
-  resources :comments
+  resources :comments, :only => %w(update destroy)
 
   resource 'account', :only => %w(show update), :controller => 'account'
 

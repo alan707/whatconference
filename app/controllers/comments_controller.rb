@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:update, :destroy]
   before_filter :authenticate_user!
 
   exposes :conference, :comment
 
+  # POST /conference/blah/comments
   def create
     @conference = Conference.friendly.find(params[:conference_id])
     @comment = @conference.comments.new(comment_params)
@@ -16,6 +17,19 @@ class CommentsController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /comments/1
+  def update
+    @conference = @comment.conference
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @conference, notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @conference }
+      else
+        redirect_to :back, notice: 'Comment cannot be updated'
       end
     end
   end
@@ -37,6 +51,6 @@ class CommentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def comment_params
-    params.require(:comment).permit(:conference_id, :body, :user_id)
+    params.require(:comment).permit(:body)
   end
 end

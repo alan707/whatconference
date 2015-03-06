@@ -55,4 +55,11 @@ class User < ActiveRecord::Base
   def remaining_providers
     self.class.omniauth_providers.map(&:to_s) - omniauth_accounts.map(&:provider)
   end
+
+  # A user that was deleted
+  def self.deleted
+    new :name => "(deleted)",
+      :username => "(deleted)"
+
+  end
 end

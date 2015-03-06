@@ -1,6 +1,6 @@
 class ConferencesController < ApplicationController
-  before_action :set_conference, only: [:show, :edit, :update, :destroy, :upvote]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :upvote]
+  before_action :set_conference, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :follow]
   before_action :authorize_conference
 
   exposes :conferences, :conference

@@ -4,8 +4,8 @@ class Conference < ActiveRecord::Base
 
   # Associations
   belongs_to :creation_user, :class => User
-  has_many :followings
-  has_many :followers, :through => :followings, :class => 'User'
+  has_many :followings, :dependent => :destroy
+  has_many :followers, :through => :followings, :source => :user
   has_many :comments
 
   validates_date :start_date
@@ -32,23 +32,34 @@ class Conference < ActiveRecord::Base
   # Version history
   has_paper_trail
 
-  # Prevent N queries to load the count of followers
-  attr_accessor :followers_count
+  attr_writer :followers_count
+  def follower_count
+    @follower_count ||= followers.count
+  end
+
+  # Prevent N queries to load the count of followers on a collection
   def self.eager_load_followers_count(conferences)
     conference_ids = conferences.map(&:id)
-    followers_count = Followers.where(:conference_id => conference_ids).group(:conference_id).count
+    followers_count = Following.where(:conference_id => conference_ids).group(:conference_id).count
     conferences.each do |conference|
       conference.followers_count = followers_count[conference.id]
     end
   end
 
+  # Add or remove a follower
   def follow(user)
-    follower = followers.where(:user => user)
-    if follower
-      follower.destroy
+    raise ArgumentError, "Must provide a user" if user.nil?
+
+    follower = followers.find_by_id(user.id)
+    if follower.nil?
+      followers << user
     else
-      create_follower(:user => user)
+      followers.delete user
     end
+  end
+
+  def creation_user
+    super || User.deleted
   end
 
   protected

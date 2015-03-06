@@ -116,8 +116,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
 
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+
+  # Display more stack trace info,
+  # include instance variable inspection
+  gem "better_errors"
+  gem "binding_of_caller"
 
   # Suppress the flood of Started GET "/assets/application.js" log messages
   gem 'quiet_assets'
