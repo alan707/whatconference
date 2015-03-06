@@ -1,6 +1,9 @@
 .search-form {
   .twitter-typeahead {
     width: calc(100% - 50px);
+    .form-control {
+      width: 100%;
+    }
   }
 
   .input-group-btn {
@@ -15,6 +18,10 @@
 
   .tt-suggestions {
     text-align: left;
+  }
+
+  .tt-hint {
+    color: grey;
   }
 
   .twitter-typeahead .tt-suggestion {
@@ -42,6 +49,9 @@
 .search-form.search-form-xl {
   .input-group {
     width: 100%;
+  }
+  .form-control {
+    width: calc(100% - 95px);
   }
   .twitter-typeahead {
     width: calc(100% - 90px);

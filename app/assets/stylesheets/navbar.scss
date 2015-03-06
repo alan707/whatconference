@@ -52,7 +52,7 @@
 
 .navbar-form {
   .form-control.wide {
-    width: 100%;
+    width: calc(100% - 35px);
     // Annoying cascade is preventing the border radius
     border-radius: 5px !important;
   }
