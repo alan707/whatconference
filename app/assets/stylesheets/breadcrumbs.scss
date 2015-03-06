@@ -1,6 +1,8 @@
 @import "variables";
 
 .breadcrumb {
+  margin: 20px 0;
+  text-align: center;
   background-color: transparent;
   font-size: 24px;
   & > .active {
