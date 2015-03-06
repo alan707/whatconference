@@ -23,7 +23,6 @@
 //= require backbone
 //= require moment
 //= require gmaps
-//= require flat-ui
 //= require bootstrap-daterangepicker
 //= require backbone-filtered-collection
 //= require typeahead.js

@@ -15,6 +15,16 @@
       color: $text-color;
     }
   }
+  .navbar-nav > .dropdown > a {
+    .caret {
+      border-top-color: #FFF;
+      border-bottom-color: #FFF;
+    }
+    &:hover .caret, &:focus .caret {
+      border-top-color: $text-color;
+      border-bottom-color: $text-color;
+    }
+  }
   .navbar-brand {
     color: $text-color;
     &:hover, &:focus {
@@ -67,3 +77,20 @@
   }
 }
 
+.radar-link {
+  .nohover {
+    display: inline;
+  }
+  .hover {
+    display: none;
+  }
+  &:hover, &:focus {
+    .nohover {
+      display: none;
+    }
+    .hover {
+      display: inline;
+    }
+  }
+
+}
