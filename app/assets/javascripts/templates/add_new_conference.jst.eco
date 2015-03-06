@@ -1,0 +1,1 @@
+<p class="new-conference"><i class="fa fa-plus icon-left"></i> Add a new conference <span class="new-conference-title"><%= @query %></span></p>

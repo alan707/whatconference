@@ -26,6 +26,9 @@ class Conference < ActiveRecord::Base
   # Elasticsearch
   searchkick word_start: [:title]
 
+  # Version history
+  has_paper_trail
+
   protected
 
   def smart_add_url_protocol

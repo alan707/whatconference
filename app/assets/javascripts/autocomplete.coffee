@@ -31,4 +31,8 @@ $ ->
     displayKey: 'title'
     source: conferencesTTAdapter
     templates:
-      suggestion: JST['templates/autocomplete']
+      suggestion: (suggestion) ->
+        if suggestion.noMatch
+          JST['templates/noMatch'](suggestion)
+        else
+          JST['templates/autocomplete'](suggestion)
