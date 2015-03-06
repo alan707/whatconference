@@ -38,6 +38,9 @@
   min-width: 210px;
   color: white;
   background-color: #e74c3c;
+  &.wide {
+    min-width: 280px;
+  }
   .btn-text {
     font-size: 20px;
   }

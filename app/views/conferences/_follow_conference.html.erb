@@ -1,12 +1,14 @@
-<%= link_to follow_conference_path(conference), method: :post, class: "btn btn-danger btn-lg btn-radar", :data => { :disable_with => radar_sweep_icon } do %>
+<%= link_to follow_conference_path(conference), method: :post, class: "btn btn-danger btn-lg btn-radar wide", :data => { :disable_with => radar_sweep_icon } do %>
   <span class="fa-stack icon-left"><i class="what-antenna fa-stack-2x"></i></span>
   <span class="btn-text">
-    <% if current_user.conferences.include? conference %>
+    <% if user_signed_in? && current_user.conferences.include?(conference) %>
       On my radar
     <% else %>
       Keep it on my radar!
     <% end %>
-    <%= conference.follower_count %>
+    <%= content_tag :span, tooltip_popup("People who have this conference on their radar") do %>
+      <%= conference.follower_count %>
+    <% end %>
   </span>
 <% end %>
 
