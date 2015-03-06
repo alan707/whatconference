@@ -1,4 +1,11 @@
-<h1 class="headline">What Conference?</h1>
+<ol class="breadcrumb">
+  <% if params[:query].present? %>
+    <li><%= link_to "All Conferences", conferences_path %></li>
+    <li class="active">Search for "<%= params[:query] %>"</li>
+  <% else %>
+    <li class="active">All Conferences</li>
+  <% end %>
+</ol>
 
 <%= paginate conferences %>
 

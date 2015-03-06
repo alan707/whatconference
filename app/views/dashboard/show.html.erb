@@ -1,3 +1,9 @@
+
+<ol class="breadcrumb">
+  <li class="active"><%= antenna_icon %> My Conference Radar</li>
+</ol>
+
+
 <% if user_signed_in? && !conferences.andand.empty? -%>
   <%= render "my_conferences", :locals => { :conferences => conferences } %>
 <% else %>
