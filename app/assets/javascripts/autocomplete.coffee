@@ -11,22 +11,25 @@ class ConferencesAutocompleteSource
 
   noDirectMatch: (matches, query) ->
     if matches.length > 0
-      alreadyContainsNoMatch = _.find matches, (match) -> match.noMatch
-      if alreadyContainsNoMatch
-        false
-      else
-        matches[0].title.toLowerCase() != query.toLowerCase()
+      matches[0].title.toLowerCase() != query.toLowerCase()
     else
       true
 
   ttAdapter: (query, cb) =>
     @source.get query, (matches) =>
-      # Unless the query matches exactly, add a special line that says "Add a new ..."
-      if @noDirectMatch(matches, query)
-        matches.push(
-          noMatch: true
-          query: query
-        )
+      # Already contains noMatch?
+      noMatchIndex = _.findIndex matches, (match) -> match.noMatch
+      if noMatchIndex >= 0
+        # Make sure the noMatch is at the end
+        noMatch = matches.splice noMatchIndex, 1
+        matches.push noMatch[0] # splice returns an array
+      else
+        # Unless the query matches exactly, add a special line that says "Add a new ..."
+        if @noDirectMatch(matches, query)
+          matches.push(
+            noMatch: true
+            query: query
+          )
       cb(matches)
 
 conferencesSource = new ConferencesAutocompleteSource
