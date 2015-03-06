@@ -7,14 +7,18 @@ class ConferencesController < ApplicationController
 
   # GET /conferences
   def index
-    @conferences = Conference.all
-    filter_by_date params[:start], params[:end]
+    query = params[:query].andand.strip
+    query = '*' if query.blank?
+    search_conferences query, page: params[:page], per_page: 40
   end
 
   # GET /conferences/autocomplete?query=name
   def autocomplete
-    # Search and boost matches in title
-    @conferences = Conference.search(params[:query], fields: [{"title^4" => :word_start}], limit: 10)
+    if params[:prefetch]
+      search_conferences('*', limit: 1000)
+    else
+      search_conferences(params[:query], limit: 10)
+    end
   end
 
   # GET /conferences/1
@@ -74,6 +78,13 @@ class ConferencesController < ApplicationController
   end
 
   private
+
+  def search_conferences(query, options = {})
+    # Search and boost matches in title
+    options.reverse_merge fields: [{"title^4" => :word_start}]
+    @conferences = Conference.search(query, options)
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_conference
     @conference = Conference.friendly.find(params[:id])

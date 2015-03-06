@@ -1,30 +1,5 @@
 <h1 class="headline">What Conference?</h1>
 
-<div class="form-group">
-  <div class="input-group input-group-xl input-group-rounded">
-    <input type="text" class="form-control" placeholder="What conference do you want to attend?" id="search-query-2">
-    <span class="input-group-btn">
-      <button type="submit" class="btn"><span class="fui-search"></span></button>
-    </span>
-  </div>
-</div>
+<%= paginate conferences %>
 
-<%= render :partial => "header" %>
-<% conferences.each do |conference| %>
-  <div class="conference row clearfix">
-    <div class="col-md-10">
-    <h2>
-      <% if conference.user.blank? %>
-        <p>The user that submitted this conference has deleted their account</p>
-      <% else %>
-        <%= link_to conference.title, conference %><br>
-      <div class="btn-group pull-right conference-button-bar">
-        <a class="btn btn-default btn-sm" href="<%= conference.url %>"><span class="glyphicon glyphicon-globe icon-left"> Website</span></a>
-        <%= render :partial => "like_conference", :locals => { :conference => conference } %>
-      </div>
-        <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> by <%= conference.user.username %></small>
-      </h2>
-    <% end %>
-    </div>
-  </div>
-<% end %>
+<%= render conferences %>

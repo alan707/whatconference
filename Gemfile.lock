@@ -376,6 +376,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   js-routes
+  kaminari
   nenv
   omniauth-facebook
   omniauth-google-oauth2

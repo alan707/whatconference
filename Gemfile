@@ -83,6 +83,9 @@ gem 'time_will_tell'
 # Client-side Coffeescript templates
 gem 'eco'
 
+# Pagination
+gem 'kaminari'
+
 # Admin dashboard
 gem 'rails_admin'
 gem "rails_admin_become_user"

@@ -1,13 +1,19 @@
 # Autocomplete source
 conferencesSource = new Bloodhound(
-  remote: '/conferences/autocomplete?query=%QUERY'
+  prefetch:
+    url: Routes.autocomplete_conferences_path(prefetch: true)
+  remote: Routes.autocomplete_conferences_path(query: '%QUERY')
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title')
   queryTokenizer: Bloodhound.tokenizers.whitespace)
 conferencesSource.initialize()
 
 noDirectMatch = (matches, query) ->
   if matches.length > 0
-    matches[0].title.toLowerCase() != query.toLowerCase()
+    alreadyContainsNoMatch = _.find matches, (match) -> match.noMatch
+    if alreadyContainsNoMatch
+      false
+    else
+      matches[0].title.toLowerCase() != query.toLowerCase()
   else
     true
 
@@ -33,6 +39,6 @@ $ ->
     templates:
       suggestion: (suggestion) ->
         if suggestion.noMatch
-          JST['templates/noMatch'](suggestion)
+          JST['templates/add_new_conference'](suggestion)
         else
           JST['templates/autocomplete'](suggestion)
