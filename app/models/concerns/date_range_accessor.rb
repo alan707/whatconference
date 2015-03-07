@@ -19,6 +19,8 @@ module DateRangeAccessor
     end
 
     define_method "#{name}=" do |date_range|
+      return if date_range.blank?
+
       unless date_range.is_a? Range
         date_range = Range.new *date_range.split(separator).map { |str| Date.parse(str) }
       end

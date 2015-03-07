@@ -1,5 +1,8 @@
 # Track events in Google Analytics
 $ ->
+  # Track page load by Turbolinks
+  _gaq.push(['_trackPageview'])
+
   $('.omniauth-sign-in').on 'click', ->
     provider = $(this).data('provider')
     trackUserEvent 'Sign in', provider
@@ -35,5 +38,4 @@ trackUserEvent = ->
 
 trackConferenceEvent = ->
     _gaq.push ['_trackEvent', 'Conferences'].concat([].splice.call(arguments,0))
-
 

@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=#{Nenv.google_browser_api_key}" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= render "layouts/google_analytics" %>
     <%= render "layouts/favicons" %>
     <%= csrf_meta_tags %>
   </head>
@@ -64,7 +65,5 @@
 
       <%= yield %>
     </div>
-
-    <%= render "layouts/google_analytics" %>
   </body>
 </html>
