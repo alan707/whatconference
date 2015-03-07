@@ -9,7 +9,10 @@
     <% end %>
   </ul>
 
-  You can also link your account to sign in with:
-  <%= render :partial => "devise/sessions/omniauth_sign_in", :locals => { :omniauth_providers => user.remaining_providers } %>
+  <% unless user.remaining_providers.empty? %>
+    You can also link your account to sign in with:
+    <%= render :partial => "devise/sessions/omniauth_sign_in", :locals => { :omniauth_providers => user.remaining_providers } %>
+  <% end %>
 </div>
+
 

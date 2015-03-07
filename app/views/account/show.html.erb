@@ -1,4 +1,7 @@
-<h1>Account</h1>
+<% if current_user.cannot_login? %>
+  <%= render "devise/sessions/omniauth" %>
+<% else %>
+  <h1>Account</h1>
 
-<%= render 'omniauth_accounts', :locals => { :user => user } %>
-
+  <%= render 'omniauth_accounts', :locals => { :user => user } %>
+<% end %>

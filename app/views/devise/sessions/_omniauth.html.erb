@@ -1,0 +1,9 @@
+<div class="signin-container">
+<h2>Sign in with</h2>
+
+<%= render :partial => "devise/sessions/omniauth_sign_in", :locals => { :omniauth_providers => User.omniauth_providers } %>
+
+<h4 class="signin-hint">We don't like remembering tons of passwords either, so we let you sign in to What Conference using one of your existing accounts.</h4>
+<h4><strong>We don't post on your social network account.</h4>
+</div>
+
