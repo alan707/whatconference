@@ -2,6 +2,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token
   
   def sign_in_with(provider_name)
+    # FIXME: remove once Omniauth from all providers is well understood
+    puts "Omniauth info from #{provider_name}"
+    puts request.env["omniauth.auth"].inspect
     @user = User.from_omniauth(request.env["omniauth.auth"], current_user)
     sign_in_and_redirect @user, :event => :authentication
     if is_navigational_format?
