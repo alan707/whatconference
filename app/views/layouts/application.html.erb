@@ -65,6 +65,12 @@
         <% end %>
       </div>
 
+      <% if current_user.andand.cannot_login? %>
+        <div class="alert alert-warning">Thanks for trying out What Conference! Explore and use the site, but make sure to
+          <%= link_to "sign in before you leave", account_path %> otherwise you won't be able to access your profile next time you visit.
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>

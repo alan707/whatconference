@@ -56,6 +56,21 @@ class User < ActiveRecord::Base
     self.class.omniauth_providers.map(&:to_s) - omniauth_accounts.map(&:provider)
   end
 
+  # A new user to the site
+  def self.create_anonymous
+    user = User.new(
+      name: 'Anonymous',
+      username: 'anonymous'
+    )
+    user.save!
+    user
+  end
+
+  # If the current user doesn't have any OmniauthAccounts, they won't be able to login
+  def cannot_login?
+    omniauth_accounts.empty?
+  end
+
   # A user that was deleted
   def self.deleted
     new :name => "(deleted)",
