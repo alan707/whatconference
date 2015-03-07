@@ -6,8 +6,7 @@ module BootstrapHelper
   }
 
   def flash_alert_class(type)
-    type = type.to_s
-    ALERT_CSS_CLASSES[type]
+    ALERT_CSS_CLASSES[type.to_s]
   end
 
   # Use as the options of any *_tag helper like

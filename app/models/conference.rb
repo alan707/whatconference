@@ -1,5 +1,6 @@
 class Conference < ActiveRecord::Base
   validates_presence_of :title
+  validates_presence_of :date_range
   after_validation :smart_add_url_protocol
 
   # Associations

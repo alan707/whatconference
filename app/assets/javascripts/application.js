@@ -26,6 +26,7 @@
 //= require bootstrap-daterangepicker
 //= require backbone-filtered-collection
 //= require typeahead.js
+//= require growl
 //
 //= require fullcalendar
 //= require namespace

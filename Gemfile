@@ -100,6 +100,7 @@ gem 'rails-assets-typeahead.js'
 gem 'rails-assets-gmaps'
 gem 'rails-assets-flat-ui'
 gem 'rails-assets-bootstrap-daterangepicker', '~> 1.3.17'
+gem 'rails-assets-growl'
 
 gem 'backbone-filtered-collection'
 

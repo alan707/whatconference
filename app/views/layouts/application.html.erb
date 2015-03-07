@@ -59,9 +59,11 @@
     </nav>
 
     <div class="page-container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: flash_alert_class(name)) %>
-      <% end %>
+      <div class="flash">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: flash_alert_class(name), data: { flash: name } %>
+        <% end %>
+      </div>
 
       <%= yield %>
     </div>
