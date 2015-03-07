@@ -4,7 +4,7 @@
     <% if user_signed_in? && current_user.conferences.include?(conference) %>
       On my radar
     <% else %>
-      Keep it on my radar!
+      Put it on my radar!
     <% end %>
     <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
       <%= conference.follower_count %>

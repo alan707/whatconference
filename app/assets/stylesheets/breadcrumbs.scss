@@ -2,10 +2,16 @@
 
 .breadcrumb {
   margin: 20px 0;
-  text-align: center;
+  /*text-align: center; REMOVED this text-align center to see how it looks*/ 
   background-color: transparent;
   font-size: 24px;
   & > .active {
     color: $text-color;
   }
+}
+
+.breadcrumb > li + li:before {
+  content: "> "; /* Added a greater than symbol to keep it consistent with expectations from users */ 
+  padding: 0 5px;
+  color: #ccc;
 }
