@@ -1,6 +1,6 @@
 class App.Views.ConferenceMap extends Backbone.View
-  className: 'map-container'
-  template: '<div class="map">'
+  className: 'map-panel'
+  template: JST["templates/conference_map"]
   infoWindowTemplate: JST["templates/conference_info_window"]
 
   initialize: (options) ->
