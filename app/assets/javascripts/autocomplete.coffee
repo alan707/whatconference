@@ -56,7 +56,10 @@ $ ->
   $input.on 'typeahead:selected', (event, suggestion, dataset) ->
     if dataset == 'conferences'
       if suggestion.noMatch
-        Turbolinks.visit Routes.new_conference_path(title: suggestion.query)
+        title = suggestion.query
+        $(this).trigger 'conference:new', title
+        Turbolinks.visit Routes.new_conference_path({ title })
       else if suggestion.url
+        $(this).trigger 'conference:show', suggestion.title
         Turbolinks.visit suggestion.url
 

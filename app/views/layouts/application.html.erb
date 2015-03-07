@@ -34,7 +34,7 @@
               <span class="dropdown-arrow"></span>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Settings', account_path %></li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "user-sign-out" %></li>
               </ul>
             </li>
           <% else -%>
@@ -65,5 +65,6 @@
       <%= yield %>
     </div>
 
+    <%= render "layouts/google_analytics" %>
   </body>
 </html>

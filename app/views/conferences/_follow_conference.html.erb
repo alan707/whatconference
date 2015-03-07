@@ -1,7 +1,8 @@
-<%= link_to follow_conference_path(conference), method: :post, class: "btn btn-danger btn-lg btn-radar", :data => { :disable_with => radar_sweep_icon } do %>
+<% following = user_signed_in? && current_user.conferences.include?(conference) %>
+<%= link_to follow_conference_path(conference), method: :post, class: "btn btn-danger btn-lg btn-radar", :data => { :disable_with => radar_sweep_icon, :title => conference.title, :following => following ? "1" : "0" } do %>
   <%= antenna_icon %>
   <span class="btn-text">
-    <% if user_signed_in? && current_user.conferences.include?(conference) %>
+    <% if following %>
       On my radar
     <% else %>
       Put it on my radar!
