@@ -1,6 +1,8 @@
 
-<div class="breadcrumb"></div>
-
+<ol class="breadcrumb">
+  <li><%= link_to "All Conferences", conferences_path %></li>
+  <li class="active">My Radar</li>
+</ol>
 
 <% if user_signed_in? && !conferences.andand.empty? -%>
   <%= render "my_conferences", :locals => { :conferences => conferences } %>
