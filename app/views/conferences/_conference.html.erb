@@ -6,7 +6,7 @@
       <a class="btn btn-default btn-sm" href="<%= conference.url %>"><span class="glyphicon glyphicon-globe icon-left"> Website</span></a>
       <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
     </div>
-    <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> by <%= conference.creation_user.username %></small>
+    <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
   </h4>
 </div>
 </div>

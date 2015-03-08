@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li><%= link_to "All Conferences", conferences_path %></li>
-  <li class="active"><%= truncate(conference.title) %></li>
+  <li class="active"><%= truncate(conference.title, :length => 60) %></li>
 </ol>
 
 <div class="page-header">
