@@ -10,23 +10,27 @@ class User < ActiveRecord::Base
   # Associations
   has_many :created_conferences, :class => Conference, :foreign_key => 'creation_user_id'
   has_many :omniauth_accounts, :dependent => :destroy
-  has_many :followings
+  has_many :followings, :dependent => :destroy
   has_many :conferences, :through => :followings
+  has_many :comments
 
   # Omniauth
   def self.from_omniauth(auth, current_user)
     account = OmniauthAccount.from_omniauth(auth)
 
-    if account.user.nil?
+    former_user = account.user
+    if former_user.nil?
       # First time signing in with a provider
       account.user = current_user || find_or_create_user_for_omniauth(auth)
       account.save!
-    elsif current_user && account.user != current_user
+    elsif current_user && former_user != current_user
       # Associate a provider with an existing account
       # This will leave a zombie User (a user without an
       # omniauth_account) that should be merged or deleted
       account.user = current_user
       account.save!
+
+      MigrateUser.new(current_user, former_user).call
     end
     
     account.user

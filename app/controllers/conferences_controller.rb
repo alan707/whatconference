@@ -40,10 +40,12 @@ class ConferencesController < ApplicationController
 
   # POST /conferences
   def create
-    @conference = current_user.conferences.build(conference_params)
+    @conference = current_user.created_conferences.build(conference_params)
 
     respond_to do |format|
       if @conference.save
+        @conference.follow @current_user
+
         format.html { redirect_to @conference, notice: 'Conference was successfully created.' }
         format.json { render :show, status: :created, location: @conference }
       else

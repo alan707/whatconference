@@ -27,6 +27,9 @@ gem 'nenv'
 # Slurp nil's in chains
 gem 'andand'
 
+# Easy Pure Ruby Objects
+gem 'attr_extras'
+
 ### Assets ###
 
 gem 'sass-rails', '~> 5.0'
