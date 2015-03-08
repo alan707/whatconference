@@ -4,7 +4,7 @@
 </ol>
 
 <div class="page-header">
-  <h3><%= conference.title %><br>
+  <h3 class = "conference-link"><%= link_to conference.title, conference.url %><br>
       <% if policy(conference).edit? -%>
         <%= link_to 'Edit', edit_conference_path(conference), class: "btn btn-info btn-sm" %>
       <% end %>
@@ -12,7 +12,6 @@
         <%= link_to 'Remove', conference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
       <% end %>
       <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
-      <%= link_to 'Visit conference website', conference.url, class: "btn btn-primary btn-sm" %>
   </h3>
   <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
   <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
