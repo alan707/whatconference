@@ -4,24 +4,19 @@
 </ol>
 
 <div class="page-header">
-  <h3><%= conference.title %></h3>
+  <h3><%= conference.title %><br>
+      <% if policy(conference).edit? -%>
+        <%= link_to 'Edit', edit_conference_path(conference), class: "btn btn-info btn-sm" %>
+      <% end %>
+      <% if policy(conference).destroy? -%>
+        <%= link_to 'Remove', conference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+      <% end %>
+      <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
+      <%= link_to 'Visit conference website', conference.url, class: "btn btn-primary btn-sm" %>
+  </h3>
   <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
   <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
   <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
-</div>
-
-<div class="btn-group pull-right">
-  <% if policy(conference).edit? -%>
-    <%= link_to 'Edit', edit_conference_path(conference), class: "btn btn-default" %>
-  <% end %>
-  <% if policy(conference).destroy? -%>
-    <%= link_to 'Remove', conference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-  <% end %>
-</div>
-
-<div class="btn-toolbar-wide">
-  <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
-  <%= link_to 'Visit conference website', conference.url, class: "btn btn-primary btn-lg" %>
 </div>
 
 
@@ -31,8 +26,14 @@
   <%= render :partial => conference.comments %>
 
   <%= simple_form_for [conference, Comment.new]  do |f| %>
-    <div class="field">
-      <%= f.text_area :body, class: "form-control" %>
+    <div class = "container-fluid">
+      <div class = "row">
+        <div class = "col-md-8">
+          <div class="field">
+            <%= f.text_area :body, class: "form-control", rows: 5 %>
+          </div>
+        </div>
+      </div>
     </div>
     <br>
     <%= f.submit "Add Comment", class: "btn btn-primary" %>

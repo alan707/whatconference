@@ -18,6 +18,14 @@
 	padding-top: 23px;
 }
 
+.conference-link{
+  a:hover {
+  color: #2d3644;
+  text-decoration: none;
+  border-bottom: 1px blue dotted;
+  }
+}
+
 .conference-button-bar {
   padding-top: 10px;
 }
@@ -40,7 +48,8 @@
 
 .btn-radar {
   color: white;
-  background-color: #e74c3c;
+  background-color: #FF7F30;
+  padding: 6px 13px;
   .btn-text {
     font-size: 16px;
   }
