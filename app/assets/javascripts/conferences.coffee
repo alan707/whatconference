@@ -43,3 +43,10 @@ $ ->
 
   $('.btn-radar').each ->
     $(this).css('width', $(this).outerWidth())
+  
+  $('.website-preview-container').each ->
+    el = this
+    $url = $('#conference_url')
+    urlSource = -> $url.val()
+    preview = new App.Views.WebsitePreview({ el, urlSource })
+    preview.render()
