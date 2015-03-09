@@ -15,6 +15,19 @@
       color: $text-color;
     }
   }
+
+  .dropdown-menu {
+    background-color: rgba(255, 134, 48, 0.84);
+    a:hover{
+      background-color:rgba(128, 122, 119, 1);
+    }
+  }
+
+  .dropdown-menu > li > a {
+    padding: 8px 16px;
+    line-height: 1.429;
+    color: #F5F7FC; 
+  }
   .navbar-nav > .dropdown > a {
     .caret {
       border-top-color: #FFF;
@@ -58,7 +71,7 @@
   .navbar-collapse {
     text-align: center;
   }
-}
+} 
 
 .navbar-form {
   .form-control.wide {
@@ -75,6 +88,10 @@
       width: 400px;
     }
   }
+}
+
+.navbar-default .navbar-nav > .open > a:focus {
+   color: black;
 }
 
 .radar-link {
