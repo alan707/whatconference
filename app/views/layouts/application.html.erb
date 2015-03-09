@@ -24,6 +24,9 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? -%>
+            <li><%= link_to new_conference_path, :class => 'radar-link' do %>
+              <span class="fui-plus"></span> Add New
+              <% end %>
             <li><%= link_to root_path, :class => 'radar-link' do %>
               <span class="nohover"><%= antenna_icon %></span>
               <span class="hover"><%= radar_sweep_icon %></span>
