@@ -1,0 +1,6 @@
+<%= simple_form_for user, :url => account_path do |f| %>
+  <%= f.input :username, :label => "Nickname" %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.button :submit, "Save", class: "btn btn-lg btn-primary" %>
+<% end %>

@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  TEMP_EMAIL_PREFIX = 'change@me'
-  TEMP_EMAIL_REGEX = /\Achange@me/
-
   # Devise user authentication
   devise :rememberable, :trackable, :omniauthable,
          :omniauth_providers => [:twitter, :facebook, :linkedin, :google_oauth2,
@@ -21,13 +18,15 @@ class User < ActiveRecord::Base
     former_user = account.user
     if former_user.nil?
       # First time signing in with a provider
-      account.user = current_user || find_or_create_user_for_omniauth(auth)
+      account.user = current_user || find_or_build_user_for_omniauth(auth)
+      account.user.update_from_omniauth(auth)
       account.save!
     elsif current_user && former_user != current_user
       # Associate a provider with an existing account
       # This will leave a zombie User (a user without an
       # omniauth_account) that should be merged or deleted
       account.user = current_user
+      account.user.update_from_omniauth(auth)
       account.save!
 
       MigrateUser.new(current_user, former_user).call
@@ -36,24 +35,35 @@ class User < ActiveRecord::Base
     account.user
   end
 
-  def self.find_or_create_user_for_omniauth(auth)
-    email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
-    email = auth.info.email if email_is_verified
+  def self.find_or_build_user_for_omniauth(auth)
+    email = email_from_omniauth(auth)
     user = User.where(:email => email).first if email
 
-    if user.nil?
-      user = User.new(
-        name: auth.extra.andand.raw_info.andand.name || auth.info.name,
-        username: auth.info.nickname || auth.uid.sub(/@.*/, ""),
-        email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-      )
-      user.save!
-    end
-    user
+    user || User.new
   end
 
-  def email_verified?
-    self.email && self.email !~ TEMP_EMAIL_REGEX
+  def update_from_omniauth(auth)
+    if name.blank? || name_default?
+      self.name = self.class.name_from_omniauth(auth)
+    end
+    if username.blank? || username_default?
+      self.username = self.class.nickname_from_omniauth(auth)
+    end
+    if email.blank?
+      self.email = self.class.email_from_omniauth(auth)
+    end
+  end
+
+  def self.email_from_omniauth(auth)
+    auth.info.email
+  end
+
+  def self.name_from_omniauth(auth)
+    auth.info.name
+  end
+
+  def self.nickname_from_omniauth(auth)
+    auth.info.first_name || auth.info.nickname || auth.uid.sub(/@.*/, "")
   end
 
   def remaining_providers
@@ -63,11 +73,27 @@ class User < ActiveRecord::Base
   # A new user to the site
   def self.create_anonymous
     user = User.new(
-      name: 'Anonymous',
-      username: 'anonymous'
+      name: name_default,
+      username: username_default
     )
     user.save!
     user
+  end
+
+  def self.name_default
+    'A New User'
+  end
+
+  def self.username_default
+    'a new user'
+  end
+
+  def name_default?
+    name == self.class.name_default
+  end
+
+  def username_default?
+    username == self.class.username_default
   end
 
   # If the current user doesn't have any OmniauthAccounts, they won't be able to login

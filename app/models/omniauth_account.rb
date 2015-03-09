@@ -1,5 +1,5 @@
 class OmniauthAccount < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :autosave => true
   validates_presence_of :uid, :provider
   validates_uniqueness_of :uid, :scope => :provider
 
