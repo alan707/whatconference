@@ -1,14 +1,14 @@
 <div class="conference row clearfix">
   <div class="col-md-10">
-  <div class="pull-right conference-button-bar">
+    <div class="pull-right conference-button-bar">
       <a class="btn btn-inverse btn-sm" href="<%= conference.url %>"><span class="glyphicon glyphicon-globe icon-left"> Website</span></a>
       <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
     </div>
-   <h4 class = "conference-link">
-    <%= link_to truncate(conference.title, :length => 50), conference %><br>
-    
-    <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
-  </h4>
-</div>
+    <h4 class="conference-link">
+      <%= link_to truncate(conference.title, :length => 50), conference %><br>
+
+      <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
+    </h4>
+  </div>
 </div>
 
