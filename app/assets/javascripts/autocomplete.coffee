@@ -4,7 +4,7 @@ class ConferencesAutocompleteSource
     @source = new Bloodhound(
       prefetch:
         url: Routes.autocomplete_conferences_path(prefetch: true)
-      remote: Routes.autocomplete_conferences_path() + "?query=%QUERY%"
+      remote: Routes.autocomplete_conferences_path() + "?query=%QUERY"
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title')
       queryTokenizer: Bloodhound.tokenizers.whitespace
       dupDetector: (remoteMatch, localMatch) ->
