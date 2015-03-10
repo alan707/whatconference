@@ -12,7 +12,7 @@
               <td>
                 <p class="hypertext-link-format">
                   <%= link_to truncate(conference.title, :length => 90), conference %>
-                <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
+                <small class="author"><%= conference.date_range.begin.strftime("%b %d")%> - <%= conference.date_range.end.strftime("%b %d")%> | <%= conference.location %> </small>
                 </p>
               </td>
               <div class="pull-right conference-button-bar">

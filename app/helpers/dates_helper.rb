@@ -5,3 +5,7 @@ module DatesHelper
     end
   end
 end
+
+# if date_range_pretty
+#       "#{date_range.begin.strftime("%b %d, %Y")} - #{date_range.end.strftime("%b %d, %Y")}"
+#     end
