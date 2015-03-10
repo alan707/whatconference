@@ -1,3 +1,5 @@
+@import "base";
+
 .headline {
   padding: 40px 0;
   margin-bottom: 50px;
@@ -15,10 +17,17 @@
 }
 
 .conference.row.clearfix{
-	padding-top: 23px;
+	padding-top: 10px;
+}
+
+p.hypertext-link-format{
+  font-size: 20px;
 }
 
 .hypertext-link-format{
+  a{
+    color: $hyperlink-color;
+  }
   a:hover {
   color: #2d3644;
   text-decoration: none;
@@ -43,7 +52,11 @@
 }
 
 .author {
+  display: block;
+  margin-top: -10px;
   color: #434414;
+  font-size: 14px;
+  margin-top: -9px;
 }
 
 .btn-danger.btn-lg.btn-radar:hover, 
