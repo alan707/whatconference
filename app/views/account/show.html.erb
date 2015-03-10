@@ -1,9 +1,21 @@
 <% if current_user.cannot_login? %>
   <%= render "devise/sessions/omniauth" %>
 <% else %>
-  <h1>Account</h1>
 
-  <%= render 'form', :locals => { :user => user } %>
-
-  <%= render 'omniauth_accounts', :locals => { :user => user } %>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col-md-1"></div>
+    <div class="col-md-4">
+    	<h3>Account</h3>
+    	<%= render 'form', :locals => { :user => user } %>
+    </div>
+    <div class="col-md-1">
+    	<hr class="account hidden-xs" width="1">
+    </div>
+    <div class="col-md-4">
+    	<%= render 'omniauth_accounts', :locals => { :user => user } %>
+		<% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
