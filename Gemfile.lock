@@ -309,6 +309,8 @@ GEM
     remotipart (1.2.1)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
+    rollbar (1.4.4)
+      multi_json (~> 1.3)
     safe_yaml (1.0.4)
     sass (3.4.12)
     sass-rails (5.0.1)
@@ -409,6 +411,7 @@ DEPENDENCIES
   rails_admin
   rails_admin_become_user
   rb-fsevent
+  rollbar (~> 1.2)
   sass-rails (~> 5.0)
   searchkick
   simple_form

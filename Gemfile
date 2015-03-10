@@ -30,6 +30,9 @@ gem 'andand'
 # Easy Pure Ruby Objects
 gem 'attr_extras'
 
+# Error monitoring
+gem 'rollbar', '~> 1.2'
+
 ### Assets ###
 
 gem 'sass-rails', '~> 5.0'
