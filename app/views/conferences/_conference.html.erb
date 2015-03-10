@@ -1,14 +1,29 @@
 <div class="conference row clearfix">
-  <div class="col-md-10">
-    <div class="pull-right conference-button-bar">
-      <a class="btn btn-inverse btn-sm" href="<%= conference.url %>" target="_blank"><span class="glyphicon glyphicon-globe icon-left"> Website</span></a>
-      <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table>
+          <tbody>
+            <tr>
+              <td class="conference-website-cell">
+                <a class="website-globe-icon" href="<%= conference.url %>" target="_blank"><span class="glyphicon glyphicon-globe icon-left"></span></a>
+              </td>           
+              <td>
+                <p class="hypertext-link-format">
+                  <%= link_to truncate(conference.title, :length => 90), conference %>
+                <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
+                </p>
+              </td>
+              <div class="pull-right conference-button-bar">
+                <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
     </div>
-    <h4 class="hypertext-link-format">
-      <%= link_to truncate(conference.title, :length => 48), conference %><br>
-
-      <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
-    </h4>
   </div>
 </div>
-
+      

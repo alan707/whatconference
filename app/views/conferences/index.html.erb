@@ -2,7 +2,7 @@
   <% if params[:query].present? %>
     <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
     <li class="active">Search for "<%= params[:query] %>"</li>
-  <% else %>
+   <% else %>
     <li class="active">All Conferences</li>
   <% end %>
 </ol>

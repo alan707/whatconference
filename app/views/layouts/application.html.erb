@@ -28,7 +28,7 @@
               <% end %>
             </li>
           <% if user_signed_in? -%>
-            <li><%= link_to root_path, :class => 'radar-link' do %>
+            <li><%= link_to dashboard_path, :class => 'radar-link' do %>
               <span class="nohover"><%= antenna_icon %></span>
               <span class="hover"><%= radar_sweep_icon %></span>
               My Radar
@@ -70,8 +70,8 @@
       </div>
 
       <% if current_user.andand.cannot_login? %>
-        <div class="alert alert-warning">Thanks for trying out What Conference! Explore and use the site, but make sure to
-          <%= link_to "sign in before you leave", account_path %> otherwise you won't be able to access your profile next time you visit.
+        <div class="alert alert-success">Thanks for trying out What Conference! Explore and use the site, but make sure to
+          <%= link_to "sign in before you leave", account_path, :class => "hypertext-link-format" %> otherwise you won't be able to access your profile next time you visit.
         </div>
       <% end %>
 

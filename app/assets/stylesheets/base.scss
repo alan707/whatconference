@@ -11,6 +11,10 @@ body.page {
 	background-color: #F6F6EF;
 }
 
+body > div > div.alert.alert-success > a.hypertext-link-format {
+  color: $hyperlink-color;
+}
+
 .page-container {
   padding-bottom: 100px;
   margin: 0 6px;

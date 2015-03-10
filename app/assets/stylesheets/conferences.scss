@@ -1,3 +1,5 @@
+@import "base";
+
 .headline {
   padding: 40px 0;
   margin-bottom: 50px;
@@ -15,10 +17,16 @@
 }
 
 .conference.row.clearfix{
-	padding-top: 23px;
+	padding-top: 10px;
 }
 
 .hypertext-link-format{
+  p {
+  font-size: 20px;
+  }
+  a {
+    color: $hyperlink-color;
+  }
   a:hover {
   color: #2d3644;
   text-decoration: none;
@@ -29,6 +37,25 @@
 .conference-button-bar {
   padding-top: 10px;
 }
+
+.conference-website-cell {
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.website-globe-icon {
+  a, span {
+    color: $hyperlink-color;
+    font-size: 24px;
+  }
+  a, span:hover {
+    color: #2d3644;
+    text-decoration: none;
+  }
+  
+}
+
 
 .comments-section {
   margin-top: 2em;
@@ -43,7 +70,11 @@
 }
 
 .author {
+  display: block;
+  margin-top: -10px;
   color: #434414;
+  font-size: 14px;
+  margin-top: -9px;
 }
 
 .btn-danger.btn-lg.btn-radar:hover, 
@@ -52,19 +83,21 @@
 .btn-danger.btn-lg.btn-radar:active, 
 .btn-danger.btn-lg.btn-radar.active {
   color: #ffffff;
-  background-color: rgba(255, 127, 48, 0.65);
-  border-color: rgba(255, 127, 48, 0.83);
+  background-color: rgba(72, 179, 255, 0.44);
+  border-color: rgba(72, 179, 255, 0.44);
 }
 
 .btn-radar {
   color: white;
-  background-color: #FF7F30;
+  background-color: #48B3FF;
   padding: 6px 13px;
   .btn-text {
     font-size: 16px;
   }
 
   .badge {
+    color: #ffffff;
+    background-color: #0C5385;
     margin-left: 6px;
     font-size: 13px;
   }
