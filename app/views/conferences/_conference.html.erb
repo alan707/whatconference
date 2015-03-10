@@ -1,27 +1,29 @@
 <div class="conference row clearfix">
   <div class="container-fluid">
     <div class="row">
-    <div class="col-md-10">
-      <table>
-        <tbody>
-          <tr>
-            <td class="conference-website-cell">
-              <a class="website-globe-icon" href="<%= conference.url %>" target="_blank"><span class="glyphicon glyphicon-globe icon-left"></span></a>
-            </td>           
-            <td>
-              <p class="hypertext-link-format">
-                <%= link_to truncate(conference.title, :length => 90), conference %>
-              <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
-              </p>
-            </td>
-            <div class="pull-right conference-button-bar">
-              <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
-            </div>
-          </tr>
-        </tbody>
-      </table>
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table>
+          <tbody>
+            <tr>
+              <td class="conference-website-cell">
+                <a class="website-globe-icon" href="<%= conference.url %>" target="_blank"><span class="glyphicon glyphicon-globe icon-left"></span></a>
+              </td>           
+              <td>
+                <p class="hypertext-link-format">
+                  <%= link_to truncate(conference.title, :length => 90), conference %>
+                <small class="author">Submitted <%= time_ago_in_words(conference.created_at) %> ago by <%= conference.creation_user.username %></small>
+                </p>
+              </td>
+              <div class="pull-right conference-button-bar">
+                <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
     </div>
-  </div>
   </div>
 </div>
       
