@@ -1,5 +1,5 @@
 class App.Views.ConferenceMap extends Backbone.View
-  className: 'map-panel'
+  className: 'map-panel hidden-xs'
   template: JST["templates/conference_map"]
   infoWindowTemplate: JST["templates/conference_info_window"]
 
