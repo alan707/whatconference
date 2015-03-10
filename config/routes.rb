@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "dashboard#show"
+  root to: "conference#index"
 
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks" 
