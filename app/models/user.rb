@@ -103,8 +103,25 @@ class User < ActiveRecord::Base
 
   # A user that was deleted
   def self.deleted
-    new :name => "(deleted)",
+    new :id => 0,
+      :name => "(deleted)",
       :username => "(deleted)"
 
+  end
+
+  # Admin dashboard config
+  rails_admin do
+    list do
+      # Which fields to show in the list view in which order
+      field :id
+      field :username
+      field :name
+      field :email
+      field :conferences
+      field :omniauth_accounts
+      field :sign_in_count
+      field :followings
+      include_all_fields
+    end
   end
 end

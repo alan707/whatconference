@@ -70,4 +70,26 @@ class Conference < ActiveRecord::Base
       self.url = "http://#{url}"
     end
   end
+
+  # Admin dashboard config
+  rails_admin do
+    list do
+      # Which fields to show in the list view in which order
+      field :id
+      field :title
+      field :date_range do
+        formatted_value { bindings[:view].date_range(value.begin, value.end) }
+      end
+      field :creation_user
+      field :city_state
+      field :url
+      field :location
+      field :followers
+      field :followings
+      field :created_at do
+        formatted_value { value.andand.strftime("%F") }
+      end
+      include_all_fields
+    end
+  end
 end
