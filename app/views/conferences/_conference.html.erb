@@ -12,7 +12,7 @@
               <td>
                 <p class="hypertext-link-format">
                   <%= link_to truncate(conference.title, :length => 90), conference %>
-                <small class="author"><%= conference.date_range.begin.strftime("%b %d")%> - <%= conference.date_range.end.strftime("%b %d")%> | <%= conference.location %> </small>
+                <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %> </small>
                 </p>
               </td>
               <div class="pull-right conference-button-bar">
