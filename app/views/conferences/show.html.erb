@@ -16,6 +16,10 @@
   <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
   <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
   <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
+
+  <p> Followed by: 
+    <%= conference.followers.map{|c| c.username}.join(", ") %>
+  </p>
 </div>
 
 
