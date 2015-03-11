@@ -58,36 +58,9 @@
 
 .navbar-brand .brand-image {
   max-height: 40px;
-  display: inline-block;
-}
-
-.navbar {
-  // Center elements in navbar
-  .navbar-nav {
-    display: inline-block;
-    float: none;
-  }
-
-  .navbar-collapse {
-    text-align: center;
-  }
-} 
-
-.navbar-form {
-  .form-control.wide {
-    width: calc(100% - 35px);
-    // Annoying cascade is preventing the border radius
-    border-radius: 5px !important;
-  }
-
-  .input-group {
-    @media (min-width: $screen-lg-min) {
-      width: 600px;
-    }
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-      width: 400px;
-    }
-  }
+  float: left;
+  margin-top: -5px;
+  margin-right: 8px;
 }
 
 .navbar-default .navbar-nav > .open > a:focus {
