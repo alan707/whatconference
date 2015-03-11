@@ -11,6 +11,7 @@ body.page {
 	background-color: #F6F6EF;
 }
 
+/*added same link color to alert links*/
 body > div > div.alert.alert-success > a.hypertext-link-format {
   color: $hyperlink-color;
 }
