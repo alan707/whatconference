@@ -18,9 +18,7 @@
   <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
 
   <p> Followed by: 
-    <% conference.followers.each do |f| %> 
-      <%= f.username %> 
-    <% end %>
+    <%= conference.followers.map{|c| c.username}.join(", ") %>
   </p>
 </div>
 
