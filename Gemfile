@@ -19,6 +19,9 @@ gem 'pg'
 
 group :production, :staging do
   gem 'rails_12factor'
+
+  # Server monitoring
+  gem 'newrelic_rpm'
 end
 
 # Easy management of environment variables
