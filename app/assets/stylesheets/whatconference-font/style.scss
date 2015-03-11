@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'whatconference';
-	src:asset-url('whatconference.eot?-8wumv3');
-	src:asset-url('whatconference.eot?#iefix-8wumv3') format('embedded-opentype'),
-		asset-url('whatconference.woff?-8wumv3') format('woff'),
-		asset-url('whatconference.ttf?-8wumv3') format('truetype'),
-		asset-url('whatconference.svg?-8wumv3#whatconference') format('svg');
+	src:asset-url('whatconference.eot?-qrfwzk');
+	src:asset-url('whatconference.eot?#iefix-qrfwzk') format('embedded-opentype'),
+		asset-url('whatconference.woff?-qrfwzk') format('woff'),
+		asset-url('whatconference.ttf?-qrfwzk') format('truetype'),
+		asset-url('whatconference.svg?-qrfwzk#whatconference') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -52,5 +52,9 @@
 
 .what-radar-sweep:before {
 	content: "\e606";
+}
+
+.what-website:before {
+	content: "\e607";
 }
 
