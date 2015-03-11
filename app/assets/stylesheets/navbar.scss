@@ -7,6 +7,13 @@
   background-color: $navbar-color;
   margin: 8px;
   padding: 6px 0;
+  font-size: 16px;
+  font-weight: bold;
+
+  .search-form {
+    font-weight: normal;
+  }
+
   .navbar-nav > li > a {
     color: #FFF;
     &:hover, &:focus {
@@ -16,7 +23,7 @@
 
   .navbar-nav > .open {
     & > a, & > a:hover, & > a:focus {
-      background-color:darken($navbar-color, 20%);
+      background-color:$highlight-color;
       color: #fff;
     }
   }
@@ -25,7 +32,7 @@
     background-color: $navbar-color;
     a:hover{
       color: $text-color;
-      background-color:darken($navbar-color, 20%);
+      background-color:$highlight-color;
     }
 
     & > li > a {
@@ -37,6 +44,7 @@
   .navbar-brand {
     color: $text-color;
     font-weight: bold;
+    font-size: 24px;
     &:hover, &:focus {
       color: #FFF;
     }
@@ -46,11 +54,6 @@
     margin: 0;
     border-radius: 0;
   }
-
-  // .navbar-nav > li > a.nav-action {
-  //   font-weight: 900;
-  //   font-size: 19px;
-  // }
 }
 
 .navbar-form .input-group > .form-control {
@@ -88,6 +91,7 @@
   padding-top: 12px;
 }
 
-.navbar-form.search-form .input-group {
-  transition: width 2s ease;
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
 }
+

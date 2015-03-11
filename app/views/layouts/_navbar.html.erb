@@ -1,55 +1,53 @@
 <nav class="navbar navbar-default navbar-wc" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-      <%= link_to root_path, :class => "navbar-brand" do %>
-        <%= image_tag "logo.png", :class => "brand-image" %>
-        What Conference?
-      <% end %>
-    </div>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <%= link_to root_path, :class => "navbar-brand" do %>
+      <%= image_tag "logo.png", :class => "brand-image" %>
+      What Conference?
+    <% end %>
+  </div>
 
-    <div class="collapse navbar-collapse">
-      <% unless content_for(:hide_nav_search) %>
-        <form class="navbar-form navbar-left search-form" action="<%= conferences_path %>" role="search">
-          <div class="form-group">
-            <div class="input-group">
-              <input class="form-control wide conference-search" type="search" name="query" placeholder="Search for a conference">
-              <span class="input-group-btn">
-                <button type="submit" class="btn"><span class="fa fa-search"></span></button>
-              </span>
-            </div>
+  <div class="collapse navbar-collapse">
+    <% unless content_for(:hide_nav_search) %>
+      <form class="navbar-form navbar-left search-form" action="<%= conferences_path %>" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control wide conference-search" type="search" name="query" placeholder="Search for a conference">
+            <span class="input-group-btn">
+              <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+            </span>
           </div>
-        </form>
-      <% end %>
-      <ul class="nav navbar-nav nav-hideable">
-        <li><%= link_to "Browse", conferences_path %></li>
-        <li><%= link_to new_conference_path do %><span class="fa fa-plus"></span> Add New<% end %></li>
-      </ul>
+        </div>
+      </form>
+    <% end %>
+    <ul class="nav navbar-nav nav-hideable">
+      <li><%= link_to "Browse", conferences_path %></li>
+      <li><%= link_to new_conference_path do %><span class="fa fa-plus"></span> Add New<% end %></li>
+    </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? -%>
-          <li>
-            <%= link_to dashboard_path, :class => 'radar-link' do %>
-              <span class="nohover"><%= antenna_icon %></span>
-              <span class="hover"><%= radar_sweep_icon %></span>
-              My Radar
-            <% end %>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-            <span class="dropdown-arrow"></span>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Settings', account_path %></li>
-              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "user-sign-out" %></li>
-            </ul>
-          </li>
-        <% else -%>
-          <li><%= link_to 'Sign in', new_user_session_path %></li>
-        <% end -%>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? -%>
+        <li>
+          <%= link_to dashboard_path, :class => 'radar-link' do %>
+            <span class="nohover"><%= antenna_icon %></span>
+            <span class="hover"><%= radar_sweep_icon %></span>
+            My Radar
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+          <span class="dropdown-arrow"></span>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Settings', account_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "user-sign-out" %></li>
+          </ul>
+        </li>
+      <% else -%>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% end -%>
+    </ul>
   </div>
 </nav>
 
