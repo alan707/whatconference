@@ -48,6 +48,17 @@
     &:hover, &:focus {
       color: #FFF;
     }
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 20px;
+    }
+  }
+
+  .navbar-toggle {
+    border-color: white;
+    .icon-bar {
+      background-color: white;
+    }
   }
 
   @media (max-width: $screen-xs-max) {
