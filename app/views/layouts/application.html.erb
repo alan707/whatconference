@@ -27,7 +27,13 @@
         </div>
       <% end %>
 
-      <%= yield %>
+      <% unless content_for(:raw_body) %>
+        <%= yield %>
+      <% end %>
     </div>
+
+    <% if content_for(:raw_body) %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

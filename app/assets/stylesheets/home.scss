@@ -1,0 +1,29 @@
+@import "variables";
+
+.tagline {
+  text-align: center;
+}
+.tagline-logo {
+  width: 128px;
+  height: 128px;
+  margin-right: 20px;
+}
+
+
+.home-icon {
+  width: 128px;
+  height: 128px;
+}
+
+.explanation {
+  .row {
+    padding-top: 60px;
+  }
+  background-color: darken($page-color, 5%);
+}
+
+.popular-conferences {
+  h4, h5 {
+    text-align: center;
+  }
+}

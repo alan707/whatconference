@@ -34,6 +34,12 @@
   }
 }
 
+// Images
+.img-bordered {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
 // Buttons
 
 .btn-toolbar-wide {
@@ -63,5 +69,6 @@
     border-color: lighten($button-blue, 10%);
   }
 }
+
 
 

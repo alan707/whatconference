@@ -7,7 +7,7 @@
       Put it on my radar!
     <% end %>
     <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
-      <%= conference.follower_count %>
+      <%= conference.followings_count %>
     <% end %>
   </span>
 <% end %>

@@ -10,8 +10,6 @@ class ConferencesController < ApplicationController
     query = params[:query].andand.strip
     query = '*' if query.blank?
     search_conferences query, page: params[:page], per_page: 40
-    # Prevent N queries to load the count of followers
-    Conference.eager_load_followers_count @conferences
   end
 
   # GET /conferences/autocomplete?query=name

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306193249) do
+ActiveRecord::Schema.define(version: 20150312011606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150306193249) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "city_state"
+    t.integer  "followings_count"
   end
 
   add_index "conferences", ["creation_user_id"], name: "index_conferences_on_creation_user_id", using: :btree
