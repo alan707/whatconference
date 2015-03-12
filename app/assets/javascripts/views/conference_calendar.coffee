@@ -1,14 +1,18 @@
 class App.Views.ConferenceCalendar extends Backbone.View
   events:
-    'click .fc-month-name': 'switchToMonth'
+    'click .fc-month-name': 'monthNameClick'
 
   initialize: (options) ->
     _.extend this, options
 
     @listenTo @conferences, 'reset filter-complete', @eventsForCalendar
 
+  # Access the Full Calendar plugin
+  calendar: ->
+    @$el.fullCalendar.apply @$el, arguments
+
   render: ->
-    @$el.fullCalendar
+    @calendar
       header:
         left: 'prev,next today'
         center: 'title'
@@ -17,12 +21,15 @@ class App.Views.ConferenceCalendar extends Backbone.View
       events: @eventSource
       eventLimit: true
       viewRender: @calendarRendered
+      dayClick: @dayClick
       contentHeight: 500
       eventLimit: true # Show more... instead of growing calendar
+
+
     this
 
   calendarView: ->
-    @$el.fullCalendar 'getView'
+    @calendar 'getView'
 
   eventSource: (start, end, timezone, callback) =>
     # get objects from collection and render
@@ -32,10 +39,17 @@ class App.Views.ConferenceCalendar extends Backbone.View
     cv = @calendarView()
     @trigger 'change:dates', cv.start, cv.end, cv.intervalStart, cv.intervalEnd
 
-  switchToMonth: (event) ->
+  monthNameClick: (event) ->
     date = $(event.target).data('date')
-    @$el.fullCalendar 'changeView', 'month'
-    @$el.fullCalendar 'gotoDate', date
+    @switchToMonth date
+
+  dayClick: (date, event, view) =>
+    if view.name == 'year'
+      @switchToMonth date
+
+  switchToMonth: (date) ->
+    @calendar 'changeView', 'month'
+    @calendar 'gotoDate', date
 
   insert_other_views: (list_el, map_el) ->
     calendar_el = @$('.fc-view-container').detach()
