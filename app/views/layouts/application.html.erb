@@ -26,7 +26,9 @@
           <%= link_to "sign in before you leave", account_path, :class => "hypertext-link-format" %> otherwise you won't be able to access your profile next time you visit.
         </div>
       <% end %>
+    </div>
 
+    <div class="page-container page-content">
       <% unless content_for(:raw_body) %>
         <%= yield %>
       <% end %>
