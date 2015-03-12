@@ -1,0 +1,18 @@
+
+<ol class="breadcrumb">
+  <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
+  <li class="active">
+    <% if user == current_user %>
+      My Radar
+    <% else %>
+      <%= user.username %>'s Radar
+    <% end %>
+    </li>
+</ol>
+
+<div id="conference-browser">
+</div>
+
+<script>
+  var conferencesData = <%= render(:template => "conferences/index.json", :collection => conferences).html_safe %>;
+</script>

@@ -31,7 +31,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? -%>
         <li>
-          <%= link_to dashboard_path, :class => 'radar-link' do %>
+          <%= link_to radar_path(current_user), :class => 'radar-link' do %>
             <span class="nohover"><%= antenna_icon %></span>
             <span class="hover"><%= radar_sweep_icon %></span>
             My Radar

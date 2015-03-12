@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   # GET /
   def show
     if user_signed_in?
-      redirect_to dashboard_path
+      redirect_to radar_path(current_user)
     else
       load_popular_conferences
     end

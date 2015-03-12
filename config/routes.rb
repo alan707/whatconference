@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  resource :dashboard, :only => %w(show), :controller => 'dashboard'
+  resources :radar, :only => %w(show), :controller => 'radar'
 
   resources :conferences do
     get "autocomplete", on: :collection, :defaults => { :format => 'json' }
