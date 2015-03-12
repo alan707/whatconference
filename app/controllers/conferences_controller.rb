@@ -43,6 +43,7 @@ class ConferencesController < ApplicationController
     respond_to do |format|
       if @conference.save
         @conference.follow @current_user
+        SLACK.ping "Conference [#{@conference.title}](#{conference_url(@conference)}) added"
 
         format.html { redirect_to @conference, notice: 'Conference was successfully created.' }
         format.json { render :show, status: :created, location: @conference }
@@ -57,6 +58,8 @@ class ConferencesController < ApplicationController
   def update
     respond_to do |format|
       if @conference.update(conference_params)
+        SLACK.ping "Conference [#{@conference.title}](#{conference_url(@conference)}) updated"
+
         format.html { redirect_to @conference, notice: 'Conference was successfully updated.' }
         format.json { render :show, status: :ok, location: @conference }
       else
@@ -70,13 +73,17 @@ class ConferencesController < ApplicationController
   def destroy
     @conference.destroy
     respond_to do |format|
+      SLACK.ping "Conference #{@conference.title} deleted"
+
       format.html { redirect_to conferences_url, notice: 'Conference was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   def follow
-    @conference.follow current_user
+    following = @conference.follow current_user
+
+    SLACK.ping "#{current_user.andand.username} #{following ? "followed" : "unfollowed"} #{@conference.title}"
     redirect_to :back
   end
 

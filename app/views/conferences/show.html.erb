@@ -17,9 +17,9 @@
   <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
   <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
 
-  <% unless conference.followers.empty? %>
+  <% unless conference.named_followers.empty? %>
     <p>Followed by: 
-      <%= conference.followers.map(&:username).to_sentence %>
+      <%= conference.named_followers.map(&:username).to_sentence %>
     </p>
   <% end %>
 </div>

@@ -41,13 +41,19 @@ class Conference < ActiveRecord::Base
     follower = followers.find_by_id(user.id)
     if follower.nil?
       followers << user
+      true
     else
       followers.delete user
+      false
     end
   end
 
   def creation_user
     super || User.deleted
+  end
+
+  def named_followers
+    @named_followers ||= followers.reject(&:name_default?)
   end
 
   protected
