@@ -39,6 +39,9 @@ gem 'rollbar', '~> 1.2'
 ### Assets ###
 
 gem 'sass-rails', '~> 5.0'
+gem 'less-rails'
+# Needed by less
+gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -107,7 +110,6 @@ gem 'rails-assets-backbone'
 gem 'rails-assets-moment'
 gem 'rails-assets-typeahead.js'
 gem 'rails-assets-gmaps'
-gem 'rails-assets-flat-ui'
 gem 'rails-assets-bootstrap-daterangepicker', '~> 1.3.17'
 gem 'rails-assets-growl'
 
