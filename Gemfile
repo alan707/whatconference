@@ -36,6 +36,9 @@ gem 'attr_extras'
 # Error monitoring
 gem 'rollbar', '~> 1.2'
 
+# Notify about activity in a Slack channel
+gem 'slack-notifier'
+
 ### Assets ###
 
 gem 'sass-rails', '~> 5.0'
