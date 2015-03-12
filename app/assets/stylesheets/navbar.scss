@@ -44,11 +44,20 @@
   
   .navbar-brand {
     color: $text-color;
-    font-weight: bold;
-    font-size: 24px;
     &:hover, &:focus {
       color: #FFF;
     }
+    @media (max-width: $screen-xs-max) {
+      font-size: 21px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .navbar-toggle {
+    margin: 0;
   }
 }
 

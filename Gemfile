@@ -145,5 +145,9 @@ group :development, :test do
 
   # Use Chrome to debug Coffeescript
   gem 'coffee-rails-source-maps'
+
+  # For Chrome extension Rails Panel
+  gem 'meta_request'
+  
 end
 

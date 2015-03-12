@@ -154,33 +154,16 @@
 
 .navbar-toggle {
   border: none;
-  color: @brand-primary;
+  color: #fff;
   margin: 0 0 0 21px;
   padding: 0 21px;
   height: @navbar-height-base;
   line-height: @navbar-height-base;
+  font-size: @navbar-toggle-size;
 
-  &:before {
-    color: @link-color;
-    content: "\e61a";
-    font-family: "Flat-UI-Icons";
-    font-size: floor((@component-font-size-base * 1.467)); // ~22px
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: color .25s linear;
-  }
   &:hover,
   &:focus {
-    outline: none;
-
-    &:before {
-      color: @link-hover-color;
-    }
-  }
-  .icon-bar {
-    display: none;
+    color: @text-color;
   }
 
   @media (min-width: @grid-float-breakpoint) {
