@@ -14,7 +14,11 @@ class Conference < ActiveRecord::Base
   validates_date :end_date, :on_or_after => :start_date
 
   extend FriendlyId
-  friendly_id :title, :use => :slugged
+  friendly_id :title
+
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
+  end
 
   scope :occurs_within, ->(date_range) {
     where('NOT(start_date > ? OR end_date < ?)', date_range.end, date_range.begin)

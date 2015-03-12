@@ -11,6 +11,13 @@ class User < ActiveRecord::Base
   has_many :conferences, :through => :followings
   has_many :comments
 
+  extend FriendlyId
+  friendly_id :username
+
+  def should_generate_new_friendly_id?
+    slug.blank? || username_changed?
+  end
+
   def following?(conference)
     @following_conference_ids ||= conference_ids
     @following_conference_ids.include? conference.id
