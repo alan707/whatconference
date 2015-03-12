@@ -14,7 +14,7 @@ class Conference < ActiveRecord::Base
   validates_date :end_date, :on_or_after => :start_date
 
   extend FriendlyId
-  friendly_id :title
+  friendly_id :title, :use => :slugged
 
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?

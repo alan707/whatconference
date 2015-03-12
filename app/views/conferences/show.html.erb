@@ -22,7 +22,7 @@
 
     <% unless conference.named_followers.empty? %>
       <p>Followed by: 
-        <%= conference.named_followers.map(&:username).to_sentence %>
+        <%= conference.named_followers.map { |f| UserRadarDecorator.new(f, self) }.map(&:link_to_radar).to_sentence.html_safe %>
       </p>
     <% end %>
   </div>

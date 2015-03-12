@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   extend FriendlyId
-  friendly_id :username
+  friendly_id :username, :use => :slugged
 
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?
