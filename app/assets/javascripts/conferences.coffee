@@ -15,6 +15,7 @@ $ ->
 
       if place.geometry
         save_latitude_longitude place.geometry.location
+        update_simple_map place.geometry.location
 
       save_city_state place.address_components
 
@@ -45,7 +46,15 @@ $ ->
   $('.btn-radar').on 'click', ->
     $(this).toggleClass 'following'
  
+  simple_map = null
   $('.simple-conference-map').each ->
     simple_map = new App.Views.SimpleConferenceMap(el: this)
     simple_map.render()
       
+  update_simple_map = (location) ->
+    if simple_map?
+      simple_map.conference.set(
+        latitude: location.lat()
+        longitude: location.lng()
+      )
+
