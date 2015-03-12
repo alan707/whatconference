@@ -4,7 +4,6 @@
 @import "variables";
 
 .navbar-wc {
-  background-color: $navbar-color;
   margin: 8px;
   padding: 6px 0;
   font-size: 16px;
@@ -23,24 +22,25 @@
 
   .navbar-nav > .open {
     & > a, & > a:hover, & > a:focus {
-      background-color:$highlight-color;
+      
       color: #fff;
     }
   }
 
   .dropdown-menu {
-    background-color: $navbar-color;
+    background-color: #ECF0F1;
     a:hover{
-      color: $text-color;
-      background-color:$highlight-color;
+      color: #FFF;
+      background-color:#2980B9;
     }
+  }
 
     & > li > a {
       padding: 8px 16px;
       line-height: 1.429;
       color: #FFF;
     }
-  }
+  
   .navbar-brand {
     color: $text-color;
     font-weight: bold;
@@ -48,22 +48,6 @@
     &:hover, &:focus {
       color: #FFF;
     }
-
-    @media (max-width: $screen-xs-max) {
-      font-size: 20px;
-    }
-  }
-
-  .navbar-toggle {
-    border-color: white;
-    .icon-bar {
-      background-color: white;
-    }
-  }
-
-  @media (max-width: $screen-xs-max) {
-    margin: 0;
-    border-radius: 0;
   }
 }
 
@@ -78,9 +62,6 @@
   margin-right: 8px;
 }
 
-.navbar-default .navbar-nav > .open > a:focus {
-   color: black;
-}
 
 .radar-link {
   .nohover {
@@ -102,7 +83,4 @@
   padding-top: 12px;
 }
 
-ul.nav li.dropdown:hover > ul.dropdown-menu {
-    display: block;    
-}
 
