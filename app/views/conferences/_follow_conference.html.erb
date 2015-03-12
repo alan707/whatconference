@@ -1,4 +1,4 @@
-<% following = user_signed_in? && current_user.conferences.include?(conference) %>
+<% following = user_signed_in? && current_user.following?(conference) %>
 <% following_count = conference.followings_count + (following ? 0 : 1) %>
 <% not_following_count = conference.followings_count - (following ? 1 : 0) %>
 

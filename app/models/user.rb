@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :conferences, :through => :followings
   has_many :comments
 
+  def following?(conference)
+    @following_conference_ids ||= conference_ids
+    @following_conference_ids.include? conference.id
+  end
+
   # Omniauth
   def self.from_omniauth(auth, current_user)
     account = OmniauthAccount.from_omniauth(auth)

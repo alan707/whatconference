@@ -558,8 +558,10 @@
       .placeholder(@navbar-default-form-placeholder);
 
       &:focus {
-        border-color: @brand-secondary;
-         color: @brand-secondary;
+        border-color: @navbar-default-form-border;
+      }
+      &.tt-hint {
+        color: @navbar-default-form-placeholder;
       }
     }
     .input-group-btn .btn {
@@ -569,8 +571,7 @@
     .input-group.focus {
       .form-control,
       .input-group-btn .btn {
-         border-color: @brand-secondary;
-         color: @brand-secondary;
+         border-color: @navbar-default-form-border;
       }
     }
   }

@@ -67,7 +67,7 @@
 //## Settings for some of the most global styles.
 
 @body-bg:                   #fff;
-@text-color:                @brand-primary;
+@text-color:                #2C3E50;
 
 //** Global textual link color.
 @link-color:                @peter-river;
@@ -399,9 +399,9 @@
 @navbar-default-toggle-hover-color:   @navbar-default-link-hover-color;
 
 // Navbar form
-@navbar-default-form-placeholder:     spin(tint(@brand-primary, 60%), 2);
-@navbar-default-form-icon:            desaturate(tint(@brand-primary, 45%), 2%);
-@navbar-default-form-border:          shade(@navbar-default-bg, 3%);
+@navbar-default-form-placeholder:     darken(@navbar-default-bg, 10%);
+@navbar-default-form-icon:            darken(@navbar-default-bg, 10%);
+@navbar-default-form-border:          darken(@navbar-default-bg, 15%);
 
 
 // Inverted navbar
