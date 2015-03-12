@@ -1,0 +1,51 @@
+<% content_for :hide_nav_search, true %>
+<% content_for :raw_body, true %>
+
+<section class="home tagline">
+  <div class="page-container">
+    <h1><%= image_tag "logo_large.png", class: "tagline-logo" %> What Conference?</h1>
+    <h2 class="lead">A simple calendar for conferences you want to keep on your radar</h2>
+</section>
+
+<section class="home big-conference-search">
+  <div class="page-container">
+    <form class="search-form search-form-xl" action="<%= conferences_path %>" role="search">
+      <div class="form-group">
+        <div class="input-group input-group-xl input-group-rounded">
+          <input type="text" class="form-control conference-search search-input-xl" name="query" placeholder="What conference are you interested in?">
+          <span class="input-group-btn">
+            <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="home popular-conferences">
+  <div class="page-container">
+    <h4>Check out these popular conferences</h4>
+    <%= render popular_conferences %>
+    <h5 class="lead"><%= link_to conferences_path do %>More conferences <i class="fa fa-angle-double-right"></i><% end %></h5>
+  </div>
+</section>
+
+<section class="home explanation">
+  <div class="page-container">
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-1"><%= image_tag "satellite-dish.png", :class => "home-icon" %></div>
+      <div class="col-sm-8 col-sm-offset-1">
+        <h2 class="lead">Search for a conference then select "Put it on my radar!".</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h2 class="lead">You'll get an easy way to get an overview of conferences that are coming up.</h2>
+        <h2 class="lead">That's it. Simple</h2>
+      </div>
+      <div class="col-sm-8">
+        <%= image_tag "radar-demo.png", :class => "img-responsive img-bordered" %>
+      </div>
+    </div>
+  </div>
+</section>

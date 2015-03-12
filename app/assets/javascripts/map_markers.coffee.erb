@@ -7,10 +7,10 @@ mapMarkers = [
 ]
 
 markerPathForIndex = (n) ->
-  if(n < <%= num_markers %>)
+  if(n >= 0 && n < <%= num_markers %>)
     mapMarkers[n + 1]
   else
-    map_markers[0]
+    mapMarkers[0]
 
 googleMapIconForIndex = (n) ->
   url: markerPathForIndex(n)

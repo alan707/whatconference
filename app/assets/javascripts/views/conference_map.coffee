@@ -38,8 +38,6 @@ class App.Views.ConferenceMap extends Backbone.View
       unless _.isEmpty(markers)
         @map.addMarkers markers
         @map.fitLatLngBounds @latLngForBounds(markers)
-        if @map.zoom < @minZoom
-          @map.setZoom @minZoom
 
   withLatLng: (conference) =>
     conference.hasLatLng()

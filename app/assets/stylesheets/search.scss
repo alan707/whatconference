@@ -1,9 +1,19 @@
+// Bootstrap grid limits
+@import "bootstrap/variables";
+
+@import "variables";
+
 .search-form {
   .twitter-typeahead {
     width: calc(100% - 50px);
     .form-control {
       width: 100%;
+      min-width: 200px;
     }
+  }
+
+  .form-control {
+    border-radius: 4px 0 0 4px !important;
   }
 
   .input-group-btn {
@@ -18,10 +28,6 @@
 
   .tt-suggestions {
     text-align: left;
-  }
-
-  .tt-hint {
-    color: grey;
   }
 
   .twitter-typeahead .tt-suggestion {
@@ -42,6 +48,13 @@
     .new-conference-title {
       font-style: normal;
       font-weight: bold;
+    }
+  }
+
+
+  @media (max-width: $screen-xs-max) {
+    .input-group {
+      width: 100%;
     }
   }
 }
@@ -79,3 +92,4 @@
     }
   }
 }
+

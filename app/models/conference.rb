@@ -20,6 +20,7 @@ class Conference < ActiveRecord::Base
     where('NOT(start_date > ? OR end_date < ?)', date_range.end, date_range.begin)
   }
   scope :order_by_date, -> { order(:start_date, :end_date) }
+  scope :order_by_popularity, -> { order('followings_count DESC') }
 
   geocoded_by :location
   after_validation :geocode
@@ -33,20 +34,6 @@ class Conference < ActiveRecord::Base
   # Version history
   has_paper_trail
 
-  attr_writer :followers_count
-  def follower_count
-    @follower_count ||= followers.count
-  end
-
-  # Prevent N queries to load the count of followers on a collection
-  def self.eager_load_followers_count(conferences)
-    conference_ids = conferences.map(&:id)
-    followers_count = Following.where(:conference_id => conference_ids).group(:conference_id).count
-    conferences.each do |conference|
-      conference.followers_count = followers_count[conference.id]
-    end
-  end
-
   # Add or remove a follower
   def follow(user)
     raise ArgumentError, "Must provide a user" if user.nil?
@@ -54,13 +41,19 @@ class Conference < ActiveRecord::Base
     follower = followers.find_by_id(user.id)
     if follower.nil?
       followers << user
+      true
     else
       followers.delete user
+      false
     end
   end
 
   def creation_user
     super || User.deleted
+  end
+
+  def named_followers
+    @named_followers ||= followers.reject(&:name_default?)
   end
 
   protected

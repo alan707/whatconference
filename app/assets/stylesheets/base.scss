@@ -8,7 +8,7 @@ body.page {
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: $text-color;
-	background-color: #F6F6EF;
+	background-color: $page-color;
 }
 
 /*added same link color to alert links*/
@@ -17,7 +17,6 @@ body > div > div.alert.alert-success > a.hypertext-link-format {
 }
 
 .page-container {
-  padding-bottom: 100px;
   margin: 0 6px;
 
   @media (min-width: $screen-lg-min) {
@@ -29,4 +28,9 @@ body > div > div.alert.alert-success > a.hypertext-link-format {
     text-decoration: none;
   }
 }
+
+.page-container.page-contents {
+  padding-bottom: 100px;
+}
+
 

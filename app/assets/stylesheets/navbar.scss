@@ -4,11 +4,15 @@
 @import "variables";
 
 .navbar-wc {
-  background-color: $navbar-color;
   margin: 8px;
-  .navbar-brand {
-    padding-top: 19px;
+  padding: 6px 0;
+  font-size: 16px;
+  font-weight: bold;
+
+  .search-form {
+    font-weight: normal;
   }
+
   .navbar-nav > li > a {
     color: #FFF;
     &:hover, &:focus {
@@ -16,83 +20,64 @@
     }
   }
 
-  .dropdown-menu {
-    background-color: rgba(255, 134, 48, 0.84);
-    a:hover{
-      background-color:rgba(128, 122, 119, 1);
+  .navbar-nav > .open {
+    & > a, & > a:hover, & > a:focus {
+      
+      color: #fff;
     }
   }
 
-  .dropdown-menu > li > a {
-    padding: 8px 16px;
-    line-height: 1.429;
-    color: #F5F7FC; 
-  }
-  .navbar-nav > .dropdown > a {
-    .caret {
-      border-top-color: #FFF;
-      border-bottom-color: #FFF;
+  .dropdown-menu {
+    background-color: #E0A600;
+    a:hover{
+      color: #FFF;
+      background-color:#333;
     }
-    &:hover .caret, &:focus .caret {
-      border-top-color: $text-color;
-      border-bottom-color: $text-color;
+  
+
+    & > li > a {
+      padding: 8px 16px;
+      line-height: 1.429;
+      color: #FFF;
     }
   }
+  
   .navbar-brand {
     color: $text-color;
     &:hover, &:focus {
       color: #FFF;
     }
+    @media (max-width: $screen-xs-max) {
+      font-size: 21px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
   }
+}
 
-  @media (max-width: $screen-xs-max) {
+@media (max-width: $screen-xs-max) {
+  .navbar-toggle {
     margin: 0;
-    border-radius: 0;
   }
+}
 
-  .navbar-nav > li > a.nav-action {
-    font-weight: 900;
-    font-size: 19px;
-  }
+.navbar-default .navbar-nav > .open > a .caret, .navbar-default .navbar-nav > .open > a:hover .caret, .navbar-default .navbar-nav > .open > a:focus .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+
+.navbar-form .input-group > .form-control {
+  width: auto;
 }
 
 .navbar-brand .brand-image {
   max-height: 40px;
-  display: inline-block;
+  float: left;
+  margin-top: -5px;
+  margin-right: 8px;
 }
 
-.navbar {
-  // Center elements in navbar
-  .navbar-nav {
-    display: inline-block;
-    float: none;
-  }
-
-  .navbar-collapse {
-    text-align: center;
-  }
-} 
-
-.navbar-form {
-  .form-control.wide {
-    width: calc(100% - 35px);
-    // Annoying cascade is preventing the border radius
-    border-radius: 5px !important;
-  }
-
-  .input-group {
-    @media (min-width: $screen-lg-min) {
-      width: 600px;
-    }
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-      width: 400px;
-    }
-  }
-}
-
-.navbar-default .navbar-nav > .open > a:focus {
-   color: black;
-}
 
 .radar-link {
   .nohover {
@@ -101,7 +86,7 @@
   .hover {
     display: none;
   }
-  &:hover, &:focus {
+  &:hover {
     .nohover {
       display: none;
     }
@@ -109,5 +94,9 @@
       display: inline;
     }
   }
-
 }
+.navbar-nav > li > a.radar-link {
+  padding-top: 12px;
+}
+
+

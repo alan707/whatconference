@@ -12,16 +12,24 @@
     <%= link_to 'Remove', conference, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
   <% end %>
   <%= render :partial => "follow_conference", :locals => { :conference => conference } %>
-
-  <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
-  <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
-  <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
-
-  <p> Followed by: 
-    <%= conference.followers.map{|c| c.username}.join(", ") %>
-  </p>
 </div>
 
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
+    <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
+    <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
+
+    <% unless conference.named_followers.empty? %>
+      <p>Followed by: 
+        <%= conference.named_followers.map(&:username).to_sentence %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-md-6 col-sm-12 hidden-xs">
+    <%= content_tag :div, nil, :class => "simple-conference-map", :data => { :latitude => conference.latitude, :longitude => conference.longitude } %>
+  </div>
+</div>
 
 <section class="comments-section">
   <h3><%= pluralize(conference.comments.count, "Comment") %></h3>
@@ -29,12 +37,10 @@
   <%= render :partial => conference.comments %>
 
   <%= simple_form_for [conference, Comment.new]  do |f| %>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="field">
-            <%= f.text_area :body, class: "form-control", rows: 5 %>
-          </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="field">
+          <%= f.text_area :body, class: "form-control", rows: 5 %>
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
 class App.Views.ConferenceCalendar extends Backbone.View
+  events:
+    'click .fc-month-name': 'switchToMonth'
+
   initialize: (options) ->
     _.extend this, options
 
@@ -28,6 +31,11 @@ class App.Views.ConferenceCalendar extends Backbone.View
   calendarRendered: (calendar_view) =>
     cv = @calendarView()
     @trigger 'change:dates', cv.start, cv.end, cv.intervalStart, cv.intervalEnd
+
+  switchToMonth: (event) ->
+    date = $(event.target).data('date')
+    @$el.fullCalendar 'changeView', 'month'
+    @$el.fullCalendar 'gotoDate', date
 
   insert_other_views: (list_el, map_el) ->
     calendar_el = @$('.fc-view-container').detach()

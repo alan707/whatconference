@@ -29,5 +29,6 @@
 //= require growl
 //
 //= require fullcalendar
+//= require backbone-elements
 //= require namespace
 //= require_tree .
