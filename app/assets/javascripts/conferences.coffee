@@ -41,5 +41,6 @@ $ ->
       event.preventDefault()
     null
 
-  $('.btn-radar').each ->
-    $(this).css('width', $(this).outerWidth())
+  $('.btn-radar').on 'click', ->
+    $(this).toggleClass 'following'
+  

@@ -1,14 +1,13 @@
 <% following = user_signed_in? && current_user.conferences.include?(conference) %>
-<%= link_to follow_conference_path(conference), method: :post, class: "btn btn-lg btn-radar", :data => { :disable_with => radar_sweep_icon, :title => conference.title, :following => following ? "1" : "0" } do %>
-  <span class="btn-text">
-    <% if following %>
-      On my radar
-    <% else %>
-      Put it on my radar!
-    <% end %>
-    <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
-      <%= conference.followings_count %>
-    <% end %>
-  </span>
+<% following_count = conference.followings_count + (following ? 0 : 1) %>
+<% not_following_count = conference.followings_count - (following ? 1 : 0) %>
+
+<%= link_to follow_conference_path(conference), remote: true, method: :post, class: "btn btn-lg btn-radar#{following ? ' following' : ''}" do %>
+  <span class="following-text">On my radar</span>
+  <span class="not-following-text">Put it on my radar!</span>
+  <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
+    <span class="following-text"><%= following_count %></span>
+    <span class="not-following-text"><%= not_following_count %></span>
+  <% end %>
 <% end %>
 

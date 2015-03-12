@@ -76,3 +76,20 @@
   margin-top: -9px;
 }
 
+.btn-radar {
+  .following-text {
+    display: none;
+  }
+  .not-following-text {
+    display: inline;
+  }
+
+  &.following {
+    .following-text {
+      display: inline;
+    }
+    .not-following-text {
+      display: none;
+    }
+  }
+}
