@@ -1,2 +1,2 @@
 
-Rails.application.config.less.line_numbers = "all"
+Rails.application.config.less.line_numbers = "comments"

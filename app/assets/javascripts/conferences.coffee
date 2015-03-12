@@ -1,4 +1,5 @@
 $ ->
+  # TODO: Refactor this spaghetti into a Backbone View
   $('.daterange').daterangepicker()
 
   $('.location').each ->
@@ -43,4 +44,8 @@ $ ->
 
   $('.btn-radar').on 'click', ->
     $(this).toggleClass 'following'
-  
+ 
+  $('.simple-conference-map').each ->
+    simple_map = new App.Views.SimpleConferenceMap(el: this)
+    simple_map.render()
+      
