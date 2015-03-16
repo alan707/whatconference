@@ -1,9 +1,11 @@
 .map-marker {
   width: 28px;
+  cursor: pointer;
 }
 
 #conference-browser {
   margin-top: 30px;
+  min-height: 1000px;
 
   .fc-view-container, 
   .map-panel {

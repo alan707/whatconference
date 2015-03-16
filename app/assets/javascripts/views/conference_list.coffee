@@ -3,6 +3,10 @@ class App.Views.ConferenceList extends Backbone.View
   itemTemplate: JST["templates/conference_list_item"]
   emptyTemplate: JST["templates/conference_list_empty"]
 
+  events:
+    'click .map-marker': 'markerClick'
+    'click .event-name': 'markerClick'
+
   initialize: (options) ->
     _.extend this, options
 
@@ -25,3 +29,8 @@ class App.Views.ConferenceList extends Backbone.View
     @$el.html @template({ items })
     this
 
+  markerClick: (event) ->
+    event.preventDefault()
+    markerIndex = $(event.target).data('marker')
+    if markerIndex?
+      @trigger 'click:marker', markerIndex

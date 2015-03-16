@@ -21,6 +21,7 @@ class App.Views.ConferenceBrowser extends Backbone.View
 
     @listenTo @calendar, 'change:dates', @filterByDates
     @listenTo @map, 'change:bounds', @filterByBounds
+    @listenTo @list, 'click:marker', @markerClick
 
   render: ->
     @$el.append @calendar.el
@@ -34,11 +35,14 @@ class App.Views.ConferenceBrowser extends Backbone.View
 
     this
 
-  filterByDates: (start, end, intervalStart, intervalEnd) =>
+  filterByDates: (start, end, intervalStart, intervalEnd) ->
     @filteredConferences.filterByDates(intervalStart, intervalEnd)
     @calendarConferences.filterByDates(start, end)
 
-  filterByBounds: (bounds) =>
+  filterByBounds: (bounds) ->
     @filteredConferences.filterByBounds(bounds)
     @calendarConferences.filterByBounds(bounds)
+
+  markerClick: (index) ->
+    @map.popupMarker index
 

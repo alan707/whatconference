@@ -53,8 +53,16 @@ class App.Views.ConferenceMap extends Backbone.View
     title: conference.get('title'),
     animation: 'DROP',
     icon: googleMapIconForIndex(index)
+    click: @bringMarkerToFront
     infoWindow:
       content: @infoWindowTemplate(conference.attributes)
+
+  bringMarkerToFront: (marker) =>
+    marker.setZIndex google.maps.Marker.MAX_ZINDEX + @nextZIndex()
+
+  nextZIndex: ->
+    @zindex ||= 1
+    @zindex += 1
 
   latLngForBounds: (markers) ->
     latLng = _.map(markers, @markerToLatLng)
@@ -79,3 +87,6 @@ class App.Views.ConferenceMap extends Backbone.View
 
     @ignoreFirstBoundsChange = false
 
+  popupMarker: (index) ->
+    # Simulate click
+    google.maps.event.trigger(@map.markers[index], 'click')
