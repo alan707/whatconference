@@ -26,7 +26,22 @@ class App.Collections.FilteredConferences extends Backbone.FilteredCollection
   model: App.Models.Conference
 
   filterByDates: (start, end) ->
-    @setFilter (item) ->
+    @currentDateFilter = @dateFilter(start, end)
+    @setFilter @currentDateFilter
+
+  dateFilter: (start, end) ->
+    (item) ->
       item.startMoment().isBetween(start, end) ||
         item.endMoment().isBetween(start, end)
+
+  filterByBounds: (bounds) ->
+    localBoundsFilter = @boundsFilter(bounds)
+    @setFilter (item) =>
+      @currentDateFilter(item) && localBoundsFilter(item)
+
+  boundsFilter: (bounds) ->
+    (item) ->
+      # Use Google Maps JS for convenience of checking point within bounds
+      latLng = new google.maps.LatLng(item.get('latitude'), item.get('longitude'))
+      bounds.contains(latLng)
 

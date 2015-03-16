@@ -10,9 +10,12 @@ class App.Views.ConferenceMap extends Backbone.View
 
   render: ->
     @$el.html @template
+    @ignoreFirstBoundsChange = true
     @map = new GMaps(
       _.extend(
         el: @$('.map')[0],
+        dragend: @boundsChanged,
+        zoom_changed: @boundsChanged,
         @defaultCoordinates
       )
     )
@@ -28,7 +31,6 @@ class App.Views.ConferenceMap extends Backbone.View
     lat:   38.8722838,
     lng: -457.9752401,
 
-
   addConferenceMarkers: ->
     if @map
       @map.removeMarkers()
@@ -37,7 +39,10 @@ class App.Views.ConferenceMap extends Backbone.View
 
       unless _.isEmpty(markers)
         @map.addMarkers markers
-        @map.fitLatLngBounds @latLngForBounds(markers)
+        unless @dontAutoZoom
+          @ignoreBoundsChange = true
+          @map.fitLatLngBounds @latLngForBounds(markers)
+          @ignoreBoundsChange = false
 
   withLatLng: (conference) =>
     conference.hasLatLng()
@@ -62,3 +67,15 @@ class App.Views.ConferenceMap extends Backbone.View
 
   markerToLatLng: (marker) ->
     new google.maps.LatLng(marker.lat, marker.lng)
+
+  latLngToLiteral: (latLng) ->
+    { lat: latLng.lat(), lng: latLng.lng() }
+
+  boundsChanged: =>
+    unless @ignoreBoundsChange || @ignoreFirstBoundsChange
+      @dontAutoZoom = true
+      @trigger 'change:bounds', @map.map.getBounds()
+      @dontAutoZoom = false
+
+    @ignoreFirstBoundsChange = false
+

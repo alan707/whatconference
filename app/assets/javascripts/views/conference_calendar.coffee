@@ -5,7 +5,7 @@ class App.Views.ConferenceCalendar extends Backbone.View
   initialize: (options) ->
     _.extend this, options
 
-    @listenTo @conferences, 'reset filter-complete', @eventsForCalendar
+    @listenTo @conferences, 'reset filter-complete', @refetchEvents
 
   # Access the Full Calendar plugin
   calendar: ->
@@ -25,7 +25,6 @@ class App.Views.ConferenceCalendar extends Backbone.View
       contentHeight: 500
       eventLimit: true # Show more... instead of growing calendar
 
-
     this
 
   calendarView: ->
@@ -34,6 +33,9 @@ class App.Views.ConferenceCalendar extends Backbone.View
   eventSource: (start, end, timezone, callback) =>
     # get objects from collection and render
     callback @conferences.invoke('toEvent')
+
+  refetchEvents: ->
+    @calendar 'refetchEvents'
   
   calendarRendered: (calendar_view) =>
     cv = @calendarView()

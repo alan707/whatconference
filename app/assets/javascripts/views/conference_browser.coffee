@@ -20,6 +20,7 @@ class App.Views.ConferenceBrowser extends Backbone.View
       conferences: @filteredConferences
 
     @listenTo @calendar, 'change:dates', @filterByDates
+    @listenTo @map, 'change:bounds', @filterByBounds
 
   render: ->
     @$el.append @calendar.el
@@ -36,4 +37,8 @@ class App.Views.ConferenceBrowser extends Backbone.View
   filterByDates: (start, end, intervalStart, intervalEnd) =>
     @filteredConferences.filterByDates(intervalStart, intervalEnd)
     @calendarConferences.filterByDates(start, end)
+
+  filterByBounds: (bounds) =>
+    @filteredConferences.filterByBounds(bounds)
+    @calendarConferences.filterByBounds(bounds)
 
