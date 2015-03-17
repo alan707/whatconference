@@ -9,6 +9,10 @@ body.page {
 	line-height: 1.42857143;
 	color: $text-color;
 	background-color: $page-color;
+  
+  .sign-in {
+    font-size: 19px;
+  }
 }
 
 /*added same link color to alert links*/

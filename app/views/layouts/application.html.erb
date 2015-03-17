@@ -22,8 +22,8 @@
       </div>
 
       <% if current_user.andand.cannot_login? %>
-        <div class="alert alert-success">Thanks for trying out What Conference! Explore and use the site, but make sure to
-          <%= link_to "sign in before you leave", account_path, :class => "hypertext-link-format" %> otherwise you won't be able to access your profile next time you visit.
+        <div class="alert alert-success text-center sign-in">Make sure to
+          <%= link_to "sign in before you leave", account_path, :class => "hypertext-link-format" %> otherwise you'll lose the conferences on My Radar after you leave.
         </div>
       <% end %>
     </div>
