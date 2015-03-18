@@ -13,6 +13,8 @@ class Conference < ActiveRecord::Base
   validates_date :end_date
   validates_date :end_date, :on_or_after => :start_date
 
+  acts_as_taggable
+
   extend FriendlyId
   friendly_id :title, :use => :slugged
 

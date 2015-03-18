@@ -106,7 +106,7 @@ class ConferencesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def conference_params
-    params.require(:conference).permit(:title, :url, :location, :city_state, :start_date, :end_date, :date_range)
+    params.require(:conference).permit(:title, :url, :location, :city_state, :start_date, :end_date, :date_range, :tag_list)
   end
 
   def filter_by_date(start_at, end_at)

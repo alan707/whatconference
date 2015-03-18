@@ -45,7 +45,11 @@ $ ->
 
   $('.btn-radar').on 'click', ->
     $(this).toggleClass 'following'
- 
+
+  $('.tags').each ->
+    tags = $(this).data('tags')
+    $(this).select2({ tags })
+
   simple_map = null
   $('.simple-conference-map').each ->
     simple_map = new App.Views.SimpleConferenceMap(el: this)
@@ -57,4 +61,5 @@ $ ->
         latitude: location.lat()
         longitude: location.lng()
       )
+
 

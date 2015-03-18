@@ -185,6 +185,15 @@
 }
 
 // Multiselect tags wrapper
+.select2-container {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+  height: inherit;
+}
+
 .select2-choices {
   margin: 0;
   padding: 0;
@@ -204,6 +213,7 @@
 .select2-search-choice {
   border-radius: @multiselect-tag-border-radius;
   color: @multiselect-tag-color;
+  background-color: @multiselect-tag-bg-color;
   font-size: floor((@component-font-size-base * 0.886)); // ~13px
   cursor: pointer;
   display: inline-block;
@@ -219,7 +229,7 @@
   &:hover {
     padding-right: 28px;
     padding-left: 14px;
-    color: @multiselect-tag-hover-color;
+    background-color: @multiselect-tag-bg-hover-color;
 
     .select2-search-choice-close {
       opacity: 1;
@@ -246,8 +256,8 @@
     transition: opacity .25s linear;
 
     &:after {
-      content: "\e609";
-      font-family: "Flat-UI-Icons";
+      content: "\f00d";
+      font-family: "FontAwesome";
       line-height: 27px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -258,7 +268,6 @@
 // Multiselect search field
 .select2-search-field {
   input[type="text"] {
-    color: @multiselect-input-color;
     font-size: ceil((@component-font-size-base * 0.933)); // 14px;
     border: none;
     box-shadow: none;

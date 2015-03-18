@@ -81,6 +81,9 @@ gem 'geocoder'
 # Keep all versions
 gem 'paper_trail', '~> 3.0'
 
+# Tags
+gem 'acts-as-taggable-on', '~> 3.4'
+
 ### Templates and views ###
 
 # JSON templates
@@ -115,6 +118,7 @@ gem 'rails-assets-typeahead.js'
 gem 'rails-assets-gmaps'
 gem 'rails-assets-bootstrap-daterangepicker', '~> 1.3.17'
 gem 'rails-assets-growl'
+gem 'rails-assets-select2'
 
 gem 'backbone-filtered-collection'
 

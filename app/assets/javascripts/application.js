@@ -27,6 +27,7 @@
 //= require backbone-filtered-collection
 //= require typeahead.js
 //= require growl
+//= require select2
 //
 //= require fullcalendar
 //= require backbone-elements
