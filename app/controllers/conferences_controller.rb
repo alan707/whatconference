@@ -7,7 +7,7 @@ class ConferencesController < ApplicationController
 
   # GET /conferences
   def index
-    query = params[:query].andand.strip
+    query = [params[:query].andand.strip, params[:tag].andand.strip].join ' '
     query = '*' if query.blank?
     search_conferences query, page: params[:page], per_page: 40
   end

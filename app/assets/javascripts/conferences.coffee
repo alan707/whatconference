@@ -46,9 +46,18 @@ $ ->
   $('.btn-radar').on 'click', ->
     $(this).toggleClass 'following'
 
-  $('.tags').each ->
-    tags = $(this).data('tags')
-    $(this).select2({ tags })
+  tags = SearchTags # from HTML body
+  $('.tags').select2({ tags })
+
+  $('.filter-by-tags').select2(
+    allowClear: true
+  ).on('change', (event) ->
+    tag = event.val
+    path = URI(location)
+      .removeSearch("tag")
+      .addSearch({ tag })
+    Turbolinks.visit path.toString()
+  )
 
   simple_map = null
   $('.simple-conference-map').each ->

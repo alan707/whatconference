@@ -92,5 +92,5 @@ $ ->
       when 'tags'
         tag = suggestion.value
         $(this).trigger 'tags:show', tag
-        Turbolinks.visit Routes.conferences_path(query: tag)
+        Turbolinks.visit Routes.conferences_path(tag: tag)
 

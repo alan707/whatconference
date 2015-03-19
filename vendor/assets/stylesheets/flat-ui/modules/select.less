@@ -80,6 +80,24 @@
   }
 }
 
+// Select2 clear button
+.select2-search-choice-close {
+  display: none;
+  cursor: pointer;
+  padding: 0px 8px;
+  margin-left: 10px;
+
+  &:after {
+    content: "\f00d";
+    font-family: "FontAwesome";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+.select2-container.select2-allowclear .select2-search-choice-close {
+  display: inline-block;
+}
+
 // Alternate color variants
 .select-default {
   .select-variant(@select-default-color, @select-default-bg, @select-default-hover-bg, @select-default-active-bg, @arrow-color: @inverse);
@@ -443,7 +461,6 @@
 .select2-search {
   padding: 8px 6px;
   width: 100%;
-  display: none;
 
   input[type="text"] {
     &:extend(.form-control all, .input-sm all);

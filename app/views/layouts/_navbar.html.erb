@@ -15,7 +15,7 @@
       <form class="navbar-form navbar-left search-form" action="<%= conferences_path %>" role="search">
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control wide conference-search" type="search" name="query" placeholder="Search for a conference">
+            <input class="form-control wide conference-search" type="search" name="query" placeholder="Search for a conference" value="<%= params[:query] %>">
             <span class="input-group-btn">
               <button type="submit" class="btn"><span class="fa fa-search"></span></button>
             </span>

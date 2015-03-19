@@ -7,6 +7,15 @@
   <% end %>
 </ol>
 
+<div class="row text-right">
+  <div class="col-md-11">
+    <%= label_tag "filter_by_tag", "Filter by topic", class: 'control-label control-label-inline' %>
+    <%= select_tag "filter_by_tag", tags_options_for_select(params[:tag], include_blank: true), class: "filter-by-tags select-primary", data: { placeholder: "Any topic" } %>
+  </div>
+</div>
+
 <%= paginate conferences %>
 
 <%= render conferences %>
+
+<%= paginate conferences %>

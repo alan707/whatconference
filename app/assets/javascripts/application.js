@@ -28,6 +28,7 @@
 //= require typeahead.js
 //= require growl
 //= require select2
+//= require URIjs/URI
 //
 //= require fullcalendar
 //= require backbone-elements

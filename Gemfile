@@ -119,6 +119,7 @@ gem 'rails-assets-gmaps'
 gem 'rails-assets-bootstrap-daterangepicker', '~> 1.3.17'
 gem 'rails-assets-growl'
 gem 'rails-assets-select2'
+gem 'rails-assets-URIjs'
 
 gem 'backbone-filtered-collection'
 

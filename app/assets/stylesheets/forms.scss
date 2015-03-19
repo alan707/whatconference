@@ -1,15 +1,4 @@
 @import "variables";
-
-/*// .form-group.focus .form-control,
-// .form-control:focus,
-// .form-group.focus .select2-search input[type="text"],
-// .select2-search input[type="text"]:focus {
-//   border-color: $navbar-color;
-// }
-
-// .form-group.focus .input-group-btn .btn,
-// .input-group.focus .input-group-btn .btn {
-//   border-color: $navbar-color;
-//   color: $navbar-color;
-// }*/
-
+.control-label-inline {
+  margin-right: 16px;
+}
