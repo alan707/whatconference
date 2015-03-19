@@ -9,7 +9,7 @@
       <%= f.hidden_field :latitude %>
       <%= f.hidden_field :longitude %>
       <%= f.input :url, as: 'url', label: 'Conference website', placeholder: 'copy conference url and paste here' %>
-      <%= f.input :tag_list, label: 'Tags/categories', placeholder: "e.g. local gov, civic tech", input_html: { class: 'tags', data: { tags: tag_names.to_json } } %>
+      <%= f.input :tag_list, label: 'Topics', placeholder: "e.g. local gov, civic tech", input_html: { class: 'tags', data: { tags: tag_names.to_json } } %>
       <%= f.button :submit, "Submit", class: "btn btn-lg btn-primary" %>
 
     <% end %>

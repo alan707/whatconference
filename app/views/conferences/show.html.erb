@@ -20,7 +20,7 @@
     <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
     <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
     <% unless conference.tag_list.empty? %>
-      <h2 class="submitter">Tags: <%= render conference.tags %></h2>
+      <h2 class="submitter">Topics: <%= render conference.tags %></h2>
     <% end %>
 
     <% unless conference.named_followers.empty? %>

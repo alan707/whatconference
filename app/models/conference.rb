@@ -37,6 +37,14 @@ class Conference < ActiveRecord::Base
   # Elasticsearch
   searchkick word_start: [:title]
 
+  scope :search_import, -> { includes(:tags) }
+  def search_data
+    as_json.merge({
+      acronym: Acronym.new(title).short,
+      tags: tags.map(&:name)
+    })
+  end
+
   # Version history
   has_paper_trail
 

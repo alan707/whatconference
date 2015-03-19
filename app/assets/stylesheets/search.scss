@@ -30,8 +30,15 @@
     text-align: left;
   }
 
+  .autocomplete-header {
+    font-size: 20px;
+    font-variant: small-caps;
+    padding: 6px 14px;
+    margin: 0;
+  }
+
   .twitter-typeahead .tt-suggestion {
-    .conference-title {
+    .conference-title, .tag {
       font-size: 20px;
       font-weight: bold;
     }
