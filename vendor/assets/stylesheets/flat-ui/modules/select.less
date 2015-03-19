@@ -82,10 +82,10 @@
 
 // Select2 clear button
 .select2-search-choice-close {
-  display: none;
+  color: @multiselect-tag-icon-color;
   cursor: pointer;
-  padding: 0px 8px;
-  margin-left: 10px;
+  font-size: ceil((@component-font-size-base * 0.8)); // ~12px;
+  text-decoration: none;
 
   &:after {
     content: "\f00d";
@@ -94,6 +94,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+.select2-choice .select2-search-choice-close {
+  padding: 0px 8px;
+  margin-left: 10px;
+  display: none;
+}
+
 .select2-container.select2-allowclear .select2-search-choice-close {
   display: inline-block;
 }
@@ -258,13 +265,9 @@
 
   // Tag close icon
   .select2-search-choice-close {
-    color: @multiselect-tag-icon-color;
-    cursor: pointer;
-    font-size: ceil((@component-font-size-base * 0.8)); // ~12px;
     position: absolute;
     right: 0;
     text-align: right;
-    text-decoration: none;
     top: 0;
     width: 100%;
     bottom: 0;
@@ -274,11 +277,7 @@
     transition: opacity .25s linear;
 
     &:after {
-      content: "\f00d";
-      font-family: "FontAwesome";
       line-height: 27px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
   }
 }

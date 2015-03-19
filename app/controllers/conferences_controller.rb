@@ -7,9 +7,18 @@ class ConferencesController < ApplicationController
 
   # GET /conferences
   def index
-    query = [params[:query].andand.strip, params[:tag].andand.strip].join ' '
+    query = params[:query].andand.strip
     query = '*' if query.blank?
-    search_conferences query, page: params[:page], per_page: 40
+
+    search_options = {
+      page: params[:page],
+      per_page: 40
+    }
+
+    tag = params[:tag].andand.strip
+    search_options[:where] = { tags: tag } unless tag.blank?
+
+    search_conferences query, search_options
   end
 
   # GET /conferences/autocomplete?query=name
