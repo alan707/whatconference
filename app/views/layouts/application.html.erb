@@ -4,6 +4,7 @@
     <title><%= content_for?(:title) ? yield(:title) + " - ": ""%>What Conference?</title>
     <meta name="description" content="What Conference is a simple calendar for you to track upcoming conferences. Don't let another conference fall of your radar">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= content_for(:social_meta) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=#{Nenv.google_browser_api_key}" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

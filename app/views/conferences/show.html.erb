@@ -1,3 +1,11 @@
+<% content_for(:social_meta) do %>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatconference" />
+  <meta name="twitter:title" content="<%= conference.title %>" />
+  <meta name="twitter:description" content="Add this conference to your radar on What Conference." />
+  <meta name="twitter:image" content="<%= Nenv.twitter_card_image %>" />
+  <meta name="twitter:url" content="<%= conference_url(conference) %>" />
+<% end %>
 <ol class="breadcrumb">
   <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
   <li class="active"><%= truncate(conference.title, :length => 60) %></li>
