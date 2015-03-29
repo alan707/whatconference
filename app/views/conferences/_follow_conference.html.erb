@@ -1,13 +1,27 @@
-<% following = user_signed_in? && current_user.following?(conference) %>
-<% following_count = conference.followings_count + (following ? 0 : 1) %>
-<% not_following_count = conference.followings_count - (following ? 1 : 0) %>
 
-<%= link_to follow_conference_path(conference), remote: true, method: :post, class: "btn btn-lg btn-radar#{following ? ' following' : ''}" do %>
-  <span class="following-text">On my radar</span>
-  <span class="not-following-text">Put it on my radar!</span>
-  <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
-    <span class="following-text"><%= following_count %></span>
-    <span class="not-following-text"><%= not_following_count %></span>
-  <% end %>
+<% following = current_user && current_user.following?(conference) %>
+
+<% if current_user %>
+	<% following_count = conference.followings_count + (following ? 0 : 1) %>
+	<% not_following_count = conference.followings_count - (following ? 1 : 0) %>
+	<%= link_to follow_conference_path(conference), remote: true, method: :post, class: "btn btn-lg btn-radar#{following ? ' following' : ''}" do %>
+	  <span class="following-text">On my radar</span>
+	  <span class="not-following-text">Put it on my radar!</span>
+	  <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
+	    <span class="following-text"><%= following_count %></span>
+	    <span class="not-following-text"><%= not_following_count %></span>
+	  <% end %>
+	<% end %>
+<% else %>
+	<% following_count = conference.followings_count  %>
+	<% not_following_count = conference.followings_count %>
+	<%= link_to new_user_session_path, class: "btn btn-lg btn-radar" do %>
+	  <span class="following-text">Put it on my radar!</span>
+	  <span class="not-following-text">Put it on my radar!</span>
+	  <%= content_tag(:span, { :class => "badge" }.deep_merge(tooltip_popup("People who have this conference on their radar"))) do %>
+	    <span class="following-text"><%= following_count %></span>
+	    <span class="not-following-text"><%= not_following_count %></span>
+	  <% end %>
+	<% end %>
 <% end %>
 
