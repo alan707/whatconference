@@ -5,12 +5,12 @@
       <p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.username %></small></p>
     </div>
 
-    <div class="btn-group pull-right">
+    <div class="pull-right">
       <% if comment.user == current_user -%>
-        <%= button_tag 'Edit', class: "btn btn-sm btn-default comment-edit", :data => { :comment_id => comment.id } %>
+        <%= button_tag 'Edit Comment', class: "btn btn-info btn-sm comments-edit", :data => { :comment_id => comment.id } %>
       <% end %>
       <% if comment.user == current_user -%>
-        <%= link_to 'Remove', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+        <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
       <% end %>
     </div>
   </div>
