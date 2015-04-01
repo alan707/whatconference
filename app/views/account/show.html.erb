@@ -1,3 +1,4 @@
+<% content_for :title, "Account" %>
 <% if current_user.cannot_login? %>
   <%= render "devise/sessions/omniauth" %>
 <% else %>

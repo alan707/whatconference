@@ -78,8 +78,17 @@ class User < ActiveRecord::Base
     auth.info.first_name || auth.info.nickname || auth.uid.sub(/@.*/, "")
   end
 
-  def remaining_providers
-    self.class.omniauth_providers.map(&:to_s) - omniauth_accounts.map(&:provider)
+  def connected_providers
+    @connected_providers ||= omniauth_accounts.map(&:provider)
+  end
+
+  def omniauth_providers_with_accounts
+    self.class.omniauth_providers.map(&:to_s).map do |provider|
+      {
+        provider: provider,
+        connected: connected_providers.include?(provider)
+      }
+    end
   end
 
   # A new user to the site

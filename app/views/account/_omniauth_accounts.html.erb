@@ -2,17 +2,25 @@
 <h3>Sign in</h3>
 
 <div class="linked-accounts">
-  You are currently able to sign in to your account using:
-  <ul class="image-list signin-icons">
-    <% user.omniauth_accounts.each do |account| %>
-      <li><%= omniauth_image_tag account.provider %></li>
-    <% end %>
-  </ul>
-
-  <% unless user.remaining_providers.empty? %>
-    You can also link your account to sign in with:
-    <%= render :partial => "devise/sessions/omniauth_sign_in", :locals => { :omniauth_providers => user.remaining_providers } %>
+  Sign in to What Conference using your existing accounts.
+  <% user.omniauth_providers_with_accounts.each do |account| %>
+    <div class="row linked-account-row">
+      <div class="col-xs-4">
+        <%= omniauth_image_tag account[:provider] %>
+      </div>
+      <div class="col-xs-8 linked-account-button">
+        <% if account[:connected] %>
+          <span class="btn btn-success">
+            <i class="fa fa-check icon-left"></i>
+            Connected
+          </span>
+        <% else %>
+          <%= link_to user_omniauth_authorize_path(account[:provider]), :class => "btn btn-info" do %>
+            <i class="fa fa-chain icon-left"></i>
+            Connect account
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
-
-

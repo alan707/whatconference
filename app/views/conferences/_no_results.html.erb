@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="nothing-found">
+    <h4>No conferences found.</h4>
+    <p class="lead">Feel free to <%= link_to "add a new conference here.", new_conference_path(title: query) %></p>
+  </div>
+
+  <h4>Check out these popular conferences</h4>
+  <%= render popular_conferences %>
+</div>
+

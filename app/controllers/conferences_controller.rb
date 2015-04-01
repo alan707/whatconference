@@ -5,6 +5,8 @@ class ConferencesController < ApplicationController
 
   exposes :conferences, :conference
 
+  include PopularConferences
+
   # GET /conferences
   def index
     query = params[:query].andand.strip
@@ -19,6 +21,8 @@ class ConferencesController < ApplicationController
     search_options[:where] = { tags: tag } unless tag.blank?
 
     search_conferences query, search_options
+
+    load_popular_conferences
   end
 
   # GET /conferences/autocomplete?query=name

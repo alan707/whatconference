@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  exposes :popular_conferences
+  include PopularConferences
 
   # GET /
   def show
@@ -8,11 +8,5 @@ class HomeController < ApplicationController
     else
       load_popular_conferences
     end
-  end
-
-  private
-
-  def load_popular_conferences
-    @popular_conferences = Conference.order_by_popularity.limit(6)
   end
 end

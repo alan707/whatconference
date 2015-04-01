@@ -1,3 +1,4 @@
+<% content_for :title, "Conferences" %>
 <ol class="breadcrumb">
   <% if params[:query].present? %>
     <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
@@ -16,6 +17,6 @@
 
 <%= paginate conferences %>
 
-<%= render conferences %>
+<%= render(conferences) || render("no_results", :query => params[:query]) %>
 
 <%= paginate conferences %>
