@@ -8,6 +8,7 @@ $ ->
     map = new GMaps(
       _.extend(
         el: '#conference-map',
+        scrollwheel: false,
         whole_usa
       )
     )
