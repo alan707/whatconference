@@ -71,4 +71,32 @@
 }
 
 
+// Flat theme for panels
+
+.panel {
+  border-width: 2px;
+  box-shadow: none;
+}
+
+.panel-header {
+  border-bottom-width: 2px;
+}
+
+.panel-heading {
+  border-radius: 0;
+}
+  
+// Flat theme for tables
+table {
+  border: none;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  border: none;
+}
 

@@ -16,6 +16,7 @@ class App.Views.ConferenceMap extends Backbone.View
         el: @$('.map')[0],
         dragend: @boundsChanged,
         zoom_changed: @boundsChanged,
+        scrollwheel: false,
         @defaultCoordinates
       )
     )
