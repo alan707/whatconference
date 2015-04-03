@@ -1,5 +1,5 @@
 <tr class="event-row">
-  <td class="marker-col">
+  <td class="marker-col hidden-xs">
   <% if @index?: %>
     <img src="<%= markerPathForIndex(@index) %>" class="map-marker" data-marker="<%= @index %>">
   <% end %>
@@ -8,7 +8,10 @@
     <a href="#" class="event-name" data-marker="<%= @index %>"><%= @title %></a>
     <div class="text-muted event-dates"><%= @city_state %>, <%= @date_range %></div>
   </td>
-  <td class="button-col">
+  <td class="button-col hidden-xs">
     <a href="<%= @url %>" class="btn btn-primary btn-sm"><i class="fa fa-map-marker icon-left"></i>Details</a>
+  </td>
+   <td class="visible-xs button-col">
+    <a href="<%= @url %>" class="btn btn-primary btn-xs details-conference">Details</a>
   </td>
 </tr>

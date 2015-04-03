@@ -1,0 +1,117 @@
+@import "fullcalendar-override";
+@import "breadcrumbs";
+
+@media only screen and (max-width: 480px) {
+	
+	html {
+		-webkit-text-size-adjust: none;
+	}
+
+	body {
+	  margin: 0;
+	  padding: 0;
+	}
+
+	.navbar {
+  	border-radius: 0px;
+  }
+
+  nav.navbar-wc {
+		margin: 0px;
+		padding: 0px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+
+
+	.fc button {
+		transition: border .25s linear, color .25s linear, background-color .25s linear;
+	  font-size: 12px;
+	  padding: 0 1em;
+	  height: 30px;
+
+	  &:hover,
+	  &:focus {
+	    outline: none;
+	  }
+	}
+
+	.fc-toolbar .fc-center {
+  	display: inline-block;
+  	margin-top: 23px;
+  	margin-bottom: 0px;
+
+  		h2 {  
+  			font-size: 32px;
+			}
+	}
+
+	div.panel {
+	  border-width: 0px;
+	  box-shadow: none;
+	}
+
+	a.details-conference {
+	  padding: 29px 4px;
+	  margin-top: -4px;
+	  margin-bottom: -6px;
+	  border-radius: 3px;
+	  background-color: #3C9DED;
+	}
+
+	div.col-md-6.col-list.col-map	{
+		position: relative;
+	  min-height: 1px;
+	  padding-left: 3px;
+	  padding-right: 3px;
+	}
+
+
+	/*Breadcrumbs*/
+	ol.breadcrumb {
+		margin-bottom: 0px;
+		margin-top: 8px;
+  	padding-top: 8px; 
+  	padding-bottom: 0px;
+  	/*padding-right: 15px;
+  	padding-left: 15px;*/
+	  background-color: transparent;
+	  font-size: 20px;
+	}
+
+
+
+
+
+  img.map-marker {
+    width: 14px;
+    cursor: pointer;
+  }
+
+  .conference-list {
+  
+  	td.contents-col {
+	   padding-left: 12px;
+	   padding-right: 2px;
+    }
+
+    td.button-col {
+    	padding: 8px 0px;
+		  width: 54px;
+		  border-left: none;
+		}
+  }
+
+  	.event-row {
+  	a.event-name {
+  		font-size: 15px;
+		}
+
+		div.event-dates {
+			font-size: 14px;
+		}
+	}
+
+
+}
