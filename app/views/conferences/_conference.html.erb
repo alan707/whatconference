@@ -10,7 +10,11 @@
                 <a class="website-globe-icon" href="<%= conference.url %>" target="_blank"><span class="what-website icon-left"></span></a>
               </td>           
               <td>
-                <p class="hypertext-link-format">
+                <p class="conference-title-mobile visible-xs">
+                  <%= link_to truncate(conference.title, :length => 38), conference %>
+                <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %> </small>
+                </p>
+                <p class="hypertext-link-format hidden-xs">
                   <%= link_to truncate(conference.title, :length => 90), conference %>
                 <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %> </small>
                 </p>

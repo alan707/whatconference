@@ -6,7 +6,7 @@
       <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
       <li class="active">Search for "<%= params[:query] %>"</li>
      <% else %>
-      <li class="active">All Conferences</li>
+      <li class="active all-conferences">All Conferences</li>
     <% end %>
     <div class="visible-xs-inline filter-by-tags-mobile">
       <%= select_tag "filter_by_tag", tags_options_for_select(params[:tag], include_blank: true), class: "filter-by-tags select-primary", data: { placeholder: "Any topic" } %>

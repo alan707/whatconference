@@ -72,17 +72,24 @@
 		margin-top: 8px;
   	padding-top: 8px; 
   	padding-bottom: 0px;
-  	/*padding-right: 15px;
-  	padding-left: 15px;*/
 	  background-color: transparent;
-	  font-size: 20px;
+	  font-size: 17px;
+
+		  li.active.all-conferences{
+				padding-top: 10px;
+		    padding-left: 20px;
+			}
+
 	}
 
 
-  img.map-marker {
-    width: 14px;
-    cursor: pointer;
-  }
+  .panel-primary > .panel-heading {
+	  color: #fff;
+	  background-color: #337ab7;
+	  border-color: #337ab7;
+	  padding-bottom: 4px;
+	  padding-top: 4px;
+	}
 
   .conference-list {
   
@@ -99,13 +106,13 @@
   }
 
   	.event-row {
-  	a.event-name {
-  		font-size: 15px;
-		}
+	  	a.event-name {
+	  		font-size: 15px;
+			}
 
-		div.event-dates {
-			font-size: 14px;
-		}
+			div.event-dates {
+				font-size: 14px;
+			}						
 	}
 
 		div.nothing-found {
@@ -113,16 +120,18 @@
   		margin-bottom: 100px;
 		}
 
-		p.hypertext-link-format{
-		font-size: 15px;
-  	line-height: 1.2;
-  	margin-bottom: 0px;
+		
+
+		p.conference-title-mobile.visible-xs{
+			font-size: 15px;
+	  	line-height: 1.2;
+	  	margin-bottom: 0px;
 		}
 
 		div.col-md-10.conference-mobile{
-			  border-bottom-width: 1px;
-  		  border-bottom-color: rgba(0, 0, 0, 0.14);
-  			border-bottom-style: solid;
+			border-bottom-width: 1px;
+	  	border-bottom-color: rgba(0, 0, 0, 0.14);
+	  	border-bottom-style: solid;
 		}
 
 		small.author {
