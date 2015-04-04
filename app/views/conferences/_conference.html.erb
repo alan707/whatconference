@@ -2,11 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-10">
+      <div class="col-md-10 conference-mobile">
         <table>
           <tbody>
             <tr>
-              <td class="conference-website-cell">
+              <td class="conference-website-cell hidden-xs">
                 <a class="website-globe-icon" href="<%= conference.url %>" target="_blank"><span class="what-website icon-left"></span></a>
               </td>           
               <td>
@@ -15,8 +15,11 @@
                 <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %> </small>
                 </p>
               </td>
-              <div class="pull-right conference-button-bar">
+              <div class="pull-right conference-button-bar hidden-xs">
                 <%= render :partial => "conferences/follow_conference", :locals => { :conference => conference } %>
+              </div>
+              <div class="visible-xs pull-right conference-follow-icon ">
+                <%= render :partial => "conferences/follow_conference_mobile", :locals => { :conference => conference } %>
               </div>
             </tr>
           </tbody>

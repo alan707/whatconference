@@ -23,8 +23,6 @@
 		font-weight: bold;
 	}
 
-
-
 	.fc button {
 		transition: border .25s linear, color .25s linear, background-color .25s linear;
 	  font-size: 12px;
@@ -81,9 +79,6 @@
 	}
 
 
-
-
-
   img.map-marker {
     width: 14px;
     cursor: pointer;
@@ -112,6 +107,43 @@
 			font-size: 14px;
 		}
 	}
+
+		div.nothing-found {
+  		margin-left: 15px;
+  		margin-bottom: 100px;
+		}
+
+		p.hypertext-link-format{
+		font-size: 15px;
+  	line-height: 1.2;
+  	margin-bottom: 0px;
+		}
+
+		div.col-md-10.conference-mobile{
+			  border-bottom-width: 1px;
+  		  border-bottom-color: rgba(0, 0, 0, 0.14);
+  			border-bottom-style: solid;
+		}
+
+		small.author {
+		  font-size: 14px;
+		  margin-top: -3px;
+		}
+
+		div#s2id_filter_by_tag{
+			float: right;
+
+		}
+
+
+		div.row.row-mobile.visible-xs{
+			border-bottom-width: 1px;
+		  margin-bottom: 0px;
+		  padding-bottom: 10px;
+		  border-bottom-width: 1px;
+  		border-bottom-color: rgba(0, 0, 0, 0.14);
+  		border-bottom-style: solid;
+		}
 
 
 }

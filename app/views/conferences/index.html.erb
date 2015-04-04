@@ -1,19 +1,38 @@
 <% content_for :title, "Conferences" %>
-<ol class="breadcrumb">
-  <% if params[:query].present? %>
-    <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
-    <li class="active">Search for "<%= params[:query] %>"</li>
-   <% else %>
-    <li class="active">All Conferences</li>
-  <% end %>
-</ol>
 
-<div class="row text-right">
+<div class="row row-mobile visible-xs">
+  <ol class="breadcrumb">
+    <% if params[:query].present? %>
+      <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
+      <li class="active">Search for "<%= params[:query] %>"</li>
+     <% else %>
+      <li class="active">All Conferences</li>
+    <% end %>
+    <div class="visible-xs-inline filter-by-tags-mobile">
+      <%= select_tag "filter_by_tag", tags_options_for_select(params[:tag], include_blank: true), class: "filter-by-tags select-primary", data: { placeholder: "Any topic" } %>
+    </div>
+  </ol>
+</div>
+
+<div class="row hidden-xs">
+  <ol class="breadcrumb">
+    <% if params[:query].present? %>
+      <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
+      <li class="active">Search for "<%= params[:query] %>"</li>
+     <% else %>
+      <li class="active">All Conferences</li>
+    <% end %>
+  </ol>
+</div>
+
+<div class="row text-right hidden-xs">
   <div class="col-md-11">
     <%= label_tag "filter_by_tag", "Filter by topic", class: 'control-label control-label-inline' %>
     <%= select_tag "filter_by_tag", tags_options_for_select(params[:tag], include_blank: true), class: "filter-by-tags select-primary", data: { placeholder: "Any topic" } %>
   </div>
 </div>
+
+
 
 <%= paginate conferences %>
 

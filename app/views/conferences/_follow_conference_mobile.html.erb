@@ -1,0 +1,19 @@
+
+<% following = current_user && current_user.following?(conference) %>
+
+<% if current_user %>
+	<% following_count = conference.followings_count + (following ? 0 : 1) %>
+	<% not_following_count = conference.followings_count - (following ? 1 : 0) %>
+	<%= link_to follow_conference_path(conference), remote: true, method: :post, class: "btn btn-lg btn-radar#{following ? ' following' : ''}" do %>
+	  <span class="following-text"><%= following_count %></span>
+	  <span class="not-following-text"><%= not_following_count %></span>
+	<% end %>
+<% else %>
+	<% following_count = conference.followings_count  %>
+	<% not_following_count = conference.followings_count %>
+	<%= link_to new_user_session_path, class: "btn btn-lg btn-radar" do %>
+	  <span class="following-text"><%= following_count %></span>
+	  <span class="not-following-text"><%= not_following_count %></span>
+	<% end %>
+<% end %>
+
