@@ -5,7 +5,7 @@
   <% end %>
   </td>
   <td class="contents-col">
-    <a href="#" class="event-name" data-marker="<%= @index %>"><%= @title %></a>
+    <a href="#" class="event-name" data-marker="<%= @index %>"><%= @title.substring(0,80) %></a>
     <div class="text-muted event-dates"><%= @city_state %>, <%= @date_range %></div>
   </td>
   <td class="button-col hidden-xs">

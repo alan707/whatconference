@@ -1,5 +1,5 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Conferences</div>
+  <div class="panel-heading panel-conference">Conferences</div>
   <table class="table table-striped table-hover conference-list">
     <%- @items %>
   </table>

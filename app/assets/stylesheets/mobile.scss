@@ -35,6 +35,13 @@
 	  }
 	}
 
+	.fc-basic-view .fc-body .fc-row {
+		max-height: 56px; /* ensure that all rows are at least this tall */
+	}
+	.fc-year-view .fc-body .fc-row {
+		max-height: 56px;
+	}
+
 	.fc-toolbar .fc-center {
   	display: inline-block;
   	margin-top: 23px;
@@ -43,6 +50,14 @@
   		h2 {  
   			font-size: 32px;
 			}
+	}
+
+	.fc th,
+		.fc td {
+		border-style: solid;
+		border-width: 1px;
+		padding: 0;
+		vertical-align: top;
 	}
 
 	div.panel {
@@ -65,6 +80,11 @@
 	  padding-right: 3px;
 	}
 
+	div.col-md-6.col-calendar {
+		padding-left: 10px;
+  	padding-right: 10px;
+	}
+
 
 	/*Breadcrumbs*/
 	ol.breadcrumb {
@@ -82,14 +102,27 @@
 
 	}
 
-
-  .panel-primary > .panel-heading {
-	  color: #fff;
-	  background-color: #337ab7;
-	  border-color: #337ab7;
-	  padding-bottom: 4px;
-	  padding-top: 4px;
+	th.fc-month-name,
+	th.fc-day-header {
+		font-size: 0.9em;
 	}
+
+	.fc-ltr .fc-basic-view .fc-day-number {
+    padding-right: 5px;
+  	font-size: 15px;
+	}
+
+
+	.panel-heading.panel-conference {
+		color: #020202;
+		background-color: #FFFFFF;
+		border-color: #337ab7;
+		border-top: 1px solid;
+	  border-bottom: 1px solid;
+		padding-bottom: 4px;
+		padding-top: 4px;
+		text-align: center;
+  }
 
   .conference-list {
   

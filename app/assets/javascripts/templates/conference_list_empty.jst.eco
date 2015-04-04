@@ -1,5 +1,5 @@
 <tr class="event-row">
   <td class="contents-col">
-    <div class="text-muted">No conferences during that time.</div>
+    <div class="state-info-text">You haven't tracked any conferences this month.</div>
   </td>
 </tr>
