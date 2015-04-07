@@ -8,10 +8,12 @@
     <a href="#" class="event-name" data-marker="<%= @index %>"><%= @title.substring(0,80) %></a>
     <div class="text-muted event-dates"><%= @city_state %>, <%= @date_range %></div>
   </td>
-  <td class="button-col hidden-xs">
-    <a href="<%= @url %>" class="btn btn-primary btn-sm"><i class="fa fa-map-marker icon-left"></i>Details</a>
-  </td>
-   <td class="visible-xs button-col">
-    <a href="<%= @url %>" class="btn btn-primary btn-xs details-conference">Details</a>
+  <td class="button-col">
+    <span class="hidden-xs">
+      <a href="<%= @url %>" class="btn btn-primary btn-sm"><i class="fa fa-map-marker icon-left"></i>Details</a>
+    </span>
+    <span class="visible-xs">
+      <a href="<%= @url %>" class="btn btn-primary btn-xs details-conference">Details</a>
+    </span>
   </td>
 </tr>

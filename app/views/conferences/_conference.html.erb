@@ -1,8 +1,7 @@
 <div class="conference row clearfix">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10 conference-mobile">
+      <div class="col-md-10 col-md-offset-1 conference-mobile">
         <table>
           <tbody>
             <tr>
@@ -12,25 +11,21 @@
               <td>
                 <p class="conference-title-mobile visible-xs">
                   <%= link_to truncate(conference.title, :length => 38), conference %>
-                <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %> </small>
+                  <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %></small>
                 </p>
                 <p class="hypertext-link-format hidden-xs">
                   <%= link_to truncate(conference.title, :length => 90), conference %>
-                <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %> </small>
+                  <small class="author"><%= [conference_dates(conference), conference.city_state].join(" | ") %></small>
                 </p>
               </td>
-              <div class="pull-right conference-button-bar hidden-xs">
+              <div class="pull-right conference-button-bar">
                 <%= render :partial => "conferences/follow_conference", :locals => { :conference => conference } %>
-              </div>
-              <div class="visible-xs pull-right conference-follow-icon ">
-                <%= render :partial => "conferences/follow_conference_mobile", :locals => { :conference => conference } %>
               </div>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="col-md-1"></div>
     </div>
   </div>
 </div>
-      
+

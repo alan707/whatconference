@@ -1,0 +1,15 @@
+// Bootstrap grid limits
+@import "bootstrap/variables";
+
+.pagination {
+  @media (max-width: $screen-xs-max) {
+    float: right;
+    &:after { 
+      content: "."; 
+      visibility: hidden; 
+      display: block; 
+      height: 0; 
+      clear: both;
+    }
+  }
+}

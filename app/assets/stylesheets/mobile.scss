@@ -2,190 +2,190 @@
 @import "breadcrumbs";
 
 @media only screen and (max-width: 780px) {
-	
-	html {
-		-webkit-text-size-adjust: none;
-	}
 
-	body {
-	  margin: 0;
-	  padding: 0;
-	}
+  html {
+    -webkit-text-size-adjust: none;
+  }
 
-	.navbar {
-  	border-radius: 0px;
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar {
+    border-radius: 0px;
   }
 
   nav.navbar-wc {
-		margin: 0px;
-		padding: 0px;
-		font-size: 16px;
-		font-weight: bold;
-	}
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: bold;
+  }
 
-	.fc button {
-		transition: border .25s linear, color .25s linear, background-color .25s linear;
-	  font-size: 12px;
-	  padding: 0 1em;
-	  height: 30px;
+  .fc button {
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
+    font-size: 12px;
+    padding: 0 1em;
+    height: 30px;
 
-	  &:hover,
-	  &:focus {
-	    outline: none;
-	  }
-	}
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
 
-	.fc-basic-view .fc-body .fc-row {
-		max-height: 56px; /* ensure that all rows are at least this tall */
-	}
-	.fc-year-view .fc-body .fc-row {
-		max-height: 56px;
-	}
+  .fc-basic-view .fc-body .fc-row {
+    max-height: 56px; /* ensure that all rows are at least this tall */
+  }
+  .fc-year-view .fc-body .fc-row {
+    max-height: 56px;
+  }
 
-	.fc-toolbar .fc-center {
-  	display: inline-block;
-  	margin-top: 23px;
-  	margin-bottom: 0px;
+  .fc-toolbar .fc-center {
+    display: inline-block;
+    margin-top: 23px;
+    margin-bottom: 0px;
 
-  		h2 {  
-  			font-size: 32px;
-			}
-	}
+    h2 {  
+      font-size: 32px;
+    }
+  }
 
-	.fc th,
-		.fc td {
-		border-style: solid;
-		border-width: 1px;
-		padding: 0;
-		vertical-align: top;
-	}
+  .fc th,
+  .fc td {
+    border-style: solid;
+    border-width: 1px;
+    padding: 0;
+    vertical-align: top;
+  }
 
-	div.panel {
-	  border-width: 0px;
-	  box-shadow: none;
-	}
+  div.panel {
+    border-width: 0px;
+    box-shadow: none;
+  }
 
-	a.details-conference {
-	  padding: 29px 4px;
-	  margin-top: -4px;
-	  margin-bottom: -6px;
-	  border-radius: 3px;
-	  background-color: #3C9DED;
-	}
+  a.details-conference {
+    padding: 29px 4px;
+    margin-top: -4px;
+    margin-bottom: -6px;
+    border-radius: 3px;
+    background-color: #3C9DED;
+  }
 
-	div.col-md-6.col-list.col-map	{
-		position: relative;
-	  min-height: 1px;
-	  padding-left: 3px;
-	  padding-right: 3px;
-	}
+  div.col-md-6.col-list.col-map	{
+    position: relative;
+    min-height: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 
-	div.col-md-6.col-calendar {
-		padding-left: 5px;
-  	padding-right: 5px;
-	}
-
-
-	/*Breadcrumbs*/
-	ol.breadcrumb {
-		margin-bottom: 0px;
-		margin-top: 8px;
-  	padding-top: 8px; 
-  	padding-bottom: 0px;
-	  background-color: transparent;
-	  font-size: 17px;
-
-		  li.active.all-conferences{
-				padding-top: 10px;
-		    padding-left: 20px;
-			}
-
-	}
-
-	th.fc-month-name,
-	th.fc-day-header {
-		font-size: 0.9em;
-	}
-
-	.fc-ltr .fc-basic-view .fc-day-number {
+  div.col-md-6.col-calendar {
+    padding-left: 5px;
     padding-right: 5px;
-  	font-size: 15px;
-	}
+  }
 
 
-	.panel-heading.panel-conference {
-		color: #020202;
-		background-color: #FFFFFF;
-		border-color: #337ab7;
-		border-top: 1px solid;
-	  border-bottom: 1px solid;
-		padding-bottom: 4px;
-		padding-top: 4px;
-		text-align: center;
+  /*Breadcrumbs*/
+  ol.breadcrumb {
+    margin-bottom: 0px;
+    margin-top: 8px;
+    padding-top: 8px; 
+    padding-bottom: 0px;
+    background-color: transparent;
+    font-size: 17px;
+
+    li.active.all-conferences{
+      padding-top: 10px;
+      padding-left: 20px;
+    }
+
+  }
+
+  th.fc-month-name,
+  th.fc-day-header {
+    font-size: 0.9em;
+  }
+
+  .fc-ltr .fc-basic-view .fc-day-number {
+    padding-right: 5px;
+    font-size: 15px;
+  }
+
+
+  .panel-heading.panel-conference {
+    color: #020202;
+    background-color: #FFFFFF;
+    border-color: #337ab7;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    text-align: center;
   }
 
   .conference-list {
-  
-  	td.contents-col {
-	   padding-left: 12px;
-	   padding-right: 2px;
+
+    td.contents-col {
+      padding-left: 12px;
+      padding-right: 2px;
     }
 
     td.button-col {
-    	padding: 8px 0px;
-		  width: 54px;
-		  border-left: none;
-		}
+      padding: 8px 0px;
+      width: 54px;
+      border-left: none;
+    }
   }
 
-  	.event-row {
-	  	a.event-name {
-	  		font-size: 15px;
-			}
+  .event-row {
+    a.event-name {
+      font-size: 15px;
+    }
 
-			div.event-dates {
-				font-size: 14px;
-			}						
-	}
+    div.event-dates {
+      font-size: 14px;
+    }						
+  }
 
-		div.nothing-found {
-  		margin-left: 15px;
-  		margin-bottom: 100px;
-		}
-
-		
-
-		p.conference-title-mobile.visible-xs{
-			font-size: 15px;
-	  	line-height: 1.2;
-	  	margin-bottom: 0px;
-		}
-
-		div.col-md-10.conference-mobile{
-			border-bottom-width: 1px;
-	  	border-bottom-color: rgba(0, 0, 0, 0.14);
-	  	border-bottom-style: solid;
-		}
-
-		small.author {
-		  font-size: 14px;
-		  margin-top: -3px;
-		}
-
-		div#s2id_filter_by_tag{
-			float: right;
-
-		}
+  div.nothing-found {
+    margin-left: 15px;
+    margin-bottom: 100px;
+  }
 
 
-		div.row.row-mobile.visible-xs{
-			border-bottom-width: 1px;
-		  margin-bottom: 0px;
-		  padding-bottom: 10px;
-		  border-bottom-width: 1px;
-  		border-bottom-color: rgba(0, 0, 0, 0.14);
-  		border-bottom-style: solid;
-		}
+
+  p.conference-title-mobile.visible-xs{
+    font-size: 15px;
+    line-height: 1.2;
+    margin-bottom: 0px;
+  }
+
+  div.col-md-10.conference-mobile{
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.14);
+    border-bottom-style: solid;
+  }
+
+  small.author {
+    font-size: 14px;
+    margin-top: -3px;
+  }
+
+  div#s2id_filter_by_tag{
+    float: right;
+
+  }
+
+
+  div.row.row-mobile.visible-xs{
+    border-bottom-width: 1px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.14);
+    border-bottom-style: solid;
+  }
 
 
 }

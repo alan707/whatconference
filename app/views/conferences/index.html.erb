@@ -34,7 +34,9 @@
 
 
 
-<%= paginate conferences %>
+<div class="hidden-xs">
+  <%= paginate conferences %>
+</div>
 
 <%= render(conferences) || render("no_results", :query => params[:query]) %>
 

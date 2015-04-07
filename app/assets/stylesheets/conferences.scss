@@ -1,4 +1,6 @@
 @import "variables";
+// Bootstrap grid limits
+@import "bootstrap/variables";
 
 .headline {
   padding: 40px 0;
@@ -35,7 +37,9 @@
 }
 
 .conference-button-bar {
-  padding-top: 10px;
+  @media (min-width: $screen-sm-min) {
+    padding-top: 10px;
+  }
 }
 
 .conference-website-cell {
