@@ -1,10 +1,17 @@
 <% content_for :hide_nav_search, true %>
 <% content_for :raw_body, true %>
 
-<section class="home tagline">
+<section class="home tagline hidden-xs">
   <div class="page-container">
     <h1><%= image_tag "logo_large.png", class: "tagline-logo" %> What Conference?</h1>
     <h2 class="lead">A simple calendar for conferences you want to keep on your radar</h2>
+  </div>
+</section>
+
+<section class="home tagline visible-xs">
+  <div class="page-container">
+    <h2 class="lead">A simple calendar for conferences you want to keep on your radar</h2>
+  </div>
 </section>
 
 <section class="home big-conference-search">
