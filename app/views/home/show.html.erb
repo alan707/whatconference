@@ -4,22 +4,37 @@
 <section class="home tagline hidden-xs">
   <div class="page-container">
     <h1><%= image_tag "logo_large.png", class: "tagline-logo" %> What Conference?</h1>
-    <h2 class="lead">A simple calendar for conferences you want to keep on your radar</h2>
+    <h2 class="lead">Discover the conferences you care about</h2>
   </div>
 </section>
 
 <section class="home tagline visible-xs">
   <div class="page-container">
-    <h2 class="lead">A simple calendar for conferences you want to keep on your radar</h2>
+    <h2 class="tagline-mobile">Discover the conferences you care about</h2>
   </div>
 </section>
 
-<section class="home big-conference-search">
+<section class="home big-conference-search hidden-xs">
   <div class="page-container">
     <form class="search-form search-form-xl" action="<%= conferences_path %>" role="search">
       <div class="form-group">
         <div class="input-group input-group-xl input-group-rounded">
           <input type="text" class="form-control conference-search search-input-xl" name="query" placeholder="What conference are you interested in?">
+          <span class="input-group-btn">
+            <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="home big-conference-search visible-xs">
+  <div class="page-container">
+    <form class="search-form search-form-s" action="<%= conferences_path %>" role="search">
+      <div class="form-group">
+        <div class="input-group input-group-s">
+          <input type="text" class="form-control conference-search search-input-s" name="query" placeholder="Search conferences">
           <span class="input-group-btn">
             <button type="submit" class="btn"><span class="fa fa-search"></span></button>
           </span>
@@ -37,7 +52,7 @@
   </div>
 </section>
 
-<section class="home explanation">
+<section class="home explanation hidden-xs">
   <div class="page-container">
     <div class="row">
       <div class="col-sm-2 col-sm-offset-1"><%= image_tag "satellite-dish.png", :class => "home-icon" %></div>

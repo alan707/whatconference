@@ -12,6 +12,33 @@
     padding: 0;
   }
 
+  section.home {
+    padding-bottom: 0px;
+    padding-top: 23px;
+  }
+
+  section.home.popular-conferences {
+    padding-top: 0px
+  }
+
+  h2.tagline-mobile {
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 1.46428571;
+    font-weight: 400;
+    margin-top: -10px;
+  }
+
+  h3.hypertext-link-format.conference-show {
+      font-size: 16px;
+      margin-top: 0px;
+  }
+
+  .page-header {
+    padding-bottom: 14px;
+    margin: 25px 0 -16px;
+  }
+
   .navbar {
     border-radius: 0px;
   }
