@@ -7,13 +7,19 @@
   <meta name="twitter:image" content="<%= Nenv.twitter_card_image %>" />
   <meta name="twitter:url" content="<%= conference_url(conference) %>" />
 <% end %>
-<ol class="breadcrumb">
+<ol class="breadcrumb hidden-xs">
   <li class="hypertext-link-format"><%= link_to "All Conferences", conferences_path %></li>
   <li class="active"><%= truncate(conference.title, :length => 25) %></li>
 </ol>
 
 <div class="page-header">
   <h3 class="hypertext-link-format conference-show"><%= link_to conference.title, conference.url, :target => "_blank" %></h3>
+  <p class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></p>
+  <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
+  <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
+    <% unless conference.tag_list.empty? %>
+      <h2 class="submitter">Topics: <%= render conference.tags %></h2>
+    <% end %>
   <% if policy(conference).edit? -%>
     <%= link_to 'Edit', edit_conference_path(conference), class: "btn btn-info btn-sm" %>
   <% end %>
@@ -25,15 +31,8 @@
 
 <div class="row">
   <div class="col-md-6 col-sm-12">
-    <h2 class="dates"><%= conference_dates(conference) %> in <%= conference.city_state %></h2>
-    <h2 class="submitter">Location/Venue: <%= conference.location %></h2>
-    <h2 class="submitter">Submitted by <%= conference.creation_user.username %></h2>
-    <% unless conference.tag_list.empty? %>
-      <h2 class="submitter">Topics: <%= render conference.tags %></h2>
-    <% end %>
-
     <% unless conference.named_followers.empty? %>
-      <p>Followed by: 
+      <p class="submitter">Followed by: 
         <%= conference.named_followers.map { |f| UserRadarDecorator.new(f, self) }.map(&:link_to_radar).to_sentence.html_safe %>
       </p>
     <% end %>
@@ -44,7 +43,7 @@
 </div>
 
 <section class="comments-section">
-  <h3><%= pluralize(conference.comments.count, "Comment") %></h3>
+  <h3 class = "hidden-xs"><%= pluralize(conference.comments.count, "Comment") %></h3>
 
   <%= render :partial => conference.comments %>
 

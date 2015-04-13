@@ -32,11 +32,40 @@
   h3.hypertext-link-format.conference-show {
       font-size: 16px;
       margin-top: 0px;
+      margin-bottom: 0px;
+  }
+
+  .submitter {
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 10px;
   }
 
   .page-header {
     padding-bottom: 14px;
     margin: 25px 0 -16px;
+  }
+
+  p.dates{
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+
+  p.lead.comment-body {
+    font-size: 17px;
+  }
+
+  p.submitter-comments {
+    margin: 0 0 -5px;
+  }
+
+  small, .small {
+    font-size: 62%;
+    line-height: 2.067;
+  }
+
+  .comments-section {
+    margin-top: 10px;
   }
 
   .navbar {
