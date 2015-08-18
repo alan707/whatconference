@@ -192,7 +192,6 @@ GEM
     multipart-post (2.0.0)
     nenv (0.2.0)
     nested_form (0.3.2)
-    newrelic_rpm (3.9.9.275)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     notiffany (0.0.3)
@@ -250,6 +249,8 @@ GEM
     rack (1.6.0)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
+    rack-heartbeat (1.0.1)
+      rack
     rack-livereload (0.3.15)
       rack
     rack-pjax (0.8.0)
@@ -411,7 +412,6 @@ DEPENDENCIES
   less-rails
   meta_request
   nenv
-  newrelic_rpm
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-linkedin-oauth2
@@ -424,6 +424,7 @@ DEPENDENCIES
   puma
   pundit
   quiet_assets
+  rack-heartbeat
   rack-livereload
   rails (= 4.2.0)
   rails-assets-URIjs
