@@ -80,5 +80,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "www.whatconference.com" }
 
   # HTTPS Everywhere!
-  config.force_ssl = true
+  config.force_ssl = true unless Nenv.no_https?
 end
